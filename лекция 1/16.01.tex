@@ -102,7 +102,7 @@ $$\bar F_1 = - \bar F_2$$
 \end{figure}
 \Def $\;$ Естественный способ задания движения:
 \Def $\;$  Траектория геометрической точки - геометрическое место точек, занимаемых ей точек пространства  % FIXME не успел записать
-\begin{enumerate} %FIXME Есть картинка
+\begin{enumerate}
     \item Траектория
     \item $S(t)$
 \end{enumerate}
@@ -110,7 +110,6 @@ $$\bar F_1 = - \bar F_2$$
 \[S = \int_{\Gamma_{01}} dr\]
 \[dr = \sqrt{\dot x^2 + \dot y^2 + \dot z^2} = \sqrt{v_x ^2 + v_y^2 + v_z^2} = v dt\]
 \subsection*{Использование дифференциалов}
-% есть запись, надо переписать FIXME
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{КасательныйВектор.jpg}
@@ -128,13 +127,13 @@ $$\bar F_1 = - \bar F_2$$
     \caption{}
     \label{fig:myimage} % Sets a label for cross-referencing
 \end{figure}
-\[K := \lim_{\Delta s \to 0} \frac{\Delta \phi}{\Delta s} = \lim_{\Delta s \to 0} \frac{|\Delta \tau|}{|\bar \tau| \Delta s} = |\lim_{\Delta s \to 0} \frac{\Delta \bar \tau}{\Delta s} = |\frac{d \bar \tau}{ds}|\] %FIXME
+\[K := \lim_{\Delta s \to 0} \frac{\Delta \phi}{\Delta s} = \lim_{\Delta s \to 0} \frac{|\Delta \tau|}{|\bar \tau| \Delta s} = |\lim_{\Delta s \to 0} \frac{\Delta \bar \tau}{\Delta s} = \left|\frac{d \bar \tau}{ds}\right|\]
 \[1 = ( \bar \tau(s), \bar \tau(s)),\]
 \[
-0 = (\frac{d \bar \tau}{ds}, \bar \tau) + ( \bar \tau , \frac{d \bar \tau}{ds}) = 2(\frac{d \bar \tau}{ds}, \bar \tau) 
+0 = \left(\frac{d \bar \tau}{ds}, \bar \tau \right) + \left(\bar \tau , \frac{d \bar \tau}{ds}\right) = 2 \left(\frac{d \bar \tau}{ds}, \bar \tau\right) 
 \]
 \Def $\;$ Вектор главной нормали:
-\[\bar n = \frac{d \bar \tau}{d s} / |\frac{d \tau}{ds}| = \frac{1}{K} \frac{d\bar \tau}{d s}\]
+\[\bar n = \frac{d \bar \tau}{d s} / \left|\frac{d \tau}{ds}\right| = \frac{1}{K} \frac{d\bar \tau}{d s}\]
 Из ранее доказанного:
 \[(\bar n, \bar \tau) = 0\]
 \Def $\;$ Вектор бинормали:
@@ -142,7 +141,8 @@ $$\bar F_1 = - \bar F_2$$
 \[\bar w = \dot \bar v = \frac{d (\bar \tau, v)}{dt} = \frac{d \bar \tau}{dt} v + \bar \tau \frac{d \bar v}{dt} = \frac{d\bar \tau}{ds} \cdot \frac{ds }{dt} v  + \bar \tau \frac{d v}{dt} = \bar n k v^2 + \bar \tau \dot v\]
 \Def \;
 $k v^2 := w_n \; \; \; \;\dot v := v_\tau$ 
-
+\\
+\Def $\;$ Кривизна
 \[\rho := \frac{1}{K}\]
 \[w_n= kv^2 = \frac{v^2}{\rho}\]
 
