@@ -1,0 +1,150 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- ПРЕАМБУЛА ДЛЯ ПОДДЕРЖКИ РУССКОГО ЯЗЫКА И МАТЕМАТИКИ ---
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\geometry{a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm}
+\newcommand{\sidecomment}[1]{\marginpar{\raggedright\scriptsize\itshape #1}}
+\title{\textbf{Лекция 1}}
+\author{Глеб}
+\date{16.01}
+
+\newcommand{\Def}{%
+    \text{Def}% Написание букв
+    \hspace{-1.2em}% Сдвиг назад, чтобы черта оказалась поверх букв
+    \raisebox{0.1ex}{/}% Сама черта (можно использовать / или \diagup)
+    \hspace{0.5em}% Пробел после значка
+}
+
+% Вариант через наложение (более аккуратный)
+\newcommand{\sDef}{%
+    \mathrel{\rlap{/}\text{Def}} 
+}
+
+\begin{document}
+\maketitle
+\pagestyle{plain} % Включаем нумерацию страниц\
+\section*{Оценка}
+\[
+O_{\text{и}} = 0.3 \cdot O_3 + 0.7 \cdot O_4
+\]
+\[
+O_3 = 0.166 \text{C} + 0.166 \text{А} +  0.3 \text{К} + 0.368 \text{Э}
+\]
+\[
+O_4 = 0.071 \text{C} + 0.071 \text{А} +  0.13 \text{К} + 0.728 \text{Э}
+\]
+\section{Аксиомы Теоретической Механики}
+\begin{minipage}[t]{0.48\textwidth}
+Фундамент Аксиоматической науки:
+\begin{itemize}
+    \item Категории
+    \item Аксиомы % -> в пункты свойств аксиом
+    \item Правила логического вывода
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+Аксиомы: % аксиомы -> разветвление
+\begin{itemize}
+    \item Непротиворечивы
+    \item Минимальность
+    \item Полнота
+\end{itemize}
+\end{minipage}
+\subsection{Аксиомы Термеха по Журавлёву:}
+\begin{enumerate}
+    \item Геометрические аксиомы для Евклидового пространства $\mathbb E^3$ и его объектов
+    \item Объекты $\mathbb E^3$ зависят от скалярного параметра $t$, называемого временем
+    
+    Отображение $\mathbb R \rightarrow \mathbb E^3$ называется движением
+    \item Материальная точка — геометрическая точка, которой в соответсвии поставлен скларя, называемый массой
+    $$(\bar r, m)$$
+    \item Каждой паре математический точек может быть поставлена в соответсвие пара векторов $\vec F_1, \vec F_2$, которые называются силами, причём
+$$\bar F_1 = - \bar F_2$$
+    \item В Евклидовом пространстве можно найти такую систему коородинат и такой способ параметризации $t$, что 
+\[m \ddot r = \bar F\]
+\end{enumerate}
+
+\subsection{Основные понятия кинематики:}
+\begin{enumerate}
+    \item \[\bar r = \{x,y,z\} = \{x,y,z\}^T\] %вектор столбец/ транспонированный
+    \item $\bar r(t) = \{x(t), y(t), z(t)\}$ — Закон движения точки
+    \item $\bar v = \frac{d\bar r}{dt} = \dot bar r =\{\dot x, \dot y, \dot z\} = \{v_x, v_y, v_z\}$
+    \item $\bar w = \ddot \bar r = \dot \bar v = \{\ddot x, \ddot y, \ddot z\} = \{w_x, w_y, w_z\}$
+\end{enumerate}
+\begin{itemize}
+    \item Прямая задача кинематики
+    \item обратная задача кинематики
+\end{itemize}
+\subsection{}
+\[\bar r(t) = x(t) \bar e_x + y(t) \bar e_y + z(t) \bar e_z \]
+\begin{minipage}[t]{0.48\textwidth}
+    \[v = |\bar v| = \sqrt{v_x^2 + v_y^2 + v_z^2}\]
+    \[w \neq \dot v\]
+\end{minipage}
+\begin{minipage}[t]{0.48\textwidth}
+    \[w = |\bar w| = \sqrt{w_x^2 + w_y^2 + w_z^2}\]
+    \[\bar w = \dot v\]
+\end{minipage}
+\subsection{Естественное задание движения точки}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ЕстественнаяПараметризация.jpg}
+    \caption{}
+    \label{fig:myimage} % Sets a label for cross-referencing
+\end{figure}
+\Def $\;$ Естественный способ задания движения:
+\Def $\;$  Траектория геометрической точки - геометрическое место точек, занимаемых ей точек пространства  % FIXME не успел записать
+\begin{enumerate} %FIXME Есть картинка
+    \item Траектория
+    \item $S(t)$
+\end{enumerate}
+\paragraph{Длина траектории:}
+\[S = \int_{\Gamma_{01}} dr\]
+\[dr = \sqrt{\dot x^2 + \dot y^2 + \dot z^2} = \sqrt{v_x ^2 + v_y^2 + v_z^2} = v dt\]
+\subsection*{Использование дифференциалов}
+% есть запись, надо переписать FIXME
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{КасательныйВектор.jpg}
+    \caption{}
+    \label{fig:myimage} % Sets a label for cross-referencing
+\end{figure}
+Касательный вектор $\bar \tau$:
+\[\bar \tau = \frac{d \bar r}{ds} \; \; \; \; |\bar \tau| = 1\]
+\[\bar v = \frac{d \bar r}{dt} = \frac{d \bar r}{dt} \cdot \frac{ds}{dt} = \bar \tau v \implies \bar \tau = \frac{\bar v}{v}\]
+
+\subsection{Кривизна траектории}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Кривизна.jpg}
+    \caption{}
+    \label{fig:myimage} % Sets a label for cross-referencing
+\end{figure}
+\[K := \lim_{\Delta s \to 0} \frac{\Delta \phi}{\Delta s} = \lim_{\Delta s \to 0} \frac{|\Delta \tau|}{|\bar \tau| \Delta s} = |\lim_{\Delta s \to 0} \frac{\Delta \bar \tau}{\Delta s} = |\frac{d \bar \tau}{ds}|\] %FIXME
+\[1 = ( \bar \tau(s), \bar \tau(s)),\]
+\[
+0 = (\frac{d \bar \tau}{ds}, \bar \tau) + ( \bar \tau , \frac{d \bar \tau}{ds}) = 2(\frac{d \bar \tau}{ds}, \bar \tau) 
+\]
+\Def $\;$ Вектор главной нормали:
+\[\bar n = \frac{d \bar \tau}{d s} / |\frac{d \tau}{ds}| = \frac{1}{K} \frac{d\bar \tau}{d s}\]
+Из ранее доказанного:
+\[(\bar n, \bar \tau) = 0\]
+\Def $\;$ Вектор бинормали:
+\[\bar b = (\bar \tau, \bar n)\]
+\[\bar w = \dot \bar v = \frac{d (\bar \tau, v)}{dt} = \frac{d \bar \tau}{dt} v + \bar \tau \frac{d \bar v}{dt} = \frac{d\bar \tau}{ds} \cdot \frac{ds }{dt} v  + \bar \tau \frac{d v}{dt} = \bar n k v^2 + \bar \tau \dot v\]
+\Def \;
+$k v^2 := w_n \; \; \; \;\dot v := v_\tau$ 
+
+\[\rho := \frac{1}{K}\]
+\[w_n= kv^2 = \frac{v^2}{\rho}\]
+
+\paragraph{Касательные окружности совпадают,} когда разложение в ряд Тейлора совпадает до 2ой степени
+\end{document}
