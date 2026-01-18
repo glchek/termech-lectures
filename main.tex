@@ -1,20 +1,14 @@
-\documentclass[12pt, a4paper]{article}
-
-% --- ПРЕАМБУЛА ДЛЯ ПОДДЕРЖКИ РУССКОГО ЯЗЫКА И МАТЕМАТИКИ ---
-\usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[russian]{babel}
-\usepackage{amsmath}
-\usepackage{geometry}
-\geometry{a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm}
-\newcommand{\sidecomment}[1]{\marginpar{\raggedright\scriptsize\itshape #1}}
-\title{\textbf{Лекции по термеху за Алексеем Сергеевичем Аксёновым}}
+% !TEX root = main.tex
+\documentclass[12pt, a4paper, openany]{book}
+\usepackage{standalone}
+\input{preamble.tex}
+\title{\textbf{Лекции по термеху за Сергеем Алексеевичем Аксёновым}}
 \author{Глеб}
 \date{}
 
 \begin{document}
 \maketitle
-\pagestyle{plain} % Включаем нумерацию страниц
-\chapter{Глава 1} 
-
+\tableofcontents
+\chapter{} 
+\import{lecture1/}{16_01}
 \end{document}

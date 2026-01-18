@@ -1,0 +1,57 @@
+% --- ПРЕАМБУЛА ДЛЯ ПОДДЕРЖКИ РУССКОГО ЯЗЫКА И МАТЕМАТИКИ ---
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{import}
+\geometry{a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm}
+\newcommand{\sidecomment}[1]{\marginpar{\raggedright\scriptsize\itshape #1}}
+\newcommand{\iu}{\mathrm{i}}
+
+\newcommand{\Def}{%
+    \text{Def}%
+    \hspace{-0.85em}% Сдвиг назад ровно на середину (подберите под шрифт)
+    \raisebox{0.1ex}{/}% Черта
+    \hspace{1em}% Возврат к концу слова + небольшой отступ
+}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+\ifstandalone
+    \newcommand{\lecturebreak}{} % В отдельном файле лекции разрыв не нужен
+\else
+    \newcommand{\lecturebreak}{\clearpage} % В полной книге - начинаем с новой страницы
+\fi
+
+\newcounter{lecturenumber} % Создаем счетчик для нумерации лекций
+\newcommand{\lecture}[2]{
+    \lecturebreak
+    \refstepcounter{lecturenumber} % Увеличиваем счетчик на 1
+    \par\vspace{2em}\noindent % Отступ сверху и убираем абзацный отступ
+    {\Large\bfseries % Делаем заголовок крупным и жирным
+    Лекция \thelecturenumber: #1 % Выводим "Лекция N: Тема"
+    \hfill % Растягиваем пробел, чтобы дата была справа
+    \large\textit{#2}} % Выводим дату курсивом
+    \par\vspace{1em} % Небольшой отступ снизу
+    \addcontentsline{toc}{section}{Лекция \thelecturenumber: #1} % Добавляем в оглавление
+    \par
+}
+
+\newcommand{\TwoCols}[2]{%
+  \par\noindent % Начать с новой строки без отступа
+  \begin{minipage}[t]{0.48\textwidth}
+    #1
+  \end{minipage}% <-- Важный '%' для удаления пробела
+  \hfill % Растягивающийся пробел между колонками
+  \begin{minipage}[t]{0.48\textwidth}
+    #2
+  \end{minipage}% <-- Важный '%' для удаления пробела
+  \par%
+}
+
+\pagestyle{plain} % Включаем нумерацию страниц\

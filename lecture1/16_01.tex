@@ -1,35 +1,7 @@
-\documentclass[12pt, a4paper]{article}
-
-% --- ПРЕАМБУЛА ДЛЯ ПОДДЕРЖКИ РУССКОГО ЯЗЫКА И МАТЕМАТИКИ ---
-\usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[russian]{babel}
-\usepackage{amsmath}
-\usepackage{geometry}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{float}
-\geometry{a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm}
-\newcommand{\sidecomment}[1]{\marginpar{\raggedright\scriptsize\itshape #1}}
-\title{\textbf{Лекция 1}}
-\author{Глеб}
-\date{16.01}
-
-\newcommand{\Def}{%
-    \text{Def}% Написание букв
-    \hspace{-1.2em}% Сдвиг назад, чтобы черта оказалась поверх букв
-    \raisebox{0.1ex}{/}% Сама черта (можно использовать / или \diagup)
-    \hspace{0.5em}% Пробел после значка
-}
-
-% Вариант через наложение (более аккуратный)
-\newcommand{\sDef}{%
-    \mathrel{\rlap{/}\text{Def}} 
-}
-
+\documentclass[12pt, a4paper, openany, crop=false]{standalone}
+\input{../preamble.tex}
 \begin{document}
-\maketitle
-\pagestyle{plain} % Включаем нумерацию страниц\
+\lecture{}{16.01}
 \section*{Оценка}
 \[
 O_{\text{и}} = 0.3 \cdot O_3 + 0.7 \cdot O_4
