@@ -8,15 +8,19 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{import}
+\usepackage{amssymb}
+\usepackage{amsthm} 
+
 \geometry{a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm}
 \newcommand{\sidecomment}[1]{\marginpar{\raggedright\scriptsize\itshape #1}}
 \newcommand{\iu}{\mathrm{i}}
 
 \newcommand{\Def}{%
+    \par\medskip\noindent % Начать с новой строки, добавить вертикальный отступ, убрать абзацный
     \text{Def}%
-    \hspace{-0.85em}% Сдвиг назад ровно на середину (подберите под шрифт)
-    \raisebox{0.1ex}{/}% Черта
-    \hspace{1em}% Возврат к концу слова + небольшой отступ
+    \hspace{-0.85em}%
+    \raisebox{0.1ex}{/}%
+    \hspace{0.6em}% Оптимизировал отступ
 }
 
 \renewcommand{\Re}{\operatorname{Re}}
@@ -54,4 +58,25 @@
   \par%
 }
 
+\newcommand{\keypoint}{\ensuremath{\blacksquare}\quad}
+
+\newenvironment{theorem}[1][]{%
+    \par\addvspace{\topsep}% Отступ сверху
+    \noindent\textbf{Теорема\ifx&#1&\else\ (#1)\fi}% Если имя есть, пишем его в скобках
+    \par\nopagebreak\smallskip % Перенос строки, запрет разрыва страницы под заголовком
+}{%
+    \par\addvspace{\topsep}% Отступ снизу
+}
+
+\renewenvironment{proof}{%
+  \par
+  \addvspace{6pt plus 6pt} % Отступ сверху
+  \noindent
+  {\ensuremath{\blacktriangleright}\,\,}\ignorespaces % Только треугольник и пробел
+}{%
+  \unskip\nobreak\,\ensuremath{\blacktriangleleft}% Треугольник сразу после текста
+  \par\addvspace{6pt plus 6pt} % Отступ снизу
+}
+
 \pagestyle{plain} % Включаем нумерацию страниц\
+
