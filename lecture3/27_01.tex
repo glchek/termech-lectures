@@ -25,30 +25,34 @@
 \[\bar r_1' = \bar r_0 \qquad \bar r_1 = A_1 \bar r_1' \qquad \bar r_2 = A_1 \bar r_2' = A_1 A_2' \bar r_1' = A_1 A_2' \bar r_0\]
 \section{Повороты во времени}
 \[A(t) \qquad \bar r = A(t) \bar r_0\]
-\[\bar v = \frac{d \bar r}{d t} = \dot {\bar r} = \dot{(A \bar{r_0})} = \dot A \bar r_0 = \dot A A^{T} \bar r = \Omega \bar r\] %fixme съехала разметка
-\begin{proof} \[\qquad E = A A^T \qquad O = \dot A A^T + A \dot A^T \qquad \dot A A^T = -(\dot A A^T)^T \qquad \Omega = - \Omega^T\] %fixme оформить красиво столбиками
+\[\bar v = \frac{d \bar r}{d t} = \dot {\bar r} = \overset{\textstyle \cdot}{(A \bar r_0)} = \dot A \bar r_0 = \dot A A^{T} \bar r = \Omega \bar r\]
+\begin{proof}
+     \[\qquad E = A A^T \qquad O = \dot A A^T + A \dot A^T \qquad \dot A A^T = -(\dot A A^T)^T \qquad \Omega = - \Omega^T\] %fixme оформить красиво столбиками
 \end{proof}
     \[
+    \begin{aligned}
 \Omega \bar r = \begin{pmatrix}
-    0 & w_{12} & w_{13} \\
-    -w_{12} & 0 & w_{23} \\
-    -w_{13} & -w_{23} & 0
+    0 & \omega_{12} & \omega_{13} \\
+    -\omega_{12} & 0 & \omega_{23} \\
+    -\omega_{13} & -\omega_{23} & 0
 \end{pmatrix} \begin{pmatrix}
     x \\ y \\ z
-\end{pmatrix} = \begin{pmatrix}
-    w_{12} y + w_{13} z \\
-    -w_{12} x + w_{23} z \\
-    -w_{13} x - w{23} y
-\end{pmatrix} = \begin{vmatrix}
+\end{pmatrix} &= \begin{pmatrix}
+    \omega_{12} y + \omega_{13} z \\
+    -\omega_{12} x + \omega_{23} z \\
+    -\omega_{13} x - \omega{23} y
+\end{pmatrix} \\
+&= \begin{vmatrix}
     \bar e_1 & \bar e_2 & \bar e_3 \\
-    w_{12} & w_{13} & w_{23} \\
+    -\omega_{23} & \omega_{13} & -\omega_{12} \\
     x & y & z
-\end{vmatrix} = \left[\{-w_{23} , w_{13} , -w_{12}\},  \{x,y,z\}\right] %fixme поправить матрицу, сделать векторное произведение в больших квадратных скобках
+\end{vmatrix} = \Bigl[\{-\omega_{23} , \omega_{13} , -\omega_{12}\},  \{x,y,z\}\Bigr]
+\end{aligned}
 \]
-\Def Угловая скорость – вектор $\bar w = \begin{pmatrix}
-    w_x, w_y, w_z
+\Def Угловая скорость – вектор $\bar \omega = \begin{pmatrix}
+    \omega_x, \omega_y, \omega_z
 \end{pmatrix}^T$, где
-\[w_x = -w_{23} \qquad w_y = w_{13} \qquad w_z = - w_{12}\]
+\[\omega_x = -\omega_{23} \qquad \omega_y = \omega_{13} \qquad \omega_z = - \omega_{12}\]
 \keypoint Вывод формулы эйлера для распределения скоростей твёрдого тела
 \begin{figure}[H]
     \centering
@@ -56,35 +60,36 @@
     \caption{}
     \label{fig:myimage} % Sets a label for cross-referencing
 \end{figure}
-\[\bar v = [\bar w, \bar r] \]
-\[\bar v_Q' = [\bar w, \bar r'_Q]\]
+\[\bar v = [\bar \omega, \bar r] \]
+\[\bar v_Q' = [\bar \omega, \bar r'_Q]\]
 \[\bar r_a' = \bar r_Q - \bar r_P = \overline{PQ}\]
 \[\bar v_Q' = \bar v_Q - \bar v_P\]
 Тогда
-\[\bar v_Q - \bar v_P = \bar w \times (\bar r_Q - \bar r_P)\] %fixme исправить векторные произведения на скобки(или не исправлять), надо что-то придумать
-\[\boxed{\bar v_Q = \bar v_P + \bar w \times \overline{PQ}}\]
-Следствие: %fixme как оформлять следствия(я всегда делал в кружочках номера)
-1. проекции скоростей двух точек твёрдого тела на оси соединяющие их равны
+\[\bar v_Q - \bar v_P = \bar \omega \times (\bar r_Q - \bar r_P)\] %fixme исправить векторные произведения на скобки(или не исправлять), надо что-то придумать
+\[\boxed{\bar v_Q = \bar v_P + \bar \omega \times \overline{PQ}}\]
+Следствия: %fixme как оформлять следствия(я всегда делал в кружочках номера)
+\begin{enumerate}
+\item проекции скоростей двух точек твёрдого тела на оси соединяющие их равны
 %fixme картинка 
 \[(\bar v_Q , \overline{PQ}) = (\bar v_P , \overline{PQ})\]
 \begin{proof}
-    $(\bar v_Q , \overline{PQ}) = (\bar v_P , \overline{PQ}) + (\bar w, \overline{PQ}, \overline{PQ})$
+    $(\bar v_Q , \overline{PQ}) = (\bar v_P , \overline{PQ}) + (\bar \omega, \overline{PQ}, \overline{PQ})$
 \end{proof}
-Следствие 2: %fixme оформить следствия
+\item
 Скорости двух точек твёрдого тела вполне определяют скорости точек твёрдого тела, лежащих на прямой, соединящей данные 
 \begin{proof}
     упр.
 \end{proof}
-Следствие 3.
+\item
 Скорость трёх точек твердого тела, не лежащих на одной прямой, вполне определяют скорость в любой точке твёрдого тела
 
-Следствие 4.
+\item
 Если скорость точки твёрдого тела равна нулю, то это тело либо покоится либо совершает мгновенное вращение вокруг оси, проходящей через эту точку
-
+\end{enumerate}
 \keypoint 
 Угловое ускорение:
 \[\dot{\bar \omega} := \bar \varepsilon \qquad \dot {\bar r} = \bar \omega \times \bar r\]
-\[\bar w = \dot \bar v = \dot{\bar \omega} \times \bar r + \bar \omega \times \dot{\bar r} = \bar \varepsilon \times \bar r + \bar \omega \times (\bar \omega \times \bar r)\]
+\[\bar w = \dot{\bar v} = \dot{\bar \omega} \times \bar r + \bar \omega \times \dot{\bar r} = \bar \varepsilon \times \bar r + \bar \omega \times (\bar \omega \times \bar r)\]
 Формула Ривальса
 \[
 \boxed{
