@@ -38,9 +38,9 @@
 $r'$ дан в подвижной системе координат
 \[\bar r = \bar r_{O'} + A r'\]
 $\bar r'(t)$  $v$ - ? , $w$ - ?
-\[\bar v = \dot{\bar r} = \frac{d}{dt}{\left(\bar r_{O'} + A \bar r \right)} = \bar v_{O'} + \dot A \bar r' + A \dot{\bar r'}  = \bar v_0 + \bar \omega \times (\bar r - \bar r_{O'}) + A \dot {\bar r'}\] %fixme съехала разметка
+\[\bar v = \dot{\bar r} = \frac{d}{dt}{\left(\bar r_{O'} + A \bar r \right)} = \bar v_{O'} + \dot A \bar r' + A \dot {\bar r}'  = \bar v_0 + \bar \omega \times (\bar r - \bar r_{O'}) + A \dot {\bar r}'\] %fixme съехала разметка
 \[\dot A r'= \dot A A^T A r' = \dot A A^T (\bar r - \bar r_{O'}) = \Omega (\bar r - \bar r_{O'}) = \bar \omega \times (\bar r - \bar r_{O'}) \]
-\[v^{\text{пер}} := \bar v_0 + \bar \omega \times (\bar r - \bar r_{O'}) \qquad \bar v^{\text{отн}} := A \dot {\bar r'}\]
+\[v^{\text{пер}} := \bar v_0 + \bar \omega \times (\bar r - \bar r_{O'}) \qquad \bar v^{\text{отн}} := A \dot {\bar r}'\]
 \Def Переносная скорость – скорость с которой движется ск относительно неподвижной ск
 
 Доказали 
@@ -50,9 +50,9 @@ $\bar r'(t)$  $v$ - ? , $w$ - ?
 \subsection{Ускорение}
 \[
 \begin{aligned}
-\bar w &= \dot {\bar v} = \dot \bar v_{O'} + \dot \bar \omega \times (\bar r - \bar r_{O'}) + \bar \omega \times \dot{(\bar r - \bar r_{O'})}  + \dot A \dot \bar r' + A \ddot{\bar r'} \\ 
-&= \underline{\bar w_{O'} + \bar \varepsilon \times (\bar r - \bar r_{O'}) + \bar \omega \times(\bar \omega \times (\bar r - \bar r_{O'}))}_{\bar w^{\text{пер}} \quad \text{формула Ривальса}} + \bar \omega \times \underline{A \dot{\bar r'}}_{\bar v^{\text{отн}}} + \dot A \dot{\bar r'} + \underline{A \ddot{\bar r'}}_{\bar w^{\text{отн}}} \\ % fixme сделать нормально
-&\left| \dot A \dot \bar r' = \dot A A^T A \dot \bar r' = \Omega \bar v^{\text{отн}} = \bar \omega \times v^{\text{отн}}\right| \\
+\bar w &= \dot {\bar v} = \dot{\bar v}_{O'} + \dot {\bar \omega} \times (\bar r - \bar r_{O'}) + \bar \omega \times \dot{\left(\bar r - \bar {r_{O'}}\right)} + \dot A \dot {\bar r}' + A \ddot{\bar r}' \\ 
+&= \underline{\bar w_{O'} + \bar \varepsilon \times (\bar r - \bar r_{O'}) + \bar \omega \times(\bar \omega \times (\bar r - \bar r_{O'}))}_{\bar w^{\text{пер}} \quad \text{формула Ривальса}} + \bar \omega \times \underline{A \dot{\bar r}'}_{\bar v^{\text{отн}}} + \dot A \dot{\bar r}' + \underline{A \ddot{\bar r}'}_{\bar w^{\text{отн}}} \\ % fixme сделать нормально
+&\left| \dot A \dot{\bar r}' = \dot A A^T A \dot{ \bar r}' = \Omega \bar v^{\text{отн}} = \bar \omega \times v^{\text{отн}}\right| \\
 &= \bar w^{\text{пер}} + \underline{2(\bar \omega \times v^{\text{отн}})} + \bar w^{\text{отн}} = \bar w^{\text{пер}} + \bar w^{\text{кор}} + \bar w^{\text{отн}} 
  \end{aligned}
  \]
@@ -72,7 +72,7 @@ $\bar r'(t)$  $v$ - ? , $w$ - ?
 \end{aligned}
 \]
 \end{proof}
-\[\bar \varepsilon = \frac{d}{dt} \bar \omega = \dot{\bar \omega} = \frac{d}{dt}{\left(\bar \omega_1 + \bar \omega_2\right)} = \frac{d}{dt} (\bar \omega_1 + A_1 \bar \omega_2') = \bar \varepsilon_1' + \dot A_1 \bar \omega_2' + A_1 \bar \omega_2'  \qquad A_1 \dot{\bar \omega_2'} = A_1 \bar \varepsilon_2' = \bar \varepsilon_2  \]
+\[\bar \varepsilon = \frac{d}{dt} \bar \omega = \dot{\bar \omega} = \frac{d}{dt}{\left(\bar \omega_1 + \bar \omega_2\right)} = \frac{d}{dt} (\bar \omega_1 + A_1 \bar \omega_2') = \bar \varepsilon_1' + \dot A_1 \bar \omega_2' + A_1 \bar \omega_2'  \qquad A_1 \dot{\bar {\omega}}_2' = A_1 \bar \varepsilon_2' = \bar \varepsilon_2  \]
 \[\bar \varepsilon = \bar \varepsilon_1 + \bar \omega_1 \times \bar \omega_2 + \bar \varepsilon_2 \qquad \dot A_1 \bar \omega_2' = \dot A_1 A_1^T A_1 \bar \omega_2' = \Omega \bar w_2' = \bar \omega_1 \times \bar \omega_2\] % fixme разметка
 \[\boxed{\bar \varepsilon = \bar \varepsilon_1 + \bar \varepsilon_2 + \bar \omega_1 \times \bar \omega_2}\]
 \end{document}
