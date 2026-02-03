@@ -3,7 +3,7 @@
 \begin{document}
 \lecture{}{27.01}
 \subsection{Вид матрицы направляющих косинусов}
-Известно из Линейной алгебры, Сергей Алексеевич привёл следующую цепочку %fixme возможно оформить в две колонки
+Известно из Линейной алгебры, Сергей Алексеевич привёл следующую цепочку
 \[\lambda_{2,3} = \cos \varphi \pm \iu \sin \varphi \to \bar p \pm \iu \bar q, \]
 \[A(\bar p \pm \iu \bar q) = (\cos \varphi \pm \iu \sin \varphi)(\bar p \pm \iu \bar q) = \bar p \cos \varphi - \bar q \sin \varphi  \pm (\iu \bar p \sin \varphi + \iu \bar q \cos \varphi)\]
 \begin{theorem}[Теорема Эйлера о конечном повороте]
@@ -16,18 +16,26 @@
     \caption{}
     \label{fig:myimage} % Sets a label for cross-referencing
 \end{figure}
+\TwoCols{
 Активная точка зрения(все матрицы в исходной ск):
 \[
-\bar r_1 = A_1 \bar r_0 \qquad \bar r_2 = A_2 \bar r_1  \implies \bar r_2 = A_2 \bar r_1 = A_2 A_1 \bar r_0 = A \bar r_0%fixme записать друг над другом, потом вбок следствие
+\begin{cases} 
+    \bar r_1 = A_1 \bar r_0 \\ 
+    \bar r_2 = A_2 \bar r_1 
+\end{cases} \implies \bar r_2 = A_2 A_1 \bar r_0 = A \bar r_0
 \]
+}
+{
 Пассивная точка зрения(каждая последующая в предыдущей ск):
-% fixme следующее должно быть аккуратно в столбик
-\[\bar r_1' = \bar r_0 \qquad \bar r_1 = A_1 \bar r_1' \qquad \bar r_2 = A_1 \bar r_2' = A_1 A_2' \bar r_1' = A_1 A_2' \bar r_0\]
+\[
+\begin{cases} \bar r_1' = \bar r_0 \\ \bar r_1 = A_1 \bar r_1'
+\end{cases} \qquad \bar r_2 = A_1 \bar r_2' = A_1 A_2' \bar r_1' = A_1 A_2' \bar r_0\]
+}
 \section{Повороты во времени}
 \[A(t) \qquad \bar r = A(t) \bar r_0\]
 \[\bar v = \frac{d \bar r}{d t} = \dot {\bar r} = \overset{\textstyle \cdot}{(A \bar r_0)} = \dot A \bar r_0 = \dot A A^{T} \bar r = \Omega \bar r\]
 \begin{proof}
-     \[\qquad E = A A^T \qquad O = \dot A A^T + A \dot A^T \qquad \dot A A^T = -(\dot A A^T)^T \qquad \Omega = - \Omega^T\] %fixme оформить красиво столбиками
+     \[\qquad E = A A^T \qquad O = \dot A A^T + A \dot A^T \qquad \dot A A^T = -(\dot A A^T)^T \qquad \Omega = - \Omega^T\]
 \end{proof}
     \[
     \begin{aligned}
@@ -58,14 +66,14 @@
     \centering
     \includegraphics[width=0.5\textwidth]{ФормулаЭйлера.jpg}
     \caption{}
-    \label{fig:myimage} % Sets a label for cross-referencing
+    \label{fig:myimage} 
 \end{figure}
-\[\bar v = [\bar \omega, \bar r] \]
-\[\bar v_Q' = [\bar \omega, \bar r'_Q]\]
+\[\bar v = \bar \omega \times \bar r \]
+\[\bar v_Q' = \bar \omega \times \bar r'_Q\]
 \[\bar r_a' = \bar r_Q - \bar r_P = \overline{PQ}\]
 \[\bar v_Q' = \bar v_Q - \bar v_P\]
 Тогда
-\[\bar v_Q - \bar v_P = \bar \omega \times (\bar r_Q - \bar r_P)\] %fixme исправить векторные произведения на скобки(или не исправлять), надо что-то придумать
+\[\bar v_Q - \bar v_P = \bar \omega \times (\bar r_Q - \bar r_P)\] 
 \[\boxed{\bar v_Q = \bar v_P + \bar \omega \times \overline{PQ}}\]
 Следствия: %fixme как оформлять следствия(я всегда делал в кружочках номера)
 \begin{enumerate}
