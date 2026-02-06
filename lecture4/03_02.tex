@@ -25,7 +25,7 @@
     \]
     \[ 
     \begin{cases}
-    v_{Px} + q (z-z_0) - r(y - y_P) = \frac{I_2}{I_1} p, \\
+    v_{Px} + q (z-z_P) - r(y - y_P) = \frac{I_2}{I_1} p, \\
     v_{Py} - p (z - z_P) + r (x - x_P) = \frac{I_2}{I_1}q , \\
     v_{Pz} + p(y - y_P) - q(x - x_P) = \frac{I_2}{I_1} r
     \end{cases}
@@ -37,13 +37,13 @@
 $r'$ дан в подвижной системе координат
 \[\bar r = \bar r_{O'} + A r'\]
 $\bar r'(t)$  $v$ - ? , $w$ - ?
-\[\bar v = \dot{\bar r} = \frac{d}{dt}{\left(\bar r_{O'} + A \bar r \right)} = \bar v_{O'} + \dot A \bar r' + A \dot {\bar r}'  = \bar v_0 + \bar \omega \times (\bar r - \bar r_{O'}) + A \dot {\bar r}'\]
+\[\bar v = \dot{\bar r} = \frac{d}{dt}{\left(\bar r_{O'} + A \bar r \right)} = \bar v_{O'} + \dot A \bar r' + A \dot {\bar r}'  = \bar v_{O'} + \bar \omega \times (\bar r - \bar r_{O'}) + A \dot {\bar r}'\]
 \[\dot A r'= \dot A A^T A r' = \dot A A^T (\bar r - \bar r_{O'}) = \Omega (\bar r - \bar r_{O'}) = \bar \omega \times (\bar r - \bar r_{O'}) \]
-\[v^{\text{пер}} := \bar v_0 + \bar \omega \times (\bar r - \bar r_{O'}) \qquad \bar v^{\text{отн}} := A \dot {\bar r}'\]
+\[v^{\text{пер}} := \bar v_{O'} + \bar \omega \times (\bar r - \bar r_{O'}) \qquad \bar v^{\text{отн}} := A \dot {\bar r}'\]
 \Def Переносная скорость – скорость с которой движется ск относительно неподвижной ск
 
 Доказали 
-\begin{theorem}[Кореолиса]
+\begin{theorem}[Кориолиса]
     \[\bar v = \bar v^{\text{пер}} + \bar v^{\text{отн}}\]
 \end{theorem}
 \subsection{Ускорение}
@@ -55,7 +55,7 @@ $\bar r'(t)$  $v$ - ? , $w$ - ?
 &= \bar w^{\text{пер}} + \underbracket{2(\bar \omega \times v^{\text{отн}})}_{\bar w^{\text{Кор}}} + \bar w^{\text{отн}} = \bar w^{\text{пер}} + \bar w^{\text{кор}} + \bar w^{\text{отн}} 
  \end{aligned}
  \]
-\begin{theorem}[Кореолиса]
+\begin{theorem}[Кориолиса]
     \[\bar v = \bar v^{\text{отн}} + \bar v^{\text{отн}}\]
     \[\bar w = \bar w^{\text{пер}} + \bar w^{\text{Кор}} + \bar w^{\text{отн}} \]
     \[\bar w^{\text{Кор}} = 2 (\bar w \times \bar v^{\text{отн}})\]
@@ -72,6 +72,6 @@ $\bar r'(t)$  $v$ - ? , $w$ - ?
 \]
 \end{proof}
 \[\bar \varepsilon = \frac{d}{dt} \bar \omega = \dot{\bar \omega} = \frac{d}{dt}{\left(\bar \omega_1 + \bar \omega_2\right)} = \frac{d}{dt} (\bar \omega_1 + A_1 \bar \omega_2') = \bar \varepsilon_1' + \dot A_1 \bar \omega_2' + A_1 \bar \omega_2'  \qquad A_1 \dot{\bar {\omega}}_2' = A_1 \bar \varepsilon_2' = \bar \varepsilon_2  \]
-\[\bar \varepsilon = \bar \varepsilon_1 + \bar \omega_1 \times \bar \omega_2 + \bar \varepsilon_2 \qquad \dot A_1 \bar \omega_2' = \dot A_1 A_1^T A_1 \bar \omega_2' = \Omega \bar w_2' = \bar \omega_1 \times \bar \omega_2\]
+\[\bar \varepsilon = \bar \varepsilon_1 + \bar \omega_1 \times \bar \omega_2 + \bar \varepsilon_2 \qquad \dot A_1 \bar \omega_2' = \dot A_1 A_1^T A_1 \bar \omega_2' = \Omega \bar \omega_2' = \bar \omega_1 \times \bar \omega_2\]
 \[\boxed{\bar \varepsilon = \bar \varepsilon_1 + \bar \varepsilon_2 + \bar \omega_1 \times \bar \omega_2}\]
 \end{document}
