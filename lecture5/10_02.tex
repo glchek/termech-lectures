@@ -1,0 +1,127 @@
+\documentclass[crop=false]{standalone}
+\input{../preamble.tex}
+
+\begin{document}
+\lecture{Углы Эйлера. Кватернионы. Ур-я Пуассона}{10.02}
+\section{Уравнения Пуассона}
+\TwoCols{\[\Omega = \dot A A^T \qquad \Omega A = \dot A^T A = \dot A\]
+
+\[\boxed{\dot A = \Omega A}\]
+}{
+    \[\bar \omega \Leftrightarrow \Omega\]
+    Дано: $A(0) , \bar \omega(t)$, тогда это задача Коши(ищем $A(t)$)
+}
+
+\section{Углы Эйлера}
+\begin{figure}[H] % сделать справа от текста
+    \centering
+    \includegraphics[width=0.5\textwidth]{УглыЭйлера.jpg}
+    \caption{}
+    \label{fig:myimage} % Sets a label for cross-referencing
+\end{figure}
+\begin{enumerate}
+\item \Def $\theta$ – угол мутации: $\angle (\bar e_z , \bar e_{z'})$
+\item $\bar e_n = \frac{\bar e_z \times \bar e_{z'}}{|\bar e_z \times \bar e_{z'}|}$ – Линия узлов
+\item $\psi$ – угол прецессии: $\angle (\bar e_x, \bar e_n)$
+\item $\varphi$ – угол собственных вращений: $\angle (\bar e_n, \bar e_{x'})$
+\end{enumerate}
+Замечание: при вращении вокруг оси $z$, углы эйлера вырождаются $\theta =0$
+
+\noindent Замечание: невозможно найти такие 3 числа, чтобы ни при каком случае подобная система не вырождалась
+
+\noindent \keypoint
+Теперь можно описать движение тремя функциями(вместо 9 в матрице поворота)
+%fixme оформить поровнее, покомпактнее
+\[\theta(t) \qquad \psi(t) \qquad \varphi(t) \qquad \qquad \bar \omega = \bar \omega_\theta + \bar \omega_\psi + \bar \omega_\varphi\]
+\[\bar \omega_\varphi = \dot {\bar \varphi} \qquad \omega_\theta = \dot {\bar \theta} \qquad \bar \omega_\psi = \dot {\bar \psi}\]
+Векторы(которые записаны чуть выше) угловой скорости тогда направлены вдоль осей 
+\[\bar \omega_\varphi \| oz' \qquad \bar \omega_\psi \| oz \qquad \bar \omega_\theta \| \bar e_n\]
+\[\bar \omega = \begin{pmatrix}
+    \omega_x \\ \omega_y \\ \omega_z 
+\end{pmatrix}
+\qquad
+\bar \omega' = 
+\begin{pmatrix}
+    p \\ q \\ r
+\end{pmatrix}
+\]
+Проецируем на штрихованную систему координат
+\[
+\begin{matrix}
+    p = (\bar \omega_\theta , \bar e_{x'}) + (\bar \omega_\psi, \bar e_{x'}) + (\bar \omega_\varphi, \bar e_{x'})\\ 
+    q = (\bar \omega_\theta, \bar e_{y'}) + (\bar \omega_\psi, \bar e_{y'}) + (\bar \omega_\varphi, \bar e_{y'})\\
+    r = (\bar \omega_\theta, \bar e_{z'}) + (\bar \omega_\psi , \bar e_{z'}) + (\bar \omega_\varphi, \bar e_{z'}) 
+\end{matrix}
+\quad
+\quad
+\begin{matrix} %fixme выровнять строки
+    p = \dot \theta \cos \varphi  + \dot \psi \sin \theta\\ 
+    q = - \dot \theta \sin \varphi + \dot \psi \sin \theta \\
+    r = \dot \psi \cos \theta + \dot \varphi
+\end{matrix}
+\]
+\[
+%\begin{boxed} %fixme
+\begin{matrix}
+ p = \dot \psi \sin \theta \sin \varphi + \dot \theta \cos \varphi \\
+ q = \dot \psi \sin \theta \cos \varphi - \dot \theta \sin \varphi \\
+ r = \dot \psi \cos \theta + \dot \varphi
+\end{matrix}
+%end{boxed}
+\]
+
+\keypoint 
+Дано $p(t), q(t), r(t), \psi(0) = \psi_0 , \theta(0) = \theta_0 , \varphi(0) = \varphi_0$, Найти: $\psi(t), \theta(t), \varphi(t)$
+\[
+p\cos \varphi - q \sin \varphi = \dot \theta \left( \cos ^2 \varphi - (- \sin^2 \varphi)\right) \implies \dot \theta = p \cos \varphi - q \sin \varphi
+\]
+\[p \sin \varphi + q \cos \varphi = \dot \psi (\sin \theta \sin ^2 \varphi + \sin \theta \cos^2\varphi) \implies \dot \psi = \frac{1}{\sin \theta} \left( p \sin \varphi + q \cos \varphi \right)\]
+\[\dot \varphi = r - \ctg \theta (p \sin \varphi + q \cos \varphi)\]
+Уравнения Пуассона для углов Эйлера %fixme сделать boxed или переход между системами
+
+\noindent \keypoint Упраженение:
+\begin{enumerate}
+    \item 
+    Записать уравнение Пуассона для матрицы направляющих косинусов в пассивной точке зрения
+    \item
+    Записать уравнения Пуассона для углов Эйлера в активной точке зрения
+\end{enumerate}
+\section{Кватернионы}
+\[z = a + \iu b = z_1 + \iu z_2 \qquad q = z + j w =  z_1 + i z_2 + j(w_1 + i w_2) = z_1 + iz_2 + j w_1 + \underbracket{i j}_k w_2\]
+\TwoCols{ %fixme сделать аккуратнее, колхоз с вёрсткой
+\[\boxed{q = a + i b + j c + k d}\]
+\[-1 = i^2 = j^2 = k^2 = i \circ j \circ k\]
+}
+{
+\begin{table} %fixme курсив или не курсив
+    \centering
+    \begin{tabular}{c|c|c|c}
+          & i  & j   & k \\
+          \hline
+        i & -1 &  k  & -j \\
+        \hline
+        k & -k &  -i & -1 \\
+        \hline
+        j & j  & -1  & -1 \\
+    \end{tabular}
+    \caption{Таблица перемножения мнимых единиц}
+\end{table}
+}
+\[q = a + \underbracket{i b + j c + k d}_{\bar a} \qquad q= a + \bar a\]
+\[
+\begin{aligned}
+q_1 \circ q_2 &= (a_1 + i b_1 + j c_1 + k d_1) \circ (a_2 + i b_2 + j c_2 + k d_2) \\ 
+&= a_1 a_2 + i a_1 b_2 + j a_1 c_2 + k a_1 d_2 + i b_1 a_2 - b_1 b_2 + k b_1 c_2 - j b_1 d_2 + \\
+&+ j c_1 a_2 - k c_1 b_2 - c_1 c_2 + i c_1 d_2 + k d_1 a_2 + j d_1 b_2 - i d_1 c_2 - d_1 d_2 \\
+&=
+a_1 a_2 - b_1 b_2 -c_1 c_2 -d_1 d_2 \\
+&+ i \left( a_1 b_2 + b_1 a_2 + c_1 d_2 - d_1 c_2\right) \\
+&+ j \left(a_1 c_2 - b_1 d_2 + c_1 a_2 + d_1 b_2\right) \\ 
+&+ k \left(a_1 d_2 + b_1 c_2 - c_1 b_2 + d_1 a_2 \right)
+\end{aligned}
+\]
+\[\left( a_1 + \bar a_1\right) \circ \left(a_2 + \bar a_2\right) = a_1 a_2 - (\bar a_1 ,\bar a_2) + a_1 \bar a_2 + a_2 \bar a_1 + \bar a_1 \times \bar a_2 \]
+\[a_1 \bar a_2 = i a_1 b_2 + j a_1 c_2 + k a_1 d_2 \]
+\[a_2 \bar a_1 = i b1_a2 + j c_1 a_2 + k d_1 a_2 \]
+\[\bar a_1 \times \bar a_2 = i (c_1 d_2 - d_1 c_2) + j (d_1 b_2 - b_1 d_2) + k (b_1 c_1 - c_1 b_2 )\]
+\end{document}
