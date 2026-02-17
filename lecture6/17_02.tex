@@ -1,0 +1,67 @@
+\documentclass[crop=false]{standalone}
+\input{../preamble.tex}
+
+\begin{document}
+\lecture{}{17.02}
+\subsection{Некоторые свойства перемножения кватернионов}
+\[a_1 \circ a_2 = a_1 a_2\]
+\[a_1 \circ \bar a_2 = a_1 \bar a_2\]
+\[a_1 \circ (a_2 + \bar a_2) = a_1 a_2 + a_1 \bar a_2 \]
+\[\bar a_1 \circ \bar a_2 = = (\bar a_1, \bar a_2) + (\bar a_1 \times \bar a_2)\]
+Сопряжённое:
+\[\Lambda = \lambda + \bar \lambda \qquad \bar \Lambda = \lambda - \bar \lambda\]
+\[\overline{q_1 \circ  q_2} = \bar q_2 \circ \bar q_1\]
+\begin{proof}
+\[\overline{q_1 \circ  q_2} = \overline{(a_1 + \vec a_1) \circ (a_2 + \vec a_2)} = \overline{a_1 a_2 - (\vec a_1, \vec a_2) + a_1 \vec a_2 + a_2 \vec a_1 + \vec a_1 \times \vec a_2} = a_1 a_1 - (a_1, a_2) - a_1 \vec a_2 - a_2 \vec a_1 - \vec a_1 \times \vec a_2\]
+\[\overline{(a_2 + \vec a_2)\circ (a_1 + \vec a_1)} = (a_2 - a\vec a_2) \circ (a_1 - \vec a_1) = a_! a_@ - (\vec a_1,\vec a_2 ) - a_1 \vec a_2 - a_2 \vec a_1 + \vec a_2 \times \vec a_1\]
+\end{proof}
+Следствие: \[\overline{q \circ \bar q} = \bar{\bar q} \circ \bar q = q \circ \bar q = q_1^2 + q_2^2 + q_3^2 + q_4^2 = \|q\|\]
+То есть векторная часть такого кватерниона нуль
+\[|q| = \sqrt{\| q\| }= \sqrt{ q_1^2 + q_2^2 + q_3^2 + q_4^2 }\]
+\[q^{-1} = \frac{\bar q}{\| q \|} \iff q^{-1} \circ q = \frac{\bar q \circ q}{\|q \|} = 1\]
+\subsection{Описание поворотов}
+\Def Пространство кватернионов обозначается $\mathbb H$
+\[\psi : \mathbb H \to \mathbb H \qquad \psi_\Lambda(q) = \Lambda \circ q \circ \Lambda^{-1}\]
+\[\bar \Lambda = - \Lambda \iff \Lambda = 0 + \vec \lambda\]
+\[q = 0 + \vec a \qquad \psi(\vec a) = \Lambda \circ \vec a \circ \Lambda^{-1} \]
+\[\overline{\psi(\vec a)} = \overline{\Lambda \circ \vec a \circ \Lambda^{-1}} = \bar \Lambda^{-1} \circ (- \vec a) \circ \bar \Lambda = \frac{1}{\| \Lambda \|} \bar {\bar \Lambda} \circ (- \vec a) \circ \bar \Lambda = - \Lambda \circ \vec a \circ \Lambda^{-1}\]
+То есть вектор переходит в вектор
+\[
+\begin{aligned}
+\vec a_1 \circ \vec a_2 \stackrel{?}{=}(\psi_\Lambda(\vec a_1) \circ \psi_\Lambda(\vec a_2)) &= \Lambda \circ \vec a_1 \circ \Lambda^{-1} \circ \Lambda \circ \vec a_2 \circ \Lambda^{-1}  = \Lambda \circ \vec a_1 \circ \vec a_2 \circ \Lambda^{-1} \\ 
+&= \psi_\Lambda(\vec a_1 \circ \vec a_2) = \psi_\Lambda( -(\vec a_1, \vec a_2) + (\vec a_1 \times \vec a_2)) = \psi_\Lambda (- \vec a_1, \vec a_2) + \psi_\Lambda( \vec a_1 \times \vec a_2) 
+\end{aligned}\]
+\[\psi_\Lambda(\vec a_1) \circ \psi_\Lambda(\vec a_2) = - \underbracket{(\psi_\Lambda(\vec a_1), \psi_\Lambda(\vec a_2))} + (\psi_\Lambda(\vec a_1) \times \psi_\Lambda(\vec a_2)) = - \underbracket{(a_1, a_2)} + \psi_\Lambda(\vec a_1 \times \vec a_2) \]
+То есть $\psi$ сохраняет скалярное произведение
+
+\subsection*{}
+\keypoint 
+\[
+\begin{aligned}
+\psi_\Lambda (\bar \lambda) = \Lambda \circ \lambda^{-1} \circ \Lambda^{-1}  &= (\lambda + \vec \lambda) \circ \vec \lambda \circ \frac{\lambda - \vec \lambda}{\| \Lambda \|} = (\lambda \circ \vec \lambda + \vec \lambda \circ \vec \lambda) \circ \frac{\lambda - \vec \lambda}{\| \Lambda \|} \\ 
+&= \frac{1}{\| \Lambda \|} ( \lambda \circ \vec \lambda \circ \lambda - \lambda \circ \vec \lambda \circ \lambda + \vec \lambda \circ \vec \lambda \circ \lambda - \vec \lambda \circ \vec \lambda \circ \vec \lambda) = \frac{1}{\| \Lambda \|} (\lambda^2 \circ \vec \lambda - \vec \lambda \circ \vec \lambda \circ \vec \lambda) \\
+&=  \frac{\lambda^2 + (\vec \lambda, \vec \lambda)}{\| \Lambda \|} \circ \vec \lambda = \vec \lambda
+\end{aligned}
+\]
+
+\subsection{Кватернион поворота}
+Вдоль оси $\vec u$ на угол $\varphi$
+%есть фото доски
+\[\Lambda = \cos \frac{\varphi}{2} + \sin \frac{\varphi}{2} \cdot \vec u\]
+\[\vec e_z = \vec u \qquad \vec e_u = \frac{\bar u \times \bar r_0}{| \bar u \times \bar r_0|}\]
+\[\bar r_0 = (\bar u ,\bar r_0) + \frac{\bar u \times \bar r_0 }{| \bar u \times \bar r_0 |} \times \bar u\]
+\[\bar r = (\bar u, \bar r_0) + \cos \varphi (\bar u \times \bar r_0) \times \bar u + \sin \varphi (\bar u \times \bar r_0) \]
+\[(\bar a\times \bar b) \times \vec \bar c = \bar b \times (\bar a \times \bar c) - \bar c \times ( \bar a \times \bar b)\]
+Формула Родриго-Гамильтона:
+
+\[\boxed{\bar r= \bar u (\bar u , \bar r_0) + \sin \varphi (\bar u \times \bar r_0) + \cos \varphi (\bar r_0 - \bar u (\bar u, \bar r_0))}\]
+\[\begin{aligned}
+    \bar r &= \Lambda \circ \bar r_0 \circ \Lambda^{-1} = (\cos \frac{\varphi}{2} + \sin \frac{\varphi}{2} \cdot \vec u) \circ \bar r_0 \circ (\cos \frac{\varphi}{2} - \sin \frac{\varphi}{2} \cdot \vec u) \\
+    &= \left( \cos \frac{\varphi}{2} \bar r_0 + \sin \frac{\varphi}{2} \cdot \vec u \circ \bar r_0\right) \circ \left( \cos \frac{\varphi}{2} + \sin \frac{\varphi}{2} \cdot \vec u \right) \\
+    &= \cos^2 \frac{\varphi}{2} \bar r_0 - \sin \frac{\varphi}{2} \cos \frac{\varphi}{2} ( - (\bar r_0 , \bar u) + (\bar r_0 \times \bar u)) - \sin \frac{\varphi}{2} \cos \frac{\varphi}{2} (\bar u, \bar r_0)+  \\
+    &+ \sin \frac{\varphi}{2} \cos \frac{\varphi}{2} \bar u \times \bar r_0 - \sin^2 \frac{\varphi}{2} ( - (\bar u , \bar r_0) \bar u+  (\bar u \times \bar r_0) \circ \bar u) \\
+    &= \cos^2 \frac{\varphi}{2} \bar r_0 + 2 \sin \frac{\varphi}{2} \cos \frac{\varphi}{2} (\bar u \times \bar r_0) + \sin^2 \frac{\varphi}{2}(\bar u , \bar r_0) \bar u - \sin^2 \frac{\varphi}{2} (\bar u \times \bar r_0) \times \bar u \\
+    &= \cos^2 \frac{\varphi}{2} r_0 + \sin^2 \frac{\varphi}{2} (\bar u , \bar r_0) \bar u + \sin \varphi (\bar u \times \bar r_0) - \sin^2 \frac{\varphi}{2} (\bar u \times \bar r_0) \times \bar u
+ \end{aligned}
+    \]
+\end{document}
