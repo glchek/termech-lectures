@@ -1,0 +1,107 @@
+\documentclass[crop=false]{standalone}
+\input{../preamble.tex}
+\begin{document}
+\lecture{Кинематические уравнения для Кватернионов}{24.02}
+\subsection{Замечания к предыдущей лекции}
+\keypoint вместо $\Lambda$ можно брать не единичные кватернионы
+
+\keypoint \[ 
+\begin{aligned}
+\| q_1 - q_2 \| \stackrel{?}{=} \| \psi_\Lambda(q_1) - \psi_\Lambda(q_2) &= \| \Lambda \circ q_1 \circ  \Lambda^{-1} - \Lambda \circ q_2 \circ \Lambda^{-1} \| \\ 
+&= \| \Lambda \circ (q_1 - q_2) \circ \Lambda^{-1} \| = \Lambda \circ (q_1 - q_2) \circ \Lambda^{-1} \circ \overline{\Lambda \circ (q_1 - q_2) \circ \Lambda^{-1}} \\ 
+&= \Lambda \circ (q_1 - q_2) \circ \Lambda^{-1} \circ \bar \Lambda^{-1} \circ \overline {(q_1 - q_2)} \circ \bar \Lambda = \frac{1}{\| \Lambda \|} \Lambda \circ (q_1 - q_2) \circ \overline{(q_1 - q_2)} \circ \bar \Lambda \\ 
+&= \frac{1}{\| \Lambda \|} \| q_1 - q_2 \| \Lambda \circ \bar \Lambda = \| q_1 -  q_2 \|
+\end{aligned}
+\]
+Доказали, что $\psi$ сохраняет норму вектора
+
+\subsection{Кинематические уравнения для кватернионов}
+\keypoint Кватернион поворота на малый угол $\Delta \varphi$
+\[\Lambda = \cos \frac{\Delta \varphi}{2} + \sin \frac{\Delta \varphi}{2} \bar u = 1 + \frac{\Delta \varphi}{2} \bar u + O(\Delta \varphi^2)\]
+
+\[\boxed{ \vec \omega = \lim_{\Delta t \to 0} \frac{\Delta \varphi}{\Delta t} \vec u(t , \Delta t)} \]
+%fixme
+\[
+\begin{aligned}
+\dot \Lambda = \lim_{\Delta t \to 0} \frac{\Lambda(t + \Delta t) - \Lambda(t)}{\Delta t} &\stackrel{\text{АТЗ}}{=} \lim_{\Delta t \to 0} \frac{\Lambda(\Delta t) \circ \Lambda(t) - \Lambda(t)}{\Delta t} = \left(\lim_{\Delta t \to 0} \frac{\Lambda(\Delta t) -1 }{\Delta t}\right)\circ \Lambda(t) \\ 
+&= \left( \lim_{\Delta t \to 0} \frac{\Delta \varphi \bar u}{2 \Delta t}\right) \circ \Lambda(t) = \frac{1}{2} \bar \omega \circ \Lambda(t)
+\end{aligned}
+\]
+Активная точка зрения:
+\[
+\boxed{
+\dot \Lambda = \frac{1}{2} \vec \omega  \circ \Lambda
+}
+\]
+Упраженние: записать в пассивной
+
+\section{Кинематика систем со связями}
+$N$ Точек тела
+
+$\bar r_1, \dots , \bar r_N$ — законы движения, обозначается $\bar r_k(t)$
+
+$\bar v_1, \dots , \bar v_N$ — скорости
+\Def Механическая связь — соотношение
+\[f (\bar r_1 , \dots, \bar r_n , \bar v_1, \dots , \bar v_N, t) = 0\]
+Удерживающая связь — равно, неудерживающая — меньше равно
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c}
+        & Геом & Дифф \\
+        Стац & $f(\bar r_1, \dots , \bar r_N) = 0$ & $f(\bar r_1, \dots , \bar r_N, \bar v_1, \dots , \bar v_N) = 0 \qquad \sum^N_{k=1} \bar a_k (\bar r_1, \dots, \bar r_N) \bar v_k + a_0 (\bar r_1, \dots ,\bar r_N) = 0$ \\ % примеры диф. сввяей, которые встречаются(линейные по скоростям)
+        Нест & $f(\bar r_1, \dots, \bar r_N, t) = 0$ & $f(\bar r_1, \dots ,\bar r_N , \bar v_1, \dots , \bar v_N, t) = 0 \qquad \sum^N_{k=1} \bar a_k (\bar r_1, \dots, \bar r_N, t) \bar v_k + a_0 (\bar r_1, \dots ,\bar r_N, t) = 0$
+    \end{tabular}
+    \caption{}
+\end{table}
+
+\[f(\bar r_k , t) = 0 \qquad \dot f(\bar r_k , t) = \sum^N_{j=1} \frac{\partial f(\bar r_k, t)}{\partial \bar r_j} \frac{d \bar r_j}{dt} + \frac{\partial f(\bar r_k, t)}{\partial t} = 0\]
+\[\sum^N_{j=1} \frac{\partial f}{\partial \bar r_J} \bar v_j + \frac{\partial f}{\partial t} = 0 \]
+\Def Дифференцируемая связь, которая эквивалентна некоторой геометрической называется интегрируемой, иначе неинтегрируемой
+
+\keypoint Движение по окружности, Связи
+\[ x^2 + y^2 - R^2 = 0 \qquad (\bar r , \bar v) = 0 \qquad xv_x + y v_y = 0\]
+эквивалентны
+\begin{proof}
+    \[x^2 + y^2 - R^2 = 0 \qquad 2 x \dot x + 2 y \dot y = 0\]
+\end{proof}
+\noindent \keypoint Пример неинтегрируемой связи
+% fixme картинка в телефоне
+Вторая точка двигается по направлению к первой
+\[\bar v_1 = \alpha (\bar r_0 - \bar r_1) \qquad v_{1x} = \alpha (x_0 - x_1) \qquad v_{1y} = \alpha(y_0 - y_1) \qquad \frac{v_{1x}}{v_{1y}} = \frac{x - x_0}{y_0 - y_1}\]
+\begin{proof}
+    \[v_{1x} (y_0 - y_1) - v_{1y}(x_0 - x_1) = 0\]
+    От противного:
+    существует $f$:
+    \[\frac{\partial f}{\partial \bar r_0} \bar v_0 + \frac{\partial f}{\partial \bar r_1} \bar v_1 = v_{1x} (y_0 -y_1) - v_{1y}(x_0 -x_1) = 0\]
+    \[\frac{\partial f}{\partial \bar r_0} = 0 \qquad \frac{\partial f}{\partial t} = 0\]
+    \[\frac{\partial f}{\partial \bar r_1} = \begin{pmatrix}
+        y_0 - y_1 \\ -(x_0 - x_1)
+    \end{pmatrix} \iff \begin{matrix}
+        \frac{\partial f}{\partial x_1} = y_0 - y_1 \\ \\ \frac{\partial f}{\partial y_1} = x_1 - x_0
+    \end{matrix} \qquad \begin{matrix} \frac{\partial^2 f}{\partial x_1 \partial y_1} = -1 \\ \\  \frac{\partial^2 f}{\partial y_1 \partial x_1} = 1 \end{matrix}
+    \]
+    Противоречие с тем, что у непрерывной функции перекрёстные производные разные
+\end{proof}
+% fixme есть в телефоне записи дениса, разобраться
+
+$N: \bar r_1, \dots , \bar r_N$
+\[f_P(\bar r_1, \dots, \bar r_N , t) = 0 \qquad p = 1, \dots , P\]
+\[\sum_{k=1}^N \bar a_{ks}(\bar r_1, \dots, \bar r_N, t) \bar v_K + a_s (\bar r_1, \dots , \bar r_N, t) \qquad s = 1, \dots , S\]
+Далее будем считать, что если связь дифференцируемая, то она неинтегрируемая, иначе сопоставляем ей геометрическую
+\Def Голономная система — система, в которой вся связи только геометрические, иначе Неголономная
+\Def Склерономная система — система, в которой все связи стационарны, иначе реаномная
+\begin{table}
+    \begin{tabular}{c|c|c}
+      & Голономная & Неголономная \\
+      Склерономная & $\checkmark$  & \\
+      Реаномная & $\checkmark$  &   
+    \end{tabular}
+\end{table}
+Упражение: согнуть ложку, чтобы получился кельтский камень
+
+По часовой будет крутиться, против часовой крутиться не будет
+
+Такая система неголономна
+%fixme есть картинка в телефоне
+\end{document}
