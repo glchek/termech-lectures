@@ -1,0 +1,128 @@
+\documentclass[crop=false]{standalone}
+\input{../preamble.tex}
+\begin{document}
+\lecture{}{10.03}
+Прямая задача — найти движение по известным силам
+
+Обратная задача — найти силы по известному движению
+\section{Дополнительные аксиомы}
+\begin{enumerate}
+    \item \[m\bar w = \bar F \]
+    \item \[\bar F_{k m} = -\bar F_{m k} \]
+\end{enumerate}
+\begin{enumerate}
+    \item 
+    \Def Сила — вектор, который сопоставляется точке
+    
+    \item
+    \Def $\bar m_O (\bar F) = (\bar r \times \bar F)$ — момент силы
+    \[\bar m_A (\bar F) = (\bar r - \bar r_A) \times \bar F\]
+
+    \item Энергия $\backslash$ Работа 
+    
+    Элементарная работа:
+\[d' A = (\bar F , d \bar r) \qquad \Delta A = \bar F \Delta \bar r \qquad \delta A = \bar F \delta \bar r\]
+действительное перемещние , возможное перемещние, виртуальное перемещение
+
+    \item
+    $N, \bar r_k$ — система точек
+    \Def Главный вектор
+    \[\bar R = \sum_{k=1}^N \bar F_k\]
+    Не всегда равен равнодействующему
+
+    \item 
+    Силы  % сделать схемку с двумя стрелками
+    \begin{itemize}
+        \item Внутренние
+        \item Внешние
+    \end{itemize}
+    \Def Замкнутая система — система, в которой отсутсвует внешние силы
+    \Def Незамкнутая система — не замкнутая система
+    \[\bar R = \sum_{k=1}^N \bar F_k = \sum_{k=1}^N \bar F_k^{(e)} + \sum_{k=1}^N \bar F_k^{(i)} = \sum_{k=1}^N F_k^{(e)}\]
+    Сумма внутренних сил равна нулю, так как точки действуют друг на друга, а действующая равна противодействующей 
+
+    \item 
+    \Def Главный момент сил
+    \[\bar M_O = \sum_{k=1}^N \bar m_O(\bar F_k) = \sum_{k=1}^{N} (\bar r_k \times \bar F_k)\]
+    \[\bar M_A = \sum_{k=1}^N \bar m_A(\bar F_k) = \sum_{k=1}^{N} ((\bar r_k - \bar r_A)\times \bar F_k)\qquad \bar M_B = \sum_{k=1}^N \bar m_B(\bar F_k) = \sum_{k=1}^{N} ((\bar r_k - \bar r_B)\times \bar F_k)\]
+    \[\bar M_A - \bar M_B = \sum_{k=1}^{N} (\bar r_B - \bar r_A) \times \bar F_k = (\bar r_B - \bar r_A) \times \bar R\]
+    Правило переноса полюса главного момента сил системы
+    \[\boxed{\bar M_A = \bar M_B + (\bar r_B - \bar r_A) \times \bar R} = \bar M_B + \bar R \times \overline{BA}\]
+    
+    \keypoint
+    \[\bar M_O = \sum_{k=1}^{N} m_O(\bar F_k) = \sum_{k=1}^{N} (\bar r_k \times \bar F_k) = \sum_{k=1}^{N} \bar r_k \times \bar F_k^{(e)} \]
+    Доказательство, что момент внутренних сил нуль:
+    \[\sum_{k=1}^{N} \bar r_k \times \left( \sum_{m=1}^{N} \bar F_{k m}^{(i)} \right) = 
+    \sum_{k, m}^{N} \bar r_k \times \bar F_{k m}^{(i)} 
+    = \sum_{k < m} \bar r_k \times \bar F_{k m}^{(i)} + \sum_{k > m} \bar r_k \times \bar F_{k m}^{(i)} 
+    = \sum_{k < m} \bar r_k \times \bar F_{k m}^{(i)} + \sum_{m > k} \bar r_k \times -\bar F_{m k}^{(i)} = 0
+    \] % fixme дописать
+\end{enumerate}
+\section{Общие уравнения динамки}
+
+% fixme шарик на нитке фото в телефоне
+\[\begin{cases}
+    \ddot{\bar r} m = \bar w m = \bar F + \bar R_0, \\
+    x^2 + y^2 - L^2 = 0
+\end{cases} \qquad \begin{cases}
+    \ddot{\bar r} m = \bar w m = \bar F + \bar R_O\\
+    \dot x^2 + x \ddot x + \dot y^2 + y \ddot y = 0
+\end{cases}\]
+здесь $\bar R_0$ — сила реакции связи
+
+Силы:
+\begin{itemize}
+    \item Активные
+    \item Реакции связи
+\end{itemize}
+
+\[k = 1, \dots, N \qquad \bar w_k m_k = \bar F_k + \bar R_k\]
+
+\Def Свзяи называются идеальными, если их элементарная работа совершённая на(любых) виртуальных перемещениях равна нулю
+\[\delta A =\sum_{k=1}^{N}\bar R_k \delta r_K = 0\]
+
+\[\bar w_k m_k - \bar F_k = \bar R_k \qquad \sum_{k=1}^{N} (\bar w_k m_k - \bar F_k) \delta \bar r_k = \sum_{k=1}^{N} \bar R_k \delta \bar r_k = 0\]
+Общее уравнение динамики: 
+\[\boxed{\sum_{k=1}^{N} (\bar w_k m_k - \bar F_k) \delta \bar r_k = 0} \qquad \text{где }\bar F_k\text{ — активные силы}\]
+
+\[\sum_{k=1}^{N} (\bar F_k - \bar w_k m_k) \delta \bar r_k = 0 \qquad -\bar w_k m_k = J_k \qquad J_k \text{ — сила инерции}\]
+
+Движение системы таково, что совокупная работа активных сил и сил инерции на виртуальных перемещениях равна нулю
+
+\[
+\bar w_k = \bar w_k^{\text{отн}} + \bar w_k^{\text{кор}} + \bar w_k^{\text{пер}}\]
+В неинерциальной системе отсчёта
+\[\sum_{k=1}^{N} \left( \bar F_k - \underbracket{\bar w_k^{\text{кор}} m_k}_{J^{\text{кор}}} - \underbracket{\bar w_k^{\text{пер}} m_k}_{J_k^{\text{пер}}} - \bar w_k^{\text{отн}} m_k \right) \delta \bar r_k = 0\]
+любая связь может быть заменена её реакцией
+\[\sum_{k=1}^{N} \left(\bar F_l + \bar G_k - \bar w_k m_k \right) \delta \bar r_k =0 \qquad \text{где }\bar G_k \text{ — реакция неидеальных связей}\]
+
+\section{Равновесие}
+\Def Положение равновесия механической системы — положение системы, в котором она будет неподвижна на протяжении всего времени, если она изначально была неподвижна
+
+$\bar v_k = 0 \quad \bar w_k = 0$ и общее уравнение динамики, тогда
+\[\boxed{\sum_{k=1}^{N} \bar F_k \delta r_k = 0} \qquad \text{Принцип виртуальных перемещений}\]
+Система нафходится в равновесии $\iff$ работа активных сил на виртуальных перемещениях равна нулю
+
+\keypoint
+Голономная система
+\[
+\delta \bar r_k = \sum_{k=1}^{n} \frac{\partial \bar r_k}{\partial q_i
+} \delta q_i 
+\qquad
+\sum_{k=1}^{N} \bar F_k \left(\sum_{i=1}^{n} \frac{\partial \bar r_k}{\partial q_i
+} \delta q_i \right) = \sum_{i=1}^{n} \left(\underbracket{\sum_{k=1}^{N} \bar F_k \frac{\partial \bar r_k}{\partial q_i}}_{Q_i}\right) \delta q_i \qquad Q_i \text{ — обобщенная сила (Опр)}\]
+\[\sum_{k=1}^{N} \bar F_k \delta r_k = \sum_{i=1}^{n} Q_i \delta q_i =0 \iff Q_i = 0\]
+$\delta \bar r_k$ зависимы, а $\delta q_i$ независимы
+\[
+\begin{cases}
+\delta q_k \neq 0 \\
+\delta q_i = 0 \; i \neq k
+\end{cases}
+\implies Q_k = 0
+\]
+
+Принцип виртуальных перемещений: все обобщённые силы равны нулю
+
+размерность Обобщённых сил
+$\left[ Q_i\right] = \frac{\text{Дж}}{\left[q_i \right]}$
+\end{document}
