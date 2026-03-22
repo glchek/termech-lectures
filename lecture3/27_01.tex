@@ -86,16 +86,27 @@
 \item
 Скорости двух точек твёрдого тела вполне определяют скорости точек твёрдого тела, лежащих на прямой, соединяющей данные 
 \begin{proof}
-    \[\bar v_A = \bar v_O + \bar \omega \times \overline{OA} \qquad \bar v_B = \bar v_O + \bar \omega \times \overline{OB}\]
-    \[\bar v_A - \bar v_B = \bar \omega \times \overline{BA} \qquad \bar v_c = \bar v_B + \bar \omega \times \overline{BC}\]
+    \[\bar v_A = \bar v_B + \bar \omega \times \overline{BA} \qquad \bar v_A - \bar v_B = \bar \omega \times \overline{BA}\]
+    \[\bar v_c = \bar v_B + \bar \omega \times \overline{BC}\]
     \[A, B, C \in l \iff \overline{BA} \| \overline{BC} \iff \exists! \lambda: \overline{BC} = \lambda \overline{BA}\]
-    \[\bar v_c = \bar v_B + \lambda \bar \omega \times \overline{BA}\]
+    \[\bar v_c = \bar v_B + \lambda \bar \omega \times \overline{BA} = \bar v_B + \lambda \left(\bar v_a - \bar v_B\right)\]
 \end{proof}
 \item
 Скорость трёх точек твердого тела, не лежащих на одной прямой, вполне определяют скорость в любой точке твёрдого тела
-
+\begin{proof}
+    также, как и пункт 2
+    \[\overline{AD} = \alpha_1 \overline{AB} + \alpha_2 \overline{AC}\]
+    \[\bar v_B - \bar v_A = \bar \omega \times \overline{AB} \qquad \bar v_C - \bar v_A = \bar \omega \times \overline{AC}\]
+    \[\bar v_D = \bar v_A + \bar \omega \times \overline{AD} = \bar v_A + \left( \alpha_1 \omega \times \overline{AB} + \alpha_2 \omega \times \overline{AC}\right) = \bar v_A + \left(\alpha_1 \left( \bar v_B - \bar v_A \right) + \alpha_2 \left(\bar v_C - \bar v_A\right)\right)\]
+\end{proof}
 \item
 Если скорость точки твёрдого тела равна нулю, то это тело либо покоится либо совершает мгновенное вращение вокруг оси, проходящей через эту точку
+\begin{proof}
+    \[\bar v_B = \underbracket{\bar v_A}_0 + \omega \times \overline{AB} \implies \begin{cases}
+        \bar v_B = 0 , \quad\bar \omega \equiv 0 \\
+        \bar v_B \neq 0 , \quad \bar \omega \not \equiv 0
+    \end{cases} \]
+\end{proof}
 \end{enumerate}
 \keypoint 
 Угловое ускорение:
