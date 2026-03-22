@@ -1,0 +1,100 @@
+\documentclass[crop=false]{standalone}
+\input{../preamble.tex}
+\begin{document}
+\lecture{}{20.03}
+\Def Cистемы сил называются эквивалентными если замена одной на другую не изменяет движения
+\[\{\bar F_k\} \sim \{\bar F_k'\}\]
+
+\begin{theorem}[Критерий экв-ти систем сил]
+    Системы сил эквивалентны
+    
+    $\iff$
+
+    элементарные работы соврешаемые этими силами на виртуальных перемещения равныэ
+    
+
+    \[\{\bar F_k\} \sim \{\bar F_k'\} \iff \delta A  = \delta A'\]
+\end{theorem}
+\begin{proof}
+    \[\sum_{k=1}^{N} (\bar F_l - m_k \bar w_k) \delta \bar r_k = 0 \qquad \underbracket{\sum_{k}^{N} \bar F_k \delta \bar r_k}_{\delta A} = \sum_{k}^{N} m_k \bar w_k \delta \bar r_k\]
+    \[\delta A' = \sum_k^N m_k \bar w_k' \delta \bar r_k \]
+    Системы сил эквиваленты, то есть $\bar w_k = \bar w_k'$, значит $\delta A = \delta A'$
+
+    В обратную сторону доказывается также $\delta A = \delta A'$, значит $\sum_k^N m_k \bar w_k = \sum_k^N m_k \bar w_k'$, к тому же $\bar w_k$ и $\bar w_k'$ связаны одними и теми же соотношения,  тогда $\bar w_k = \bar w_k'$
+\end{proof}
+
+\noindent \keypoint Для голономных систем:
+\[\delta A = \sum_i^n Q_i \delta q_i \qquad \delta A' \sum_i^n Q_i' \delta q_i\]
+\[\delta A = \delta A' \iff \sum_i^n (Q_i - Q_i') \delta q_i = 0\]
+В голономных системах $\delta q_i$ независимы, тогда $Q_i = Q_i'$
+
+То есть эквивалентные системы связей приводят к одинковым обобщённым силам
+
+\section{Абсолютно твёрдое тело}
+Твёрдое тело это склерономное голономная система, то есть виртуальные связи являются возможными
+\[
+\begin{aligned} 
+    \delta A &= \sum_k^N \bar F_k \delta \bar r_k = \sum_k^N \bar F_k \Delta \bar r_k = \sum_k^N \bar F_k \bar v_k^* \Delta t = \sum_k^N \bar F_k (\bar v_P^* + \bar \omega \times (\bar r_k - \bar r_P)) \Delta t = \sum_k^N \bar F_k \bar v_P^* \Delta t + \sum_k^N \left( \bar F_k ,\bar \omega \times (\bar r_k - \bar r_p)  \right)\Delta t  \\
+    &= \bar R \bar v_P^* \Delta t + \sum_k^N (\bar \omega, (\bar r_k - \bar r_P) \times \bar F_k) \Delta t = \bar R \bar v_P^* \Delta t + \left(\omega , \sum_k^N (\bar r_k - \bar r_P) \times \bar F_k \right) \\
+    &= \bar R \bar v_P^* \Delta t + \bar \omega^* \bar M_P \Delta t 
+\end{aligned}
+\] % fixme
+\[
+\begin{cases}
+\delta A = \bar R \bar v_P^* \Delta t + \bar M_P \bar w^* \Delta t \\ \delta A' = \bar R' \bar v_P^* \Delta t + \bar M_P \bar \omega^* \Delta t 
+\end{cases} \implies \boxed{(\bar R - \bar R') \bar v_P^* \Delta t + (\bar M_P - \bar M_P') \bar \omega^* \Delta t = 0}
+\]
+из того, что возможны случаи $\bar v_P^* \neq 0 \& \bar w_P = 0$ и $\bar v_P^* = 0 \& \bar w_P \neq 0$
+
+это критерий эквивалентности систем сил, приложенных к твёрдому телу
+\[\boxed{\begin{matrix}\bar R = \bar R' \\ \bar M_P = \bar M_P'\end{matrix}}\]
+
+\keypoint из принципа вертуальных перемещений 
+\[\delta A = 0 \qquad \bar R v^* \Delta t + \bar M_P \bar \omega^* \Delta t = 0 \iff \begin{cases}
+    \bar R = 0 \\ 
+    \bar M_P = 0
+\end{cases}\]
+
+Заметим, что силы можно распределять как удобно % fixme фото в телефоне
+
+\section{}
+\Def Линия действия сил — прямая коллинеарная силе и проходящая через точку, к которой данная сила прилоежена
+
+Смещение силы, вдоль её линии действия приводит к эквивалентной системе
+\begin{proof}
+    упр, главный вектор не меняется, главный момент не меняется
+\end{proof}
+
+\keypoint
+\Def Равнодействующая сила системе сил, приложенной к твёрдому телу — сила, эквивалентная данной система
+\[\bar F^* \sim \{\bar F_1 , \dots , \bar F_N\}\]
+$\bar r^*$ — точка приложения равнодействующей силы
+
+\begin{theorem}[Вариньона]
+Если система сил имеет равнодействующую, то она равна главному вектору и её момент относительно произвольной точки $P$ равен главному моменту сил системы относительно этой же точки
+\[\bar F^* = \bar R \qquad \bar m_p(\bar F^*) = \bar M_P \]
+\end{theorem}
+Следствия:
+1. твердое тело не может находиться равновесии под действием одной ненулевой силы
+
+2.  если тело в равновесии под действием двух сил, то их линии действия совпадают, а сами они противополжны
+
+3. Теорема о трёх силах
+если твердое тело находится в равновесии под действием трёх сил, причём линии действия $\bar F_1$ и $\bar F_2$ пересекаются, то третья сила лежит в той же плоскости, что и $\bar F_1$ $\bar F_2$ и её линия действяя пересекается с линиями действиями других двух в той же точке
+\[(\bar F_1, \bar F_2, \bar F_3 \qquad \Gamma_1 \cap \Gamma_2 = P) \implies \bar F_3 \in (\bar F_1 , \bar F_2) \quad \& \quad \Gamma_3 \cap \Gamma_1 \cap \Gamma_2 = P\]
+4. Система сил, линии действяи которых пересекаются в одной точке имеет равнодействующую
+
+Отличия равнодействующей от главного вектора:
+
+равнодействующая не всегда существует, у равнодействующей есть точка приложения
+
+
+\section{Система параллельных сил}
+
+\Def Система параллельных сил — система сил, линии действия которых параллельных
+\[\bar F_k = \bar n \Phi_k\]
+$\Phi_k$ — не модуль силы, скорее проекция на $\bar n$
+
+удобно выбирать $\bar n$, совпадающий по направлению с главным вектором
+\[\bar R = \sum_k^N \bar F_k = \sum_k^N \bar \Phi_k = \bar n \sum_k^N \Phi_k \]
+\end{document}
