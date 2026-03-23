@@ -7,7 +7,7 @@
 \[a_1 \circ a_2 = a_1 a_2\]
 \[a_1 \circ \bar a_2 = a_1 \bar a_2\]
 \[a_1 \circ (a_2 + \bar a_2) = a_1 a_2 + a_1 \bar a_2 \]
-\[\bar a_1 \circ \bar a_2 = = (\bar a_1, \bar a_2) + (\bar a_1 \times \bar a_2)\]
+\[\bar a_1 \circ \bar a_2 = - (\bar a_1, \bar a_2) + (\bar a_1 \times \bar a_2)\]
 Сопряжённое:
 \[\Lambda = \lambda + \bar \lambda \qquad \bar \Lambda = \lambda - \bar \lambda\]
 \[\overline{q_1 \circ  q_2} = \bar q_2 \circ \bar q_1\]
@@ -17,7 +17,7 @@
 & = a_1 a_1 - (a_1, a_2) - a_1 \vec a_2 - a_2 \vec a_1 - \vec a_1 \times \vec a_2
 \end{aligned}
 \]
-\[\overline{(a_2 + \vec a_2)\circ (a_1 + \vec a_1)} = (a_2 - a\vec a_2) \circ (a_1 - \vec a_1) = a_! a_@ - (\vec a_1,\vec a_2 ) - a_1 \vec a_2 - a_2 \vec a_1 + \vec a_2 \times \vec a_1\]
+\[\overline{(a_2 + \vec a_2)\circ (a_1 + \vec a_1)} = (a_2 - a\vec a_2) \circ (a_1 - \vec a_1) = a_1 a_2 - (\vec a_1,\vec a_2 ) - a_1 \vec a_2 - a_2 \vec a_1 + \vec a_2 \times \vec a_1\]
 \end{proof}
 Следствие: \[\overline{q \circ \bar q} = \bar{\bar q} \circ \bar q = q \circ \bar q = q_1^2 + q_2^2 + q_3^2 + q_4^2 = \|q\|\]
 То есть векторная часть такого кватерниона нуль
@@ -35,7 +35,7 @@
 \vec a_1 \circ \vec a_2 \stackrel{?}{=}(\psi_\Lambda(\vec a_1) \circ \psi_\Lambda(\vec a_2)) &= \Lambda \circ \vec a_1 \circ \Lambda^{-1} \circ \Lambda \circ \vec a_2 \circ \Lambda^{-1}  = \Lambda \circ \vec a_1 \circ \vec a_2 \circ \Lambda^{-1} \\ 
 &= \psi_\Lambda(\vec a_1 \circ \vec a_2) = \psi_\Lambda( -(\vec a_1, \vec a_2) + (\vec a_1 \times \vec a_2)) = \psi_\Lambda (- \vec a_1, \vec a_2) + \psi_\Lambda( \vec a_1 \times \vec a_2) 
 \end{aligned}\]
-\[\psi_\Lambda(\vec a_1) \circ \psi_\Lambda(\vec a_2) = - \underbracket{(\psi_\Lambda(\vec a_1), \psi_\Lambda(\vec a_2))} + (\psi_\Lambda(\vec a_1) \times \psi_\Lambda(\vec a_2)) = - \underbracket{(a_1, a_2)} + \psi_\Lambda(\vec a_1 \times \vec a_2) \]
+\[\psi_\Lambda(\vec a_1) \circ \psi_\Lambda(\vec a_2) = - \underbracket{(\psi_\Lambda(\vec a_1), \psi_\Lambda(\vec a_2))} + (\psi_\Lambda(\vec a_1) \times \psi_\Lambda(\vec a_2)) = - \underbracket{\psi_\Lambda(a_1, a_2)} + \psi_\Lambda(\vec a_1 \times \vec a_2) \]
 То есть $\psi$ сохраняет скалярное произведение
 
 \subsection*{}
