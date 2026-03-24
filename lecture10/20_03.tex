@@ -34,11 +34,12 @@
 Твёрдое тело это склерономное голономная система, то есть виртуальные связи являются возможными
 \[
 \begin{aligned} 
-    \delta A &= \sum_k^N \bar F_k \delta \bar r_k = \sum_k^N \bar F_k \Delta \bar r_k = \sum_k^N \bar F_k \bar v_k^* \Delta t = \sum_k^N \bar F_k (\bar v_P^* + \bar \omega \times (\bar r_k - \bar r_P)) \Delta t = \sum_k^N \bar F_k \bar v_P^* \Delta t + \sum_k^N \left( \bar F_k ,\bar \omega \times (\bar r_k - \bar r_p)  \right)\Delta t  \\
+    \delta A &= \sum_k^N \bar F_k \delta \bar r_k = \sum_k^N \bar F_k \Delta \bar r_k = \sum_k^N \bar F_k \bar v_k^* \Delta t = \sum_k^N \bar F_k (\bar v_P^* + \bar \omega \times (\bar r_k - \bar r_P)) \Delta t \\
+    &= \sum_k^N \bar F_k \bar v_P^* \Delta t + \sum_k^N \left( \bar F_k ,\bar \omega \times (\bar r_k - \bar r_p)  \right)\Delta t  \\
     &= \bar R \bar v_P^* \Delta t + \sum_k^N (\bar \omega, (\bar r_k - \bar r_P) \times \bar F_k) \Delta t = \bar R \bar v_P^* \Delta t + \left(\omega , \sum_k^N (\bar r_k - \bar r_P) \times \bar F_k \right) \\
     &= \bar R \bar v_P^* \Delta t + \bar \omega^* \bar M_P \Delta t 
 \end{aligned}
-\] % fixme
+\]
 \[
 \begin{cases}
 \delta A = \bar R \bar v_P^* \Delta t + \bar M_P \bar w^* \Delta t \\ \delta A' = \bar R' \bar v_P^* \Delta t + \bar M_P \bar \omega^* \Delta t 
