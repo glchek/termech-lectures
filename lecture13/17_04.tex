@@ -1,0 +1,92 @@
+\documentclass[crop=false]{standalone}
+\input{../preamble.tex}
+\begin{document}
+\lecture{}{17.04}
+\begin{theorem}[Гюйгенса-Штейнера]
+
+\end{theorem}
+\[J = J_C + M \begin{pmatrix}
+    y_C^2 + z_C^2  & x_C y_C & x_C z_C \\ x_C y_C & x_C^2 + z_C^2 & x_C z_C \\ x_C z_C & y_C z_C & x_C^2 + y_C^2
+\end{pmatrix}\]
+\begin{proof}
+    %fixme сделать зарисовку, фото в телефоне
+    \[
+    \begin{aligned}
+        J_{C_x} &= \sum_{k=1}^{N} m \left((z_k - z_C)^2 + (y_k - y_C)^2\right) = \sum_{k=1}^{N} m_k (z_k^2 - 2 z_k z_C + z_C^2 + y_k^2 - 2 y_k y_C + y_C^2) \\
+        &= \sum_{k=1}^{N} m_k (z_k^2 + y_k^2) - 2\sum_{k=1}^{N} m_k(z_k z_C + y_k y_C) \sum_{k=1}^{N} m_k (z_C^2 + y_C^2) \\
+        &= J_X + M (z_C^2 + y_C^2) -2 M (z_C^2 + y_C^2) = J_x - M(z_C^2 + y_C^2)
+    \end{aligned}
+    \]
+    \[\sum_{k=1}^{N} m_k (z_k z_C + y_k y_C) = \sum_{k=1}^{N} m_k z_k z_C + \sum_{k=1}^{N} m_k y_k y_C = M z_C^2 + M y_C^2 = M(z_C^2 + y_C^2) \]
+    \[
+    \begin{aligned}
+    J_{C_{x y}} &= \sum_{k=1}^{N} m_k (x_k - x_C) (y_k - y_C) = \sum_{k=1}^{N} m_k x_k y_k + \sum_{k=1}^{N} m_k x_C y_C - \sum_{k=1}^{N} m_k x_C y_k - \sum_{k=1}^{N} m_k x_k y_C \\
+    &= J_x + x_C y_C M - M x_C y_C - M y_C x_C = J_x - M x_C y_C
+    \end{aligned}
+    \]
+\end{proof}
+$\bar u_C$ — ось проходящая через центр масса, сонаправленная с $\bar u$
+\[J_{\bar u} = J_{\bar u_C} + M d^2 \qquad d \text{ — расстояние между осями}\]
+%fixme картинка с двумя осями, и расстоянием между ними
+\[J_{\bar u} = \bar u ^T J \bar u = \alpha^2 J_x + \beta^2 J_y + \gamma^2 -2 \alpha \beta J_{xy} - 2 \beta \gamma J_{yc} - 2\alpha \gamma J_{xz}\]
+\keypoint Положительно определённая квадратичная форма % fixme почему?
+
+Тогда существует ск, в которой она задаёт эллипс
+\[A x^2 + B y^2 + C z^2 = 1 \]
+\Def главная система координат — система координат в которой тензор инерци твёрдого тела имеет вид 
+\[J = \begin{pmatrix}
+    A & 0& 0\\0 & B & 0\\ 0&0& C 
+\end{pmatrix}\]
+Её оси — главными осями твёрдого тела
+\Def Эллипсоид инерции
+\[A x^2 + B y^2 + C z^2 = 1 \]
+
+\keypoint
+\[\bar r^T J \bar r = 1 \qquad r^2 \bar u^T J \bar u = 1 \qquad r = \sqrt{\frac{1}{J_{\bar u}}} = \frac{1}{\sqrt{J_{\bar u}}}\]
+То есть эллипсоид инерции будет более вытянутым в сторону оси с наименьшим моментом инерции
+
+\keypoint
+Кинетический момент тела с неподвижной точкой
+\[
+\begin{aligned}
+\bar K &= \sum_{k=1}^{N} \bar r_k \times \bar v_k m_k = \sum_{k=1}^{N} \bar r_k \times (\bar \omega \times \bar r_k) m_k = \sum_{k=1}^{N} (\bar \omega r_k^2 - \bar r_k (\bar \omega, \bar r_k)) m_k = \sum_{k=1}^{N} \omega (\bar u r_k^2 - \bar r_k (\bar u, \bar r_k)) m_k  \\
+&= \sum_{k=1}^{N} \omega \bar u \left( r_k^2 - (\bar u, \bar r_k)^2 \right) m_k = \bar \omega J_{\bar u} \text{ муть какая-то} \\
+&= \sum_{k=1}^{N} (\bar \omega (x_k^2 + y_k^2 + z_k^2) - \bar r_k (\omega_x x_k + \omega_y y_k + \omega_z z_k)) m_k  \\
+&= \begin{pmatrix}
+    \sum_{k=1}^{N} \left( \omega _x ( x_k^2 + y_k^2 + z_k^2) - x_k  (\omega_x x_k + \omega_y y_k + \omega_z z_k) \right) m_K \\
+    \sum_{k=1}^{N} \left( \omega _y ( x_k^2 + y_k^2 + z_k^2) - y_k  (\omega_x x_k + \omega_y y_k + \omega_z z_k) \right) m_K \\
+    \sum_{k=1}^{N} \left( \omega _z ( x_k^2 + y_k^2 + z_k^2) - z_k  (\omega_x x_k + \omega_y y_k + \omega_z z_k) \right) m_K \\
+\end{pmatrix} = \begin{pmatrix}
+    \omega_x J_x - \omega_y J_{x y} - \omega_z J_{x z} \\
+    -\omega_ x J_{x y} + \omega_y J_y - \omega_z J_{y z} \\
+    -\omega_x J_{x z} - \omega_y J_{y z} + \omega_z J_z
+\end{pmatrix} = J \bar \omega
+\end{aligned}
+\]
+
+\keypoint
+
+Кинетическая энергия тела
+\[T = \frac{1}{2} \sum_{k=1}^{N} m_k v_k^2 = \frac{1}{2} \sum_{k=1}^{N } m_k (\omega \times \bar r_k)^2 = \frac{\omega^2}{2}  \underbracket{ \sum_{k=1}^{N} m_K(\bar u \times \bar r_k)^2}_{J_{\bar u}}  =  \frac{\omega^2 J_{\bar u}}{2} = \frac{1}{2}\bar \omega^T J \bar \omega = \frac{1}{2} \bar \omega^T \bar K_O = \frac{1}{2} (\bar \omega , \bar K_O)\]
+
+\section{Потенциальная система сил}
+\Def Потенциальная система сил $\bar F_k$ — система сил, для которой существует скалярная функция $U$, называемая потенциальной
+\[\bar F_k = \frac{\partial U}{\partial \bar r_k}  \qquad \Pi = -U \text{ — потенциальная энергия} \qquad U = U(\bar r_1 , \dots , \bar r_N)\]
+\[\bar F_k = - \frac{\partial \Pi}{\partial \bar r_k}\]
+
+\keypoint
+Обобщённые силы потенциальной системы сил потенциальны
+\[Q_i = \sum_{k=1}^{N} \bar F_k \frac{\partial \bar r_k}{\partial q_i} = \sum_{k=1}^{N} \frac{\partial U}{\partial \bar r_k} \frac{\partial \bar r_k}{ \partial q_i} = \frac{\partial U}{\partial q_i}\]
+
+\keypoint
+Дифференциал потенциальной энергии
+\[d \Pi = \sum_{k=1}^{N} \frac{\partial \Pi}{\partial \bar r_k} d \bar r_k + \frac{\partial \Pi}{\partial t} dt\]
+
+\keypoint \[d' A = \sum_{k=1}^{N} \bar F_k d \bar r_k = \sum_{k=1}^{N} \frac{\partial U}{\partial \bar r_k} d \bar r_k = - \sum_{k=1}^{N} \frac{\partial \Pi}{\partial \bar r_k} d \bar r_k = - d \Pi + \frac{\partial \Pi}{\partial t} dt\]
+
+\keypoint для стационарных систем потеницальных сил
+\[d' A = - d \Pi\]
+\Def Консервативная система сил — мех с в которй действуют только стационарные потенциальные силы
+\[d T = d' A = - d \Pi \implies d(T  +\Pi) = 0 \implies T + \Pi = \text{const}\]
+\Def Полная энергия $E = T + \Pi$
+\end{document}
