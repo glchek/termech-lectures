@@ -1,0 +1,81 @@
+\documentclass[crop=false]{standalone}
+\input{../preamble.tex}
+\begin{document}
+\lecture{}{15.05}
+\[\frac{d}{d t} \frac{\partial T}{\partial \dot q} - \frac{\partial T}{\partial q_i} = Q_i = - \frac{\partial \Pi}{\partial q_i} + Q_i^*\]
+\[\frac{d}{d t} \frac{\partial L}{\partial \dot q} - \frac{\partial L}{\partial q_i} = Q_i^*\]
+\begin{theorem}
+    Уравнения Лагранжа разрешимы относительно обобщённых ускорений
+\end{theorem}
+\begin{proof}
+    \[
+    \begin{aligned}
+    T = \frac{1}{2} \sum_{k=1}^{N} m_k v_k^2 &= \frac{1}{2} \sum_{k=1}^{N} m_k \left( \sum_{i=1}^{n} \frac{\partial \bar r_k}{\partial q_i} \dot q_i + \frac{\partial \bar r_k}{\partial t}\right)^2 \\
+    &=\frac{1}{2} \sum_{k=1}^{N} m_k \left( \sum_{i, j=1}^{n} \frac{\partial \bar r_k}{\partial q_i} \frac{\partial \bar r_k}{\partial q_j} \dot q_i \dot q_j + 2 \sum_{i=1}^{n}  \frac{\partial \bar r_k}{\partial q_i} \frac{\partial \bar r_k}{\partial t} \dot q_i + \left(\frac{\partial \bar r_k}{\partial t}\right)^2 \right) \\
+    &= \underbracket{\frac{1}{2} \sum_{i,j = 1}^{n} \sum_{k=1}^{N} m_k \frac{\partial \bar r_k}{\partial q_i} \frac{\partial \bar r_k}{\partial q_j} \dot q_i \dot q_j}_{T_2}
+    + \underbracket{\sum_{i = 1}^{n} \sum_{k=1}^{N} m_k \frac{\partial \bar r_k}{\partial q_i} \frac{\partial \bar r_k}{\partial t} \dot q_i }_{T_1}
+    + \underbracket{\frac{1}{2} \sum_{k=1}^{N} m_k \left(\frac{\partial \bar r_k}{\partial t}\right)^2}_{T_0}
+    \end{aligned}
+    \]
+    где $T_2, T_1, T_0$ — однородные многочлены соответствующих порядков
+    \[P(\lambda x) = \lambda^k P(x)\]
+    %fixme по-хорошему записать ровно слева T, а справа коэффициенты
+    \[T = T_2 + T_1 + T_0\]
+    \[T_2 = \frac{1}{2} \sum_{i, j = 1}^{n} a_{i j} \dot q_i \dot q_j, \qquad a_{i j} = \sum_{k=1}^{N} m_k \frac{\partial \bar r_k}{\partial q_i} \frac{\partial \bar r_k}{\partial q_j}\]
+    \[T_1 = \sum_{i=1}^{n} a_i \dot q_i \qquad a_i = \sum_{k=1}^{N} m_k \frac{\partial \bar r_k}{\partial q_i} \frac{\partial \bar r_k}{\partial t}\]
+    \[T_0 = \frac{1}{2} \sum_{k=1}^{N} m_k \left(\frac{\partial \bar r_k}{\partial t}\right)^2\]
+    Существует теорема Эйлера об однородных функций(из которой следует вид производных этих многочленов)
+    \[\frac{d}{d t} \frac{\partial (T_2 + T_1 + T_0)}{\partial \dot q} - \frac{\partial (T_2 + T_1 + T_0)}{\partial q_i} = Q_i \qquad \frac{\partial T_0}{\partial \dot q_i} = 0 \qquad \frac{\partial T_1}{\partial \dot q_i} = a_i \qquad \frac{\partial T_2}{\partial \dot q_i} = \sum_{j=1}^{n} a_{i j } \dot q_j\]
+    \[\frac{d}{d t} \left( \sum_{j=1}^{n} a_{i j} \dot q_j+ a_i \right) = Q_i + \frac{\partial T}{\partial q_i} \qquad \frac{d}{d t} \left( \sum_{j=1}^{n} a_{i j} \dot q_j\right) = Q_i - \frac{d a_i}{d t}+ \frac{\partial T}{\partial q_i}\]
+    \[\sum_{j=1}^{n} a_{i j} \ddot q_j = - \sum_{j=1}^{n} \dot q_j \dot a_{i j} - \dot a_i + Q_i + \frac{\partial T}{\partial q_i} := G_i(q_1 , \dots , q_n, \dot q_1, \dots, \dot q_n, t)\]
+    \[\sum_{j=1}^{n} a_{i j} \ddot q_j = G_i\]
+    \textbf{Основаная теорема Лагранжевого формализма}
+    \[\det (a_{i j})_{i, j = 1}^n \neq 0\]
+    \[a_{i j} = m_1 \left( \frac{\partial x_1}{\partial q_i} \frac{\partial x_1}{\partial q_j} + \frac{\partial y_1}{\partial q_i} \frac{\partial y_1}{\partial q_j} + \frac{\partial z_1}{\partial q_i} \frac{\partial z_1}{\partial q_j}\right) + \dots\]
+    Теорема Грама(взяли подматрицу  из матрицы Грама), если коэффициенты это скалярные произведения л.н.з векторов, то матрица приведённой системы невырождена
+    \[a_{i j} = \bar u_i \bar u_j\]
+    \[u_i' = \left(\frac{\partial x_1}{\partial q_i} \quad \frac{\partial y_1}{\partial q_i} \dots \frac{\partial z_N}{\partial q_i}\right)^T\]
+    \[
+    \underset{3 N \times n}{U}= \begin{pmatrix}
+        \frac{\partial x_1}{\partial q_1} & \frac{\partial x_1}{\partial q_2} & \frac{\partial x_1}{\partial q_3} \dots \frac{\partial x_1}{\partial q_n} \\
+        \frac{\partial y_1}{\partial q_1} & \frac{\partial y_1}{\partial q_2} & \frac{\partial y_1}{\partial q_3} \dots \frac{\partial y_1}{\partial q_n} \\
+        \frac{\partial z_1}{\partial q_1} & \vdots \\
+        \frac{\partial x_2}{\partial q_1} & \vdots \\
+        \vdots \\
+        \frac{\partial z_N}{\partial q_1} & \frac{\partial z_N}{\partial q_2} & \frac{\partial z_N}{\partial q_3} \dots \frac{\partial z_N}{\partial q_n} \\
+    \end{pmatrix} \begin{matrix}
+        \sqrt m_1 \\ \sqrt m_1 \\ \sqrt m_1 \\ \sqrt m_2  \\ \vdots \\  \sqrt m_N % fixme поправить
+    \end{matrix}
+    \]
+    Столбцы матрица линейно независимы в силу независимости обобщённых координат, то есть и векторы составленные из данных координатных столбцов линейно независимы(домножение на константу это элементарное преобразование)
+
+    Так как потенциальная энергия не зависит от скоростей и ускорений:
+    \[L = T - \Pi = T_2 + T_1 + \underbracket{T_0 - \Pi}_{\tilde T_0}\]
+\end{proof}
+
+\Def Натуральные системы — системы, в которых лагранжиан является разностью кинетической и потенциальной энергии
+
+\Def Ненатуральные системы — не натуральные системы(в таких надо потребовать невырожденность матрицы сосставленной из $a_{i j} = \frac{\partial^2 L}{\partial \dot q_i \partial \dot q_j}$ при допустимых $q_i , q_j$)
+
+
+\noindent \keypoint Т Эйлера об однородной функции
+
+для $F(\lambda x_1, \lambda x_2, \dots, \lambda x_n) = \lambda^k F(x_1, x_2, \dots, x_n)$
+\[\sum_{i=1}^{n} \frac{\partial F}{\partial x_i} x_i = k F\]
+
+\begin{theorem}[Об изменении полной энергии голономной системы]
+    \[
+    \begin{aligned}
+    \frac{d}{d t} T &= \frac{d}{d t}\sum_{i=1}^{n} \frac{\partial T}{\partial \dot q_i} \dot q_i - \sum_{i=1}^{n} \frac{d}{d t}\left(\frac{\partial T}{\partial q_i} \right)\dot q_i + \sum_{i=1}^{n}  \frac{\partial T}{\partial q_i} \dot q_i +\frac{\partial T}{\partial t}  \\
+    &= \frac{d}{d t} \left( \sum_{i=1}^{n} \frac{\partial T}{\partial \dot q_i} \dot q_i\right)  - \sum_{i=1}^{n}\left(\frac{d}{d t} \frac{\partial T}{\partial \dot q_i} - \frac{\partial T}{\partial q_i} \right) \dot q_i + \frac{\partial T}{\partial t} = \frac{d}{d t} (2 T_2 + T_1) - \sum_{i=1}^{n} Q_i^* \dot q_i + \sum_{i=1}^{n} \frac{\partial \Pi}{\partial q_i} \dot q_i+ \frac{\partial T}{\partial t} \\
+    &= 2 \frac{d T}{d t} - \frac{d}{d t} (T_1 + 2 T_0) - \sum_{i=1}^{n} Q_i^* \dot q_i  + \frac{\partial \Pi}{\partial t} - \frac{\partial \Pi}{\partial t} + \frac{\partial T}{\partial t}
+\end{aligned}
+    \]
+    \[\underbracket{\frac{d T}{d t} + \frac{d \Pi}{d t}}_{\frac{d E}{d t}} = \sum_{i=1}^{n} Q_i^* \dot q_i + \frac{\partial \Pi}{\partial t} + \frac{d}{d t} (T_1 + 2 T_0) - \frac{\partial T}{\partial T}\]
+
+\end{theorem}
+Мощность непотенциальных сил, частная производная непотенциальной энергии и вклад нестационарных связей
+
+В консервативных систмах:
+\[\frac{d E}{d t} = 0\]
+\end{document}
