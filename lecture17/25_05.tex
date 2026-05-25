@@ -1,0 +1,76 @@
+\documentclass[crop=false]{standalone}
+\input{../preamble.tex}
+\begin{document}
+\lecture{}{25.05}
+\section{Колебания систем с одной степенью свободы}
+% fixme картинка в телефоне
+\[T = \frac{m \dot \varphi^2 l^2}{2} \qquad \Pi = - m g l \cos \varphi \qquad L = \frac{m l^2 \dot \varphi^2}{2} + m g l \cos \varphi\]
+\[m l^2 \ddot \varphi - m g l \sin \varphi = Q^*\]
+\[Q^* = \frac{\delta a}{\delta \varphi} = \frac{- b^* \dot \varphi \delta \varphi}{\delta \varphi}\]
+\[m l^2 \ddot \varphi + m g l \sin \varphi = - b^* \dot \varphi\]
+\[\ddot \varphi + \frac{b^*}{m l^2} + \frac{g}{l} \sin \varphi = 0\]
+Линейное уравнение малых свободных затухающих колебаний около положения равновесия
+\[\ddot \varphi + \frac{b^*}{m l^2} \dot \varphi + \frac{g}{l} \varphi = 0 \qquad \ddot \varphi + 2 b \dot \varphi + \omega^2 \phi = 0\]
+При $2 b < 0$ система нефизична, при отрицательном коэффициенте при $\varphi$ равновесие неустойчиво
+\[\lambda_{1, 2} = - b \pm \sqrt{b^2 - \omega^2} \qquad \]
+\[b > \omega \implies \varphi = C_1 e^{\lambda_1 t} + C_2 e^{\lambda_2 t} \qquad \lambda_1 , \lambda_2 < 0\]
+\[b = \omega \implies \varphi = C_1 e^{-b t } + C_2 t e^{- b t}\]
+\[b < \omega \implies \varphi = C_1 \cos \lambda_1 t + C_2 \sin \lambda_2 t  = A e^{- b t} \cos\left( t \sqrt{\omega^2 - b^2} + \psi \right) \qquad \text{затухающее колебание}\]
+$A, \psi$ зависят от начальных условий
+
+Уравнение вынужденных колебаний
+\[\ddot \varphi + 2 b \dot \varphi+ \omega^2 \varphi = A \sin(\omega_0 t + \psi_0)\]
+\[\ddot \varphi + \omega^2 \varphi = A \sin(\omega_0 t + \psi_0)\]
+
+\[
+\begin{aligned}
+\left( A_0 \sin (\omega_0 t + \psi_0) \right)'' &= - A_0 \omega^2 \sin (\omega_0 t + \psi_0) 
+\end{aligned}
+\]
+\[- A_0 \omega^2 \sin(\omega_0 t + \psi_0) + \omega^2 A_0 \sin(\omega_0 t + \psi_0) = A \sin (\omega_0 t + \psi_0)\]
+\[A_0 = \frac{A}{\omega^2 - \omega_0^2} \qquad \varphi = C \cos(\omega t + \psi) + \frac{A}{\omega^2 \omega_0} \sin(\omega_0 t + \psi_0)\]
+В резонансном случае $\omega = \omega_0$ амплитуда колебаний будет увеличиваться
+
+Без диссипация уходит в бесконечность, с диссипацией локальный максимум
+%fixme картинка графика модуля амплитуды
+Если разложить синус на большое число членов ряда, то получаем осциляттор Дуффинга
+% fixme картинка кривой график в телефоне
+
+\section{для нескольких степеней свободы}
+\[\frac{d }{d t} \frac{\partial T}{\partial \dot q_i} - \frac{\partial T}{\partial q_i} = 0\]
+сдвиг: положение равновесия в нулевых обобщённых координатах, $Q_i(0) =0$
+Будем рассматривать только стационарные системы
+\[T = T_2 + \underbrace{T_1 + T_0}_0 = T_2 = \frac{1}{2} \sum_{i, j = 1}^n a_{i j} \dot q_i \dot q_j\]
+\[a_{i j} = a_{i j}(q_1, \dots , q_n) = a_{i j}^0 + \sum_{l=1}^n \left. \frac{\partial a_{i j}}{\partial q_l} \right|_{q_l = 0} q_l \qquad a_{i j}^0 = \left.\frac{\partial^2 T_2}{\partial \dot q_j \partial \dot q_i}\right|_{q = 0}\]
+\[T_2 \approx \frac{1}{2} \sum_{i, j =1}^{n} a_{i j}^0 \dot q_i \dot q_j\]
+% fixme 0 из коорд пространства некрасиво написано
+\[
+\begin{aligned}
+Q_i = \frac{-\partial \Pi}{\partial q_i} + Q_i^* \qquad Q_i &= Q_i(q, \dot q) = \sum_{j=1}^{n} \left. \frac{\partial Q_i}{\partial q_j} \right|_{q_j = 0 \; \dot q_j = 0} q_j + \sum_{j=1}^{n}  \left. \frac{\partial Q_i}{\partial q_j}\right|_{q_j = 0 \; \dot q_j = 0} + \dots \\
+&= - \sum_{j=1}^{n} \left. \frac{\partial^2 \Pi}{\partial q_i \partial q_j} \right|_{0 \text{из координатного пр-ва}} + \sum_{j=1}^{n} \left. \frac{\partial Q_i^*}{\partial q_j} \right|_{0} q_j + \sum_{j=1}^{n} \left. \frac{\partial Q_i^*}{\partial \dot q_j} \right|_0 \dot q_j \\
+&= - \sum_{j=1}^{n} c_{i j} q_j - \sum_{j=1}^{n} c_{i j}^* q_{i j} - \sum_{j=1}^{n} b_{ i j} \dot q_j \qquad c_{i j} = \left. \frac{\partial^2}{\partial q_i q_j}\right|_0 \quad c_{i j}^* = - \left.\frac{Q^*_i}{\partial q_j} \right|_0 \quad b_{i j} = - \left. \frac{\partial Q_i^*}{\partial \dot q_j} \right|_0
+\end{aligned}
+\]
+$c_{i j}$ — квази-упругие коэффициенты
+% fixme переписать у Дениса
+% fixme аксенов выбрал плохие знаки, потом выбрал так, чтобы получались плюсы в конце
+\[\frac{d}{d t} \sum_{j=1}^{n} a_{i j}^0 \dot q_j - 0 = \sum_{j=1}^{n} a_{i j}^0 \ddot q_j = Q_i = - \sum_{j=1}^{n} c_{i j} q_j - \sum_{j=1}^{n} c^*_{i j} q_j - \sum_{j=1}^{n} b_{i j} \dot q_j\]
+\[\sum_{j=1}^{n} a_{i j}^0 \ddot q_j  + \sum_{j=1}^{n} c_{i j} q_j + \sum_{j=1}^{n} c^*_{i j} q_j + \sum_{j=1}^{n} b_{i j} \dot q_j = 0 \]
+\[A \ddot {\bar q }+ B \dot {\bar q} + (C + C^*) \bar q =0 \qquad A = (a_{i j})\]
+Для потенциальных сил
+\[A \ddot{\bar q} + C \bar q = 0 \iff \ddot \theta_i + \lambda_i \theta_i = 0\]
+Утверждается, что существует такая замена, что системы эквивалентны
+\begin{proof}
+    \[\bar q = U \bar \theta\]
+    $A, C$ — задают квадратичные формы, $A$ надо перевести в единичную, $C$ в диагональную, $A$ положительно определена,  можно привести эти квадратичные формы одновременно к диагональному виду
+    
+    Сергей Алексеевич сказал, что квадратичные формы задают эллипсоиды, тогда:
+    \begin{enumerate}
+        \item поворот
+        \item масштабирование
+        \item поворот
+    \end{enumerate}
+\end{proof}
+Замечание:
+\[\theta_i = A_{i - 1} \sin(\sqrt \lambda_i t + \psi_{i-1})\]
+\end{document}
