@@ -1,0 +1,141 @@
+\documentclass[crop=false]{standalone}
+\input{../preamble.tex}
+\begin{document}
+\lecture{}{05.06}
+\Def Лагранжевы переменные
+\[q_1, \dots, q_n, \dot q_1, \dots, \dot q_n\]
+\Def Гамильтоновы переменные
+\[q_1, \dots, q_n, \dot p_1, \dots, \dot p_n\]
+\section{Интерпретация уравнений Гамильтона. Скобка Пуассона}
+\Def Первый интеграл — 
+\[f(p_1, \dots, p_n, q_1, \dots q_n, t)\]
+называется первым интегралом уравнения гамильтона, если при подстановке решений уравнений Гамильтона она обращается в константу
+
+\noindent \keypoint \[
+\begin{aligned}
+\frac{d f}{d t} &= \sum_{i=1}^{n} \frac{\partial f}{\partial q_i} \dot q_i + \sum_{i=1}^{n} \frac{\partial f}{\partial p_i} \dot p_i + \frac{\partial f}{\partial t} \\
+&= \sum_{i=1}^{n} \frac{\partial f}{\partial q_i} \frac{\partial H}{\partial p_i} - \sum_{i=1}^{n} \frac{\partial f}{\partial p_i} \frac{\partial H}{\partial q_i} + \frac{\partial f}{\partial t} = \underbracket{\sum_{i=1}^{n} \left( \frac{\partial f}{\partial q_i }\frac{\partial H}{\partial p_i} - \frac{\partial f}{\partial p_i} \frac{\partial H}{\partial q_i}\right)}_{\{f, H\}} + \frac{\partial f}{\partial t} = \{f, H\} + \frac{\partial f}{\partial t} = 0
+\end{aligned}
+\]
+\Def Скобка Пуассона $\{f, g\}$, где $f, g$ — функции Гамильтоновых переменных
+\[\{f, g\} = \sum_{i=1}^{n} \begin{vmatrix} \frac{\partial f}{\partial q_i} & \frac{\partial g}{\partial q_i} \\ \frac{\partial f}{\partial p_i} & \frac{\partial g}{\partial p_i} \end{vmatrix}\]
+\[\{q_i, H\} = \sum_{j=1}^{n} \begin{vmatrix}
+    \frac{\partial q_i}{\partial q_j} & \frac{\partial H}{\partial q_j} \\
+    \frac{\partial q_i}{\partial p_j} & \frac{\partial H}{\partial p_j}  
+\end{vmatrix} = \frac{\partial H}{\partial p_i} \qquad 
+\{p_i, H\} = \sum_{j=1}^{n} \begin{vmatrix}
+    \frac{\partial p_i}{\partial q_j} & \frac{\partial H}{\partial q_j} \\
+    \frac{\partial p_i}{\partial p_j} & \frac{\partial H}{\partial p_j}
+\end{vmatrix} = - \frac{\partial H}{\partial q_j}\]
+\keypoint Уравнения Гамильтона через скобки Пуассона
+\[\begin{cases}
+    \dot q_i = \{q_i, H\} \\
+    \dot p_i = -\{p_i, H\}
+\end{cases}\]
+\keypoint Свойства скобки Пуассона
+\begin{enumerate}
+    \item $\{f, g\} = - \{g, f\}$
+    \item $\{c f, g\} = \{ f, c g \} = c \{f , g\}$
+    \item $\frac{\partial}{\partial t} \{f, g\} = \{\frac{\partial f}{\partial t}, g\} = \{f, \frac{\partial g}{\partial t}\}$
+    \item $\{\{f, g\}, h\} + \{\{g, h\}, f\} + \{\{h, f\}, g\} = 0$
+\end{enumerate}
+\begin{proof}
+    упр % fixme
+\end{proof}
+
+\begin{theorem}[Якоби-Пуассона]
+    Скобка Пуассона двух первых интегралов уравнения Гамильтона является первым интегралом уравнения Гамильтона
+\end{theorem}
+\begin{proof}
+    $f,g$ :— первые интегралы уравнения Гамильтона
+    \[\{f, H\} + \frac{\partial f}{\partial t} = 0 \qquad \{g, H\} + \frac{\partial g}{\partial t} = 0\]
+    Автору конспекта неудобно писать эти скобки, далее $\{\{a, b\}, c\} = \{a, b , c\}$
+    \[
+    \begin{aligned}
+    \{\{f, g\}, H\} + \frac{\partial \{f, g\}}{\partial t} &= \{f, g, H\} + \{\frac{\partial f}{\partial t}, g\} + \{f, \frac{\partial g}{\partial t}\}  = \{f, g, H\} + \{-\{f , H\}, g\} + \{f, -\{g, H\}\} \\
+    &= \{f, g, H\} + \{H, f , g\} + \{g, H, f\} = 0
+    \end{aligned}\]
+\end{proof}
+Замечание:
+
+Достаточно найти $n$ первых интегралов, остальные выражаются через них
+
+Теорема Я-П полезна в численных методах, там накапливаются ошибки, полезно следить за первым интегралом для оценки ошибки
+
+\section{Интеграл Якоби}
+% fixme цитата
+\noindent \keypoint Цитата Аксенова: Ньютон кстати может и не математик в первую очередь, он же глава королевского монетного двора, может он вообще в первую очередь был политиком, вы знали что Ньютон был трейдером: купил кучу акция Ост-Индской компании и потерял кучу денег
+
+\noindent \keypoint \[\frac{d}{d t} H = \sum_{i=1}^{n} \frac{\partial H}{\partial q_i} \dot q_i + \sum_{i=1}^{n} \frac{\partial H}{\partial p_i} \dot p_i + \frac{\partial H}{\partial t} = \underbracket{\{H, H\}}_0 + \frac{\partial H}{\partial t}\]
+\[\frac{d H}{d t} = \frac{\partial H}{\partial t} \qquad H \text{ — I инт} \iff \frac{\partial H}{\partial t} = 0\]
+В консервативных системах Гамильтониан не зависит от времени явно, то есть является суммой потенциальной и кинетической энергий % fixme это всё что нужно было зафиксировать?
+
+\noindent \keypoint
+\[\frac{\partial H}{\partial t} := 0, f \text{ — I инт} \implies \{f , H\} = \frac{\partial f}{\partial t} = 0 \implies \frac{\partial f}{\partial t} =-\{f, H\} = \{H, f\}\]
+\[\frac{d}{d t} \left(\frac{\partial f}{\partial t}\right) = \{\frac{\partial f}{\partial t}, H\} + \frac{\partial^2 f}{\partial t^2} = 0 \implies \frac{\partial^2 f}{\partial t^2} = \{H,  \frac{\partial f}{\partial t}\} = \{H, \{H, f\}\} \]
+% fixme проверить что тройные скобки правильные
+Если система стационарна, то интеграл не зависит от времени, если находим её первый интеграл, то любая его частная производная по времени является первым интегралом
+\section{Циклические координаты}
+\Def Обобщённая координата называется циклической, если Лагранжиан(т.е. и Гамильтониан) от неё не зависит явно
+
+\noindent \keypoint Обобщённые импульсы соответсвующие циклическим координатам являются первыми интегралами системы
+\begin{proof}
+\[\frac{d}{d t} \underbracket{\frac{\partial L}{\partial \dot q_i}}_{p_i} + \underbracket{\frac{\partial L}{\partial q_i}}_0 \implies \dot p_i = 0\]
+Из предыдущих утверждений следует, что $p_i$ — первый интеграл
+\end{proof}
+\noindent \keypoint Цитата Аксенова: за вас никто учиться не будет, нейросети ..., ну кстати нейросети могут за вас учиться
+
+\section{Динамические уравнения Эйлера}
+\keypoint Из теоремы об изменении кинетического момента
+\[\frac{d \bar K'_O}{d t} = \bar M'_O\]
+
+$K', M'$ — кинетический момент и главный момент внешних сил, записанные в неподвижной системе координат
+
+$K, M$ — записанные в системе, связанной с твёрдым телом
+\[\bar K_O' = A \bar K_O \qquad \bar M_O' = A \bar M_O\]
+\keypoint \[\frac{d}{d t} A \bar K_O = A \bar M_O \]
+\[\dot A \bar K_O = \Omega' A \bar K_O = \bar \omega' \times A \bar K_O\]
+\[A \dot {\bar K}_O + \bar \omega' \times A \bar K_O = A \bar M_O \big| A^T \cdot\]
+\[\dot {\bar K}_O + \bar \omega \times \bar K_O = \bar M_O\]
+\[\dot {\bar K}_O = \dot J \bar \omega = \begin{pmatrix}
+    A \dot p \\ B \dot q \\ C \dot r
+\end{pmatrix}\]
+\[\begin{pmatrix}
+    A \dot p \\ B \dot q \\ C \dot r
+\end{pmatrix} + \begin{pmatrix}
+    p \\ q \\ r
+\end{pmatrix} \times \begin{pmatrix}
+    A p \\ B q \ C r
+\end{pmatrix} = \begin{pmatrix}
+    M_{Ox} \\ M_{Oy} \\ M_{Oz}
+\end{pmatrix}\]
+Динамические уравнения эйлера для твёрдого тела с неподвижной точкой
+\[
+\begin{cases}
+    A \dot p + q r (C - B) = M_{O x} \\
+    B \dot q + p r (A - C)= M_{O y} \\
+    C \dot r + p q ( B - A) = M_{O z}
+\end{cases}
+\]
+Замечание: Можно взять решения Динамических и подставить в кинематические, чтобы найти движение тела, 
+
+можно подставить решения кинематических в динамические, чтобы исследовать устойчивость вращения тела
+
+Случай Эйлера: на систему не действуют внешние силы, то есть правая часть равна нулю
+
+Первые интегралы в случае Эйлера:
+
+\[T = \frac{1}{2} \left(A p^2 + B q^2 + C r^2 \right)= \text{const}\]
+Из теоремы о сохранении кинетической энергии:
+\[A \dot p^2 + B \dot q^2 + C \dot r^2\]
+является первым интегралом
+
+\[\dot{\bar K}_O = 0 \qquad \left| \begin{pmatrix}
+    A p \\ B q \\ C r
+\end{pmatrix}\right| = \text{const}\]
+\[A^2 p^2 + B^2 q^2 + C^2 r^2 = \text{const}\]
+является вторым первым интегралом
+
+Замечание: Соотношения между $A, B, C$ характеризуют различные эффекты, например эффект Джанибекова
+
+\end{document}
