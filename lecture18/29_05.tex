@@ -1,0 +1,69 @@
+\documentclass[crop=false]{standalone}
+\input{../preamble.tex}
+\begin{document}
+% fixme везде съехало \hat{\dot q_i}
+\lecture{}{29.05}
+\section{Преобразования Лежандра}
+\[X(x_1, \dots, x_n) \qquad H_X \not \equiv 0\]
+где $H_X$ — гессиан $X$
+Новые переменные $y_1, \dots, y_n$:
+\[y_i = y_i(x_1, \dots, x_n) = \frac{\partial X}{\partial x_i}\]
+Вопрос, можно ли построить $Y(y_1, \dots, Y_n)$ , что старые переменные будут 
+\[x_i = \frac{\partial Y}{\partial y_i}\]
+Можно, это называется преобразованием Лежандра
+
+\noindent Замечание: функция $X$ по отношению к такой замене координат является производящей функцией
+
+\noindent \keypoint
+% fixme ставить \hat x сомнительно считаю, имеет смысл переделать, пока запишу так
+\[X(x_1, x_2) = \ln x_1 + x_2^2 \qquad x_i > 0\]
+\[y_1 = \frac{1}{x_1} \qquad y_2 = 2 x_2\]
+\[x_1 = \frac{1}{y_1} = \frac{\partial Y}{\partial y_1} \qquad x_2 = \frac{1}{2} y_2 = \frac{\partial Y}{\partial y_2}\]
+\[Y = \ln y_1 + \frac{y_1^2}{4}\]
+\[\hat Y(x_1, x_2) = Y(y_1(x_1, x_2), y_2(x_1, x_2)) = \ln \frac{1}{x_1} + x_2^2\]
+\[\hat X = \ln \frac{1}{y_1} + \frac{y_2^2}{4} \qquad \hat x_i = \hat x_i(y_1, \dots ,y_n)\]
+\[Y = \sum_{i=1}^{n} \hat x_i y_i - \hat X\]
+\[\frac{\partial Y}{\partial y_i} = \frac{\partial}{\partial y_i} \left( \sum_{j=1}^{n} \hat x_i y_i - \hat X\right) = \hat x_i + \sum_{j=1}^{n} y_i \frac{\partial \hat x_i}{\partial y_i} - \sum_{j=1}^{n} \frac{\partial X}{\partial x_j} \frac{\partial \hat x_j}{\partial y_i} = \hat x_i\]
+\[H_Y \not \equiv 0 \quad \boxed{Y = \sum_{i=1}^{n} \hat x_i y_i - \hat X} \iff \boxed{X = \sum_{i=}^{n} \hat y_i x_i - \hat Y}, \quad H_X \not \equiv 0\]
+\begin{proof}
+    симметрично, очевидно, можно подставить вместо 
+    \[\hat Y = \widehat{\left(\sum_{i=1}^{n} \hat x_i y_i - \hat X\right)}\] 
+\end{proof}
+\section{Преобразование Гамильтона}
+
+\keypoint \[L = T - \Pi = \frac{mv^2}{2} = \frac{m \ddot x^2}{2} + \frac{m \ddot y^2}{2} + \frac{m \ddot z^2}{2} - \Pi(x,y,z)\]
+\[m \bar v = \begin{pmatrix}
+    m v_x \\ m v_y \\ m v_z
+\end{pmatrix} = \begin{pmatrix}
+    m \dot x  \\ m \dot y \\ m \dot z
+\end{pmatrix}\qquad \frac{\partial L}{\partial \dot x_i} = m \dot x\]
+\Def Обобщённый импульс 
+\[p_i  = \frac{\partial L}{\partial \dot q_i}\]
+Замечание: конкретно в этом примере получилось, что обобщённые импульсы имеют тот же физический смысл, что и обычные
+\Def Ф-я Гамильтона (Гамильтониан)$H$ — это преобразование Лежандра функции лагранжа по обобщённым скоростям
+\[H(p_1, \dots, p_n, q_1, \dots q_n, t)\]
+\[p_i = \frac{\partial L}{\partial \dot q_i} \qquad L(\dot q_1, \dots, \dot q_n, q_1, \dots, q_n , t)\]
+\[H(p_1, \dots, p_n, \dot q_1, \dots, \dot q_n ,t) = \sum_{i=1}^{n} p_i \hat{\dot q_i} - \hat L \qquad H = \sum_{i=1}^{n} p_i \hat{\dot q_i} - \hat L \qquad L = \sum_{i=1}^{n} \hat p_i \dot q_i - \hat H \]
+\[\dot q_i = \frac{\partial H}{\partial p_i}\]
+\section{Уравнения Гамильтона}
+\[d H = \sum_{i=1}^{n} \frac{\partial H}{\partial p_i} d p_i + \sum_{i=1}^{n} \frac{\partial H}{\partial q_i} d q_i + \frac{\partial H}{\partial t} d t\]
+\[d H = d \left( \sum_{i=1}^{n} p_i \hat {\dot q_i} - \hat L\right) = \sum_{i=1}^{n} \hat{\dot q_i} d p_i + \sum_{i=1}^{n} p_i d \hat{\dot q_i} - \sum_{i=1}^{n} \underbracket{\frac{\partial L}{\partial \dot q_i}}_{p_i}  d \dot q_i - \sum_{i=1}^{n} \frac{\partial L}{\partial q_i} d q_i - \frac{\partial L}{\partial t} d t\]
+% fixme почему d \hat{\dot q_i} = d \dot q_i
+% fixme посмотреть у Дениса всё ли верно в конспекте
+\[H = \sum_{i=1}^{n} p_i \hat{\dot q_i} - \hat L \qquad L = \sum_{i=1}^{n} \hat p_i \dot q_i - \hat H\]
+\[\dot q_i = \frac{\partial H}{\partial p_i} \qquad \frac{\partial H}{\partial t} = - \frac{\partial L}{\partial t} \qquad \frac{\partial H}{\partial q_i} = - \frac{\partial L}{\partial q_i}\]
+Правая часть уравнения Лагранжа нуль
+\[\frac{d }{d t} \underbracket{\frac{\partial L}{\partial \dot q_i}}_{p_i} - \frac{\partial L}{\partial q_i} = 0\]
+Уравнения Гамильтона
+\[\boxed{\dot q_i = \frac{\partial H}{\partial p_i} \qquad \dot p_i = -\frac{\partial H}{\partial q_i}}\]
+\Def Гамильтонова система — механическая система, описываемая уравнениями Гамильтона
+\keypoint Консервативная системы всегда Гамильтоновы
+\section{Физический смысл Гамильтониана}
+\[L = T - \Pi \qquad L = L_2 + L_1 + L_0\]
+\[\hat H = \sum_{i=1}^{n} \hat p_i \dot q_i - L = \sum_{i=1}^{n} \frac{\partial L}{\partial \dot q_i} \dot q_i - L = \sum_{i=1}^{n} \underbrace{\frac{\partial L_2}{\partial \dot q_i} \dot q_i}_{2 L_2} + \sum_{i=1}^{n} \underbrace{\frac{\partial L_1}{\partial \dot q_i} \dot q_i}_{L_1} + \sum_{i=1}^{n} \underbrace{\frac{\partial L_0}{\partial \dot q_i} \dot q_i}_0 - L_2 - L_1 - L_0 = L_2 - L_0\]
+Равенства в силу теоремы Эйлеры об однородной функции
+\[H = L_2 - L_0 = T_2 - T_0 + \Pi\]
+В Склерономных системах $T_0 = 0, T_1 = 0$
+\[H = T_2 + \Pi = T + \Pi\]
+То есть в Консервативных системах гамильтониан равен полной энергии мех. системы
+\end{document}
