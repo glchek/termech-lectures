@@ -1,0 +1,128 @@
+\documentclass[crop=false]{standalone}
+\input{../preamble.tex}
+\begin{document}
+\lecture{}{08.06}
+\section{Исследование динамических уравнений Эйлера}
+\[
+\begin{cases}
+    A \dot p + q r (C - B) = M_{O x} \\
+    B \dot q + p r (A - C)= M_{O y} \\
+    C \dot r + p q ( B - A) = M_{O z}
+\end{cases}
+\]
+В случае Эйлера:
+\begin{enumerate}
+     \setcounter{enumi}{-1}
+    \item Нет движения
+    \[p = q = r = 0\]
+    \item 
+    Стационарное вращение
+    \[p = \text{ const } \qquad q =\text{ const } \qquad r = \text{ const }\]
+    Когда тело будет продолжать вращаться вокруг изначальной оси?
+    \[\begin{cases}
+        q r (C - B) = 0,\\
+        p r ( A - C) = 0, \\
+        pq (B - A) = 0
+    \end{cases}\]
+    \begin{enumerate}
+        \item Например Шар/Куб \[A = B = C\]
+        Не зависит от оси
+
+        \item
+        \[A = B \neq C \implies r = 0 \; \| \; p = q = 0\]
+        Вращение вокруг оси в плоскости $Oxy$, либо вращение вокруг оси перпендикулярной $Oxy$
+        \[A \neq B \; \&  \; B \neq C  \; \& \; A \neq C \implies \text{ хотя бы одна пара из проекций угловой скорсти равна нулю}\]
+        Вращение вокруг координатных осей
+    \end{enumerate}
+    \item 
+    Регулярная прецессиия динамически симметричного($A = B$) твёрдого тела
+    \[\begin{cases}
+        \dot p A + q r( C - A) = 0, \\
+        \dot q B + p r ( A - C) = 0, \\
+        \dot r C = 0
+    \end{cases} \qquad \dot r \implies r = r_0 = \text{ const}\]
+    \[C r_0 = C r = K_{O_z} = K_o \cos \theta = \text{ const} \qquad K_O = \frac{C r_o}{\cos \theta} \qquad \theta = \theta_0 = \arccos \frac{C r_0}{K_O} = \text{ const}\]
+    \[A p = K_{O_x} = K_O \sin \theta \sin \varphi \implies p = \frac{K_O}{A}\sin \theta \sin \varphi\]
+    \[A q = K_{O_y} = K_O \sin \theta \cos \varphi \implies q = \frac{K_O}{A} \sin \theta \cos \varphi\]
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{KOProjections.jpg}
+    \caption{}
+    \label{fig:myimage} 
+    \end{figure}
+    \[
+    \begin{cases}
+    p = \dot \psi \sin \theta_0 \sin \varphi = \frac{K_O}{A} \sin \theta_0 \sin \varphi \\ q = \dot \psi \sin \theta_0 \cos \varphi = \frac{K_O}{A} \sin \theta_0 \cos \varphi \\ r = \dot \psi \cos \theta_0 + \dot \varphi
+    \end{cases} \implies \begin{cases}
+        \dot \psi = \frac{K_O}{A}, \\
+        \dot \varphi = r - \dot \psi \cos \theta_0 = \frac{K_O}{C} \cos \theta_0 - \frac{K_O}{A} \cos \theta_0 = K_O \cos \theta_0 \left(\frac{A - C}{C A} \right) = r_0 \frac{A - C}{A}
+    \end{cases}
+    \]
+    \[
+    \boxed{
+    \begin{cases}
+    \theta_0 = \text{ const} \qquad \cos \theta_0 = \frac{C}{K_O} \cdot r_0  \\
+    \dot \psi = \frac{K_O}{A} \\ 
+    \dot \varphi = r_0 \cdot \frac{A- C}{A}
+    \end{cases}
+    }
+    \]
+    То есть если раскрутить тело не вокруг главной оси инерции, то оно начинает прецессировать
+    
+    Эти формулы описывают движение точки, в которой ось инерции протыкает Землю(Угловая скорость нуль), вокруг географическиого полюса Земли
+
+    Но на самом деле с Землёй всё сложнее, возникают Чандлеровские колебания
+\end{enumerate}
+\section{Геометрическая интерпретация Пуансо}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{precession.jpg}
+    \caption{}
+    \label{fig:myimage} 
+    \end{figure}
+\begin{enumerate}
+    \item \[\pi \perp \bar K_O\]
+    \begin{proof}
+    \[\bar n = \nabla (x^2 A + y^2 B + z^2 C) = \begin{pmatrix}
+        2 A x \\ 2 B y \\ 2 C z
+    \end{pmatrix} = 2 \lambda \begin{pmatrix}
+        A p \\ B q \\ C r
+    \end{pmatrix} = 2 \lambda \bar K_O\]
+\end{proof}
+    \item \[OQ = \frac{\sqrt{2 T}}{K_O}\]
+    \begin{proof}
+        \[OQ = \frac{(\bar OP, \bar K_O)}{K_O} = \frac{A x p + B y q + C z r}{\sqrt{A^2 p^2 + B^2 q^2 + C^2 r^2}} = \frac{\lambda (A p^2 + B q^2 + C r^2)}{K_O} = \frac{\frac{1}{\sqrt{2 T}} 2 T}{K_O} = \frac{\sqrt{2 T}}{K_O}\]
+    \end{proof}
+    \item По построению $OP \| \bar \omega$ \[OP = \lambda \bar \omega \qquad \lambda = \frac{1}{\sqrt{2 T}}\]
+    \begin{proof}
+        \[\bar OP = \lambda \bar \omega \qquad \begin{pmatrix}
+            x \\ y \\ z
+        \end{pmatrix} = \begin{pmatrix}
+            \lambda p \\ \lambda q \\ \lambda r
+        \end{pmatrix} \qquad x^2 A + y^2 B + z^2 C = 1\]
+        \[\lambda^2 (p^2 A + q^2 B + r^2 C) = \lambda^2 2 T = 1 \implies \lambda = \frac{1}{\sqrt{2 T}}\]
+    \end{proof}
+\end{enumerate}
+\noindent \keypoint При вращении точка $P$ будет заметать полоиду(не обязательно окружность)
+
+Художественный талант и лень автора не позволили ему нарисовать собственную рисунок, рисунок Сергея Алексеевича и рисунок с просторов Интернета:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{aks.jpg}
+    \includegraphics[width=0.45\textwidth]{web.jpg} %fixme будто съехало
+    \caption{}
+    \label{fig:myimage} 
+    \end{figure}
+
+\noindent \keypoint Замечание: как бы аккуратно не раскручивали тело, вокруг $z$ вращаться не будет, так как седло — положение неусточивое, то есть если твёрдое тело раскрутить вокруг оси соответствующей среднему моменту инерции, то угловая скорость начнёт периодически менять своё направление(Эффект Джанибеков)
+
+\noindent \keypoint Что не успели в курсе:
+\begin{itemize}
+    \item 
+    Элементарная теория гироскопа
+    \item
+    формула вынужденной прецессии твердого тела
+    \item
+    Задача двух тел, Законы Кеплера
+\end{itemize}
+\end{document}
