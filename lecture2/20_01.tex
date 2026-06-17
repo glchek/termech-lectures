@@ -6,7 +6,6 @@
 $r$ — взаимноодназначная
 \[\bar r(q_1, q_2, q_3)\]
 \section{Скорость}
-\[\bar v = \dot {\bar r} = \frac{d \bar r}{dt} = \frac{d}{dt} \bar r\left(q_1(t), q_2(t), q_3(t)\right) = \boxed{\sum_{i=1}^3 \frac{\partial \bar r}{\partial q_i} \dot q_i}\]
 \Def Координатная линия — это множество точек, которое возникает, когда вы начинаете менять одну из координат
 \begin{figure}[H]
     \centering
@@ -14,26 +13,27 @@ $r$ — взаимноодназначная
     \caption{}
     \label{fig:myimage} % Sets a label for cross-referencing
 \end{figure}
-Появился касательный вектор к координатной линии $\Gamma_i$, орт локального базиса:
+\Def Касательный вектор к координатной линии $\Gamma_i$(орт локального базиса):
 \[\bar e_i = \frac{\partial \bar r}{\partial q_i} / \left| \frac{\partial \bar r}{\partial q_i} \right|\]
 \Def Коэффициент Ламе
 \[H_i = \left| \frac{\partial \bar r}{\partial q_i} \right| \qquad \bar e_i = \frac{1}{H_i} \frac{\partial \bar r}{\partial q_i}\]
 Замечание: этот базис необязательно ортогональный
 \\
-Тогда скорость можно переписать как
-\[\bar v = \sum_{i = 1}^3 \bar e_i H_i \dot q_i\]
-\subsection{ОНЛБ}
-Для ортонормированного локального базиса справедливо:
+\keypoint \[\bar v = \dot {\bar r} = \frac{d \bar r}{dt} = \frac{d}{dt} \bar r\left(q_1(t), q_2(t), q_3(t)\right) = \boxed{\sum_{i=1}^3 \frac{\partial \bar r}{\partial q_i} \dot q_i = \sum_{i = 1}^3 \bar e_i H_i \dot q_i}\]
+\noindent \keypoint Для ортонормированного локального базиса справедливо:
 \[v = \sqrt{H_1^2 \dot q_1^2 + H_2^2 \dot q_2^2 + H_3^2 \dot q_3^2 }\]
 \section{Ускорение}
-\[
-\bar v = \begin{pmatrix}v_1 \\ v_2 \\ v_3 \end{pmatrix} \qquad v_i = H_i \dot q_i
-\]
-В ОНЛБ:
+
+\keypoint 
+
+для ОНЛБ,
+$\bar v := \begin{pmatrix}v_1 \\ v_2 \\ v_3 \end{pmatrix} \qquad v_i = H_i \dot q_i$
+\[w_i = \frac{1}{H_i}\left(\frac{d}{dt} \frac{\partial  \frac{v^2}{2}}{\partial \dot q_i} - \frac{\partial \frac{v^2}{2}}{\partial q_i}\right)\]
+\begin{proof}
 \[
 \begin{aligned}
 w_i = (\bar w, \bar e_i) &= \left(\frac{d}{dt} \bar v, \frac{1}{H_i} \frac{\partial \bar r}{\partial q_i}\right) = \frac{1}{H_i} \left( \frac{d}{dt} \bar v, \frac{\partial \bar r}{\partial q_i}\right) \\
-&= \left| \text{дифференцируем скалярное произведение} \left(\bar v, \frac{\partial \bar r}{\partial q_i}\right) \text{и вырыжаем результат} \right| \\
+&= \left| \text{дифференцируем скалярное произведение} \left(\bar v, \frac{\partial \bar r}{\partial q_i}\right) \text{и выражаем результат} \right| \\
 &= \frac{1}{H_i} \left( \frac{d}{dt} \left(\bar v, \frac{\partial \bar r}{\partial q_i}\right) - \left(\bar v, \frac{d}{dt} \frac{\partial \bar r}{\partial q_i} \right) \right) \\
 &\begin{array}[t]{l@{\qquad}l} % [t]
 \bar v = \frac{\partial \bar r}{\partial q_1} \dot q_1 + \frac{\partial \bar r}{\partial q_2} \dot q_2 + \frac{\partial \bar r}{\partial q_3} \dot q_3
@@ -44,17 +44,18 @@ w_i = (\bar w, \bar e_i) &= \left(\frac{d}{dt} \bar v, \frac{1}{H_i} \frac{\part
 \end{array} 
 \\
 &= \frac{1}{H_i} \left(\frac{d}{dt} \left(\bar v , \frac{\partial \bar v}{\partial \dot q_i}\right)- \left(\bar v, \frac{\partial \bar v}{\partial q_i}\right)\right) \\
-&= \frac{1}{H_i} \left(\frac{1}{2} \frac{d}{dt}\frac{\partial v^2}{\partial \dot q_i} -  \frac{1}{2} \frac{\partial v^2}{\partial q_i}\right) = \boxed{\frac{1}{H_i}\left(\frac{d}{dt} \frac{\partial  \frac{v^2}{2}}{\partial \dot q_i} - \frac{\partial \frac{v^2}{2}}{\partial q_i}\right)}
+&= \frac{1}{H_i} \left(\frac{1}{2} \frac{d}{dt}\frac{\partial v^2}{\partial \dot q_i} -  \frac{1}{2} \frac{\partial v^2}{\partial q_i}\right) = \frac{1}{H_i}\left(\frac{d}{dt} \frac{\partial  \frac{v^2}{2}}{\partial \dot q_i} - \frac{\partial \frac{v^2}{2}}{\partial q_i}\right)
 \end{aligned}
 \]
+\end{proof}
 \section{Твёрдое тело}
-\Def (Абсолютное) твёрдое тело — Система материальных точек, расстояние между которыми остаётся неизменным во всё время движения
+\Def (Абсолютное) Твёрдое тело — система материальных точек, расстояние между которыми остаётся неизменным всё время движения
 \subsection{Положение твёрдого тела с неподвижной точкой}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{ПоворотСК.jpg}
     \caption{}
-    \label{fig:myimage} % Sets a label for cross-referencing
+    \label{fig:myimage}
 \end{figure}
 \[M' \leftrightarrow M\]
 \[\bar r = \bar f (\bar r')\]
@@ -63,22 +64,23 @@ w_i = (\bar w, \bar e_i) &= \left(\frac{d}{dt} \bar v, \frac{1}{H_i} \frac{\part
 \end{pmatrix} = x \bar e_x + y \bar e_y + z \bar e_z = x' \bar e_{x'} + y' \bar e_{y'} + z' \bar e_{z'} = A \bar r'\]
 $A$ — матрица перехода
 \\
-\Def $A$ — матрица направляющих косинусов, причём
+\Def $A$ — матрица направляющих косинусов
+
+\noindent \keypoint 
 \[\det A = 1\]
-так как рассматриваем только повороты(без отражений)
+\begin{proof}повороты, а не отражения \end{proof}
 \subsection{Свойства матрицы направляющих косинусов}
 \begin{enumerate}
     \item 
-    хорошее Доказательство, что $A^{-1} = A^T$ есть у Перескокова
+    $A^{-1} = A^T$ есть у Перескокова
     \item
-    Элементы матрицы являются своими алгебраическими дополнениями
+    Элементы матрицы равны соответсвующим им алгебраическим дополнениям
     \item 
-    Собственные значения по модулю — единица
-    \item $C = AB$ — матрица направляющих косинусов, если $A, B$ – матрицы направляющих косинусов
-    \item существует группа поворотов
-    \item $a_{ij}$ это их алгебраические дополнения
+    Модули собственных значений равны единице
+    \item Если $A, B$ – матрицы направляющих косинусов, то $C = AB$ — матрица направляющих косинусов, 
+    \item Существует группа поворотов
 \end{enumerate}
 \begin{proof}
-    Замечание Глеба: всё это(кроме группы поворотов) было с доказательствами, но это всё есть в курсе линейной алгебры % fixme
+    Замечание Глеба: всё это(кроме группы поворотов) было с доказательствами в частном случае для трёхмерного пространства, но это всё есть в курсе линейной алгебры % fixme
 \end{proof}
 \end{document}
