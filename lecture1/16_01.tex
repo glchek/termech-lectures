@@ -63,7 +63,7 @@ $$\bar F_1 = - \bar F_2$$
 \end{minipage}
 \begin{minipage}[t]{0.48\textwidth}
     \[w = |\bar w| = \sqrt{w_x^2 + w_y^2 + w_z^2}\]
-    \[\bar w = \dot v\]
+    \[\bar w = \dot{\bar v}\]
 \end{minipage}
 \subsection{Естественное задание движения точки}
 \begin{figure}[H]
@@ -90,7 +90,7 @@ $$\bar F_1 = - \bar F_2$$
 \end{figure}
 Касательный вектор $\bar \tau$:
 \[\bar \tau = \frac{d \bar r}{ds} \; \; \; \; |\bar \tau| = 1\]
-\[\bar v = \frac{d \bar r}{dt} = \frac{d \bar r}{dt} \cdot \frac{ds}{dt} = \bar \tau v \implies \bar \tau = \frac{\bar v}{v}\]
+\[\bar v = \frac{d \bar r}{dt} = \frac{d \bar r}{d s} \cdot \frac{ds}{dt} = \bar \tau v \implies \bar \tau = \frac{\bar v}{v}\]
 
 \subsection{Кривизна траектории}
 \begin{figure}[H]
@@ -100,7 +100,7 @@ $$\bar F_1 = - \bar F_2$$
     \label{fig:myimage} % Sets a label for cross-referencing
 \end{figure}
 \Def Кривизна
-\[K := \lim_{\Delta s \to 0} \frac{\Delta \phi}{\Delta s} = \lim_{\Delta s \to 0} \frac{|\Delta \tau|}{|\bar \tau| \Delta s} = |\lim_{\Delta s \to 0} \frac{\Delta \bar \tau}{\Delta s} = \left|\frac{d \bar \tau}{ds}\right|\]
+\[K := \lim_{\Delta s \to 0} \frac{\Delta \phi}{\Delta s} = \lim_{\Delta s \to 0} \frac{|\Delta \tau|}{|\bar \tau| \Delta s} = \left| \lim_{\Delta s \to 0} \frac{\Delta \bar \tau}{\Delta s} \right| = \left|\frac{d \bar \tau}{ds}\right|\]
 \[1 = ( \bar \tau(s), \bar \tau(s)),\]
 \[
 0 = \left(\frac{d \bar \tau}{ds}, \bar \tau \right) + \left(\bar \tau , \frac{d \bar \tau}{ds}\right) = 2 \left(\frac{d \bar \tau}{ds}, \bar \tau\right) 
@@ -110,8 +110,8 @@ $$\bar F_1 = - \bar F_2$$
 Из ранее доказанного:
 \[(\bar n, \bar \tau) = 0\]
 \Def $\;$ Вектор бинормали:
-\[\bar b = (\bar \tau, \bar n)\]
-\[\bar w = \dot \bar v = \frac{d (\bar \tau, v)}{dt} = \frac{d \bar \tau}{dt} v + \bar \tau \frac{d \bar v}{dt} = \frac{d\bar \tau}{ds} \cdot \frac{ds }{dt} v  + \bar \tau \frac{d v}{dt} = \bar n k v^2 + \bar \tau \dot v\]
+\[\bar b = \bar \tau \times \bar n\]
+\[\bar w = \dot{\bar v} = \frac{d (\bar \tau, v)}{dt} = \frac{d \bar \tau}{dt} v + \bar \tau \frac{d \bar v}{dt} = \frac{d\bar \tau}{ds} \cdot \frac{ds }{dt} v  + \bar \tau \frac{d v}{dt} = \bar n k v^2 + \bar \tau \dot v\]
 \Def \;
 $k v^2 := w_n \; \; \; \;\dot v := w_\tau$ 
 \\
