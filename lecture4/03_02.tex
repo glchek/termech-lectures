@@ -8,7 +8,7 @@
     \item Квадрат угловой скорости: $I_1 = (\bar \omega, \bar \omega) = \omega^2$
     \item 
     \[ \bar v_Q = \bar v_P + \bar \omega \times \overline{PQ} \implies (\bar v_Q, \bar \omega) = (\bar v_P , \bar \omega) + (\bar \omega \times \overline{PQ}, \bar \omega) \qquad (\bar \omega \times \overline{PQ}, \bar \omega) = 0\] %fixme просто подписать, что это нуль прямо в строке
-    $I_2 = (\bar v_P, \bar \omega) = \text{пр}_{\bar \omega} \bar v_p \cdot w$
+    $I_2 = (\bar v_P, \bar \omega) = \text{пр}_{\bar \omega} \bar v_p \cdot \omega $
     \item 
     \[\bar v = \bar v_P + \bar \omega \times (\bar r - \bar r_P) = \alpha \bar \omega \qquad (\bar v_P, \bar \omega) + (\bar \omega \times (\bar r - \bar r_P), \bar \omega) = \alpha \omega^2 \quad (\bar \omega \times (\bar r - \bar r_P), \bar \omega) = 0 \quad (\bar v_P, \bar \omega) = I_2\]
     \[ \alpha = \frac{I_2}{I_1} \qquad \bar v_P + \bar \omega \times (\bar r - \bar r_P) = \frac{I_2}{I_1} \bar \omega\]
@@ -35,43 +35,49 @@
 \section{Сложное движение}
 \subsection{Скорость}
 $r'$ дан в подвижной системе координат
-\[\bar r = \bar r_{O'} + A r'\]
-$\bar r'(t)$  $v$ - ? , $w$ - ?
-\[\bar v = \dot{\bar r} = \frac{d}{dt}{\left(\bar r_{O'} + A \bar r \right)} = \bar v_{O'} + \dot A \bar r' + A \dot {\bar r}'  = \bar v_{O'} + \bar \omega \times (\bar r - \bar r_{O'}) + A \dot {\bar r}'\]
-\[\dot A r'= \dot A A^T A r' = \dot A A^T (\bar r - \bar r_{O'}) = \Omega (\bar r - \bar r_{O'}) = \bar \omega \times (\bar r - \bar r_{O'}) \]
-\[v^{\text{пер}} := \bar v_{O'} + \bar \omega \times (\bar r - \bar r_{O'}) \qquad \bar v^{\text{отн}} := A \dot {\bar r}'\]
+\[\bar r = \bar r_{O'} + A r' \implies r' = A^{-1} (\bar r - \bar r_{O'})\]
 \Def Переносная скорость – скорость с которой движется ск относительно неподвижной ск
 
-Доказали 
 \begin{theorem}[Кориолиса]
     \[\bar v = \bar v^{\text{пер}} + \bar v^{\text{отн}}\]
+\[v^{\text{пер}} = \bar v_{O'} + \bar \omega \times (\bar r - \bar r_{O'}) \qquad \bar v^{\text{отн}} = A \dot {\bar r}'\]
+
 \end{theorem}
+\begin{proof}
+    \[\bar v = \dot{\bar r} = \frac{d}{dt}{\left(\bar r_{O'} + A \bar r \right)} = \bar v_{O'} + \dot A \bar r' + A \dot {\bar r}'  = \bar v_{O'} + \bar \omega \times (\bar r - \bar r_{O'}) + A \dot {\bar r}'\]
+\[\dot A r' = \dot A A^T (\bar r - \bar r_{O'}) = \Omega (\bar r - \bar r_{O'}) = \bar \omega \times (\bar r - \bar r_{O'}) \]
+Из структуры формул понятно, что $\bar v_{O'} + \bar \omega \times (\bar r - \bar r_{O'})$ — переносная скорость, $A \dot {\bar r}'$ — относительная скорость
+\end{proof}
 \subsection{Ускорение}
-\[
-\begin{aligned}
-\bar w &= \dot {\bar v} = \dot{\bar v}_{O'} + \dot {\bar \omega} \times (\bar r - \bar r_{O'}) + \bar \omega \times \dot{\left(\bar r - \bar {r_{O'}}\right)} + \dot A \dot {\bar r}' + A \ddot{\bar r}' \\ 
-&= \underbracket{\bar w_{O'} + \bar \varepsilon \times (\bar r - \bar r_{O'}) + \bar \omega \times(\bar \omega \times (\bar r - \bar r_{O'}))}_{\bar w^{\text{пер}} \quad \text{формула Ривальса}} + \bar \omega \times \underbracket{A \dot{\bar r}'}_{\bar v^{\text{отн}}} + \dot A \dot{\bar r}' + \underbracket{A \ddot{\bar r}'}_{\bar w^{\text{отн}}} \\
-&\left| \dot A \dot{\bar r}' = \dot A A^T A \dot{ \bar r}' = \Omega \bar v^{\text{отн}} = \bar \omega \times v^{\text{отн}}\right| \\
-&= \bar w^{\text{пер}} + \underbracket{2(\bar \omega \times v^{\text{отн}})}_{\bar w^{\text{Кор}}} + \bar w^{\text{отн}} = \bar w^{\text{пер}} + \bar w^{\text{кор}} + \bar w^{\text{отн}} 
- \end{aligned}
- \]
 \begin{theorem}[Кориолиса]
-    \[\bar v = \bar v^{\text{отн}} + \bar v^{\text{отн}}\]
     \[\bar w = \bar w^{\text{пер}} + \bar w^{\text{Кор}} + \bar w^{\text{отн}} \]
     \[\bar w^{\text{Кор}} = 2 (\bar w \times \bar v^{\text{отн}})\]
 \end{theorem}
+\begin{proof}
+    \[
+\begin{aligned}
+\bar w &= \dot {\bar v} = \dot{\bar v}_{O'} + \dot {\bar \omega} \times (\bar r - \bar r_{O'}) + \bar \omega \times \dot{\left(\bar r - \bar {r_{O'}}\right)} + \dot A \dot {\bar r}' + A \ddot{\bar r}' \\ 
+&= \underbracket{\bar w_{O'} + \bar \varepsilon \times (\bar r - \bar r_{O'}) + \bar \omega \times(\bar \omega \times (\bar r - \bar r_{O'}))}_{\bar w^{\text{пер}} \quad \text{формула Ривальса}} + \bar \omega \times \underbracket{A \dot{\bar r}'}_{\bar v^{\text{отн}}} + \dot A \dot{\bar r}' + \underbracket{A \ddot{\bar r}'}_{\bar w^{\text{отн}}} \\
+&\left| \dot A \dot{\bar r}' = \Omega \bar v^{\text{отн}} = \bar \omega \times v^{\text{отн}}\right| \\
+&= \bar w^{\text{пер}} + \underbracket{2(\bar \omega \times v^{\text{отн}})}_{\bar w^{\text{Кор}}} + \bar w^{\text{отн}} = \bar w^{\text{пер}} + \bar w^{\text{кор}} + \bar w^{\text{отн}} 
+ \end{aligned}
+ \]
+ Из структуры формул понятно, что обозначения введены корректно
+\end{proof}
 \section{Сложное движение}
-\[A = A_2 A_1 = A_1 A_2'\]
-\[\bar r = A \bar r_0 = A_1 A_2' \bar r_0\]
-\[\bar v = \Omega \bar r = \bar \omega \times \bar r\]
+\keypoint
+для $A = A_2 A_1 = A_1 A_2'$, $\bar r = A \bar r_0 = A_1 A_2' \bar r_0$
+\[\bar v = \Omega \bar r = \bar \omega \times \bar r \qquad \bar \omega = \bar \omega_1 + \bar \omega_2\]
 \begin{proof}\[
 \begin{aligned}
-\bar v &= \dot A_1  A_2 \bar r_0 + A_1 \dot A_2' \bar r_0 = \underbracket{\dot A_1 A_1^T}_{\Omega_1} \underbracket{A_1 A_2' \bar r_0}_r + A_1 \underbracket{\dot A_2' A_2'^T}_{\Omega_2'} A_2' r_0 = \\
-&= \Omega_1 \bar r + A_1 \Omega_2' A_2' \bar r_0 = \Omega_1 \bar r + \Omega_2 \bar r = \bar \omega \times \bar r + \bar \omega_2 \times \bar r % fixme если непонятно, есть фото в телефоне
+\bar v &= \dot A_1  A_2' \bar r_0 + A_1 \dot A_2' \bar r_0 = \underbracket{\dot A_1 A_1^T}_{\Omega_1} \underbracket{A_1 A_2' \bar r_0}_r + A_1 \underbracket{\dot A_2' A_2'^T}_{\Omega_2'} A_2' r_0 = \\
+&= \Omega_1 \bar r + A_1 \Omega_2' A_2' \bar r_0 = \Omega_1 \bar r + \Omega_2 \bar r = \bar \omega_1 \times \bar r + \bar \omega_2 \times \bar r
 \end{aligned}
 \]
 \end{proof}
-\[\bar \varepsilon = \frac{d}{dt} \bar \omega = \dot{\bar \omega} = \frac{d}{dt}{\left(\bar \omega_1 + \bar \omega_2\right)} = \frac{d}{dt} (\bar \omega_1 + A_1 \bar \omega_2') = \bar \varepsilon_1' + \dot A_1 \bar \omega_2' + A_1 \bar \omega_2'  \qquad A_1 \dot{\bar {\omega}}_2' = A_1 \bar \varepsilon_2' = \bar \varepsilon_2  \]
-\[\bar \varepsilon = \bar \varepsilon_1 + \bar \omega_1 \times \bar \omega_2 + \bar \varepsilon_2 \qquad \dot A_1 \bar \omega_2' = \dot A_1 A_1^T A_1 \bar \omega_2' = \Omega \bar \omega_2' = \bar \omega_1 \times \bar \omega_2\]
-\[\boxed{\bar \varepsilon = \bar \varepsilon_1 + \bar \varepsilon_2 + \bar \omega_1 \times \bar \omega_2}\]
+\noindent \keypoint \[\boxed{\bar \varepsilon = \bar \varepsilon_1 + \bar \varepsilon_2 + \bar \omega_1 \times \bar \omega_2}\]
+\begin{proof}
+    \[\bar \varepsilon = \frac{d}{dt} \bar \omega = \dot{\bar \omega} = \frac{d}{dt}{\left(\bar \omega_1 + \bar \omega_2\right)} = \frac{d}{dt} (\bar \omega_1 + A_1 \bar \omega_2') = \bar \varepsilon_1 + \dot A_1 \bar \omega_2' + A_1 \dot {\bar \omega}_2'\]
+    \[A_1 \dot{\bar {\omega}}_2' = A_1 \bar \varepsilon_2' = \bar \varepsilon_2  \qquad \dot A_1 \bar \omega_2' = \dot A_1 A_1^T \bar \omega_2 = \bar \omega_1 \times \bar \omega_2\]
+\end{proof}
 \end{document}
