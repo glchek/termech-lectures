@@ -14,11 +14,9 @@
 
 \noindent \keypoint Если $I_1 \cdot I_2 \neq 0$, то произвольную систему сил можно свести к динаме
 \begin{proof}
-    Докажем, что существует $P^*$:
-     \[\bar M_{P^*} = k \bar R\]
-     \[\bar M_{P^*} = \bar M_P + \bar R \times \overline{P P^*} = k \bar R\]
-     \[I_2 = (\bar M_P , \bar R) =k R^2  = k I_1 \qquad k = \frac{I_2}{I_1}\]
-     \[\bar M_P + \bar R \times \overline{P P^*} = \frac{I_2}{I_1} \bar R \qquad \bar R \times \overline{P P^*} = \begin{pmatrix}
+    Докажем, что существует $P^*: \bar r$:
+     \[\bar M_{P^*} = \bar M_P + \bar R \times \left( \bar r - \bar r_P\right) = \alpha \bar R \qquad (\bar M_P , \bar R) = \alpha R^2 \qquad \alpha = \frac{I_2}{I_1}\]
+     \[\bar M_P + \bar R \times \left( \bar r - \bar r_P\right) = \frac{I_2}{I_1} \bar R \qquad \bar R \times \left( \bar r - \bar r_P \right) = \begin{pmatrix}
         R_x \\ R_y \\ R_z
      \end{pmatrix} \times \begin{pmatrix}
         x - x_P \\ y - y_P \\ z - z_P
@@ -60,46 +58,51 @@
 
 для каждой есть дифференциальная и интегральная формулировки
 
-\keypoint
-\[\dot{\bar Q} = M \bar w_C = \sum_{k=1}^{N} m_k \dot{\bar v}_k = \sum_{k=1}^{N} m_k w_k = \sum_{k=1}^N F_k = \bar R\]
-\[M \bar w_C = \bar R\]
-Если $\bar R = 0$, то центр масс либо покоится, либо движется равномерно прямолинейно
-
+\subsection{Изменение количества движения}
+Дифференциальная форма
+\[\dot{\bar Q} = \sum_{k=1}^{N} m_k w_k = \sum_{k=1}^N F_k = \bar R\]
 Интегральная форма:
 \[\Delta \bar Q = \bar Q_2 - \bar Q_1 = \int_{t_1}^{t_2} \bar R dt \quad \text{ — импульс силы }\]
-
-\noindent \keypoint
-
-\[
-\begin{aligned}
-\dot{\bar K}_P &= \frac{d}{d t}\left(\sum_{k=1}^{N} (\bar r_k - \bar r_P) \times m_k \bar v_k \right)
-= \sum_{k=1}^{N} (\dot{\bar r}_k - \dot{\bar r}_P) \times m_k \bar v_k  + \underbracket{\sum_{k=1}^{N} (\bar r_k - \bar r_P) \times \underbracket{m_k \bar w_k}_{\bar F_k}}_{\bar M_P}
-\\ &= \sum_{k=1}^N \bar v_k \times m_k \bar v_k - \sum_{k=1}^N \bar v_P \times m_k \bar v_k +\bar M_P = -\bar v_P \times \sum_{k=1}^N m_k \bar v_k + \bar M_P
-\\ &= - \bar v_P \times \bar Q + \bar M_P = \bar Q \times v_P + \bar M_P
-\end{aligned}
-\]
-\[\boxed{\dot {\bar K}_P  = \bar Q \times \bar v_P + \bar M_P}\]
-Заметим:
-\[\bar v_P = 0 \iff \dot {\bar K}_P = \bar M_P \]
-Заметим:
-\[\bar v_P = \bar v_C \iff \dot{\bar K}_C = \bar M_C\]
+Следствие: Если $\bar R = 0$, то центр масс либо покоится, либо движется равномерно прямолинейно
 \begin{proof}
-    \[\bar Q \times \bar v_C = M \bar v_C \times \bar v_C = 0\]
+    $\dot {\bar Q} = M \bar w_C$
 \end{proof}
-Интегральная форма:
+
+
+\subsection{Изменение момента количества движения}
+Дифференциальная форма
+\[\dot {\bar K}_P  = \bar Q \times \bar v_P + \bar M_P\]
+Интегральная форма
 \[\Delta \bar K_O = \int_{t_1}^{t_2} \bar M_O dt \text{ — импульс момента}\]
+\begin{proof}
+    \[
+        \begin{aligned}
+            \dot{\bar K}_P &= \frac{d}{d t}\left(\sum_{k=1}^{N} (\bar r_k - \bar r_P) \times m_k \bar v_k \right)
+            = \sum_{k=1}^N \bar v_k \times m_k \bar v_k - \sum_{k=1}^N \bar v_P \times m_k \bar v_k  + \underbracket{\sum_{k=1}^{N} (\bar r_k - \bar r_P) \times \underbracket{m_k \bar w_k}_{\bar F_k}}_{\bar M_P}
+            \\ &= \bar Q \times v_P + \bar M_P
+        \end{aligned}
+        \]
+\end{proof}
+Следствия:        
+        \[\bar v_P = 0 \iff \dot {\bar K}_P = \bar M_P  \qquad \bar v_P = \bar v_C \iff \dot{\bar K}_C = \bar M_C\]
+        \begin{proof}
+            \[\bar Q \times \bar v_C = M \bar v_C \times \bar v_C = 0\]
+        \end{proof}
 
-\noindent \keypoint
-\[\dot T = \frac{1}{2} \frac{d}{d t}\left(\sum_{k=1}^N m_k v_k^2\right) = \sum_{k=1}^N m_k (\dot{\bar v}_k, \bar v_k) = \sum_{k=1}^N (m_k \bar w_k,\bar v_k) = \sum_{k=1}^N (\bar F_k, \bar v_k)\]
-это совопупная мощность всех сил и это мощность внутренних и внешних сил
-
-\[d T = \frac{1}{2} \sum_{k=1}^N m_k d v_k^2 = \sum_{k=1}^N m_k (\bar v_k, d \bar v_k) = \sum_{k=1}^N (m_k \bar w_k d t, \bar v_k) = \sum_{k=1}^N (\bar F_k, \bar v_k d t) = \sum_{k=1}^N (\bar F_k , d r_k) = d' A\]
-Работа всех сил на действительных перемещениях
-\[\boxed{\dot T = \sum_{k=1}^N(\bar F_k, \bar v_k)}\]
-\[d T = d' A\]
-Интегральная форма:
+\subsection{Изменение кинетической энергии}
+Дифференциальная форма
+\[\dot T = \sum_{k=1}^N(\bar F_k, \bar v_k)\]
+Интегральная форма
 \[T_2 - T_1 = \int_{t_1}^{t_2} d' A = A_{1 2}\]
+\begin{proof}
+\[\dot T = \frac{1}{2} \frac{d}{d t}\left(\sum_{k=1}^N m_k v_k^2\right) = \sum_{k=1}^N m_k (\dot{\bar v}_k, \bar v_k)  = \sum_{k=1}^N (\bar F_k, \bar v_k)\]
+это совокупная мощность всех сил, то есть мощность внутренних и внешних сил
 
+\[d T = \frac{1}{2} \sum_{k=1}^N m_k d v_k^2 = \sum_{k=1}^N (m_k \bar w_k d t, \bar v_k) = \sum_{k=1}^N (\bar F_k , d \bar r_k) = d' A\]
+Работа всех сил на действительных перемещениях
+
+\[d T = d' A\]
+\end{proof}
 \begin{theorem}[Закон сохранения импульса]
 Если главный вектор равен 0, 
 
