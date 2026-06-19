@@ -11,17 +11,20 @@
 \section{Движение относительно центра масс}
 
 \Def Кёнигова система координат — ск, центр координат которой совпадат с центром масс системы, а оси движутся поступательно
+
 Штрихованое — в Кёниговой системе координат
-\[
-\bar Q' = M \bar v_c ' = 0
-\]
-\[\begin{aligned}
-    \bar K_p ' &= \bar K_C ' + \bar Q \times \overline{CP} = \bar K_C ' = \sum_{k=1}^{N} (\bar r_k ' - \bar r_C ') \times \bar v_k ' m_k \\
-    &= \sum_{k=1}^{N} (\bar r_k - \bar r_C) \times (\bar v_k - \bar v_C) m_k = \sum_{k=1}^{N} (\bar r_k - \bar r_C) \times \bar v_k m_k - \sum_{k=1}^{N} (\bar r_k - \bar r_C) \times \bar v_C m_k \\ % FIXME можно подробнее записать
-    & \Bigg| \sum_{k=1}^{N} (\bar r_k - \bar r_C) m_k = \sum_{k=1}^{N} \bar r_k m_k - \sum_{k=1}^{N} \bar r_C m_k = M \bar r_C - M \bar r_c = 0 \Bigg|  \\
-    &= \bar K_C
-\end{aligned}
-\]
+
+\noindent \keypoint \[
+\bar Q' = M \bar v_c ' = 0 \qquad \bar K_p' = \bar K_C' = \bar K_C\]
+\begin{proof}
+    \[\begin{aligned}
+        \bar K_p ' &= \bar K_C ' + \bar Q' \times \overline{CP} = \bar K_C ' = \sum_{k=1}^{N} (\bar r_k ' - \bar r_C ') \times \bar v_k ' m_k \\
+        &= \sum_{k=1}^{N} (\bar r_k - \bar r_C) \times (\bar v_k - \bar v_C) m_k = \sum_{k=1}^{N} (\bar r_k - \bar r_C) \times \bar v_k m_k - \sum_{k=1}^{N} (\bar r_k - \bar r_C) \times \bar v_C m_k \\ % FIXME можно подробнее записать
+        & \Bigg| \sum_{k=1}^{N} (\bar r_k - \bar r_C) m_k = \sum_{k=1}^{N} \bar r_k m_k - \sum_{k=1}^{N} \bar r_C m_k = M \bar r_C - M \bar r_c = 0 \Bigg|  \\
+        &= \bar K_C
+    \end{aligned}
+    \]
+\end{proof}
 \begin{theorem}[Кёнига]
     Кинетическая энергия системы равна её кинетической энергии, расчитанной к Кёниговой системе координат и кинетической энергии её центра масс
     \[\boxed{T = T ' + \frac{1}{2} M v_C^2}\]
@@ -91,9 +94,10 @@ S_x \\ S_y \\ S_z
 J_{\bar u} &= \sum_{k=1}^{N} m_k (x_k^2 + y_k^2 + z_k^2 - (\alpha x_k + \beta y_k + \gamma z_k)^2) \\
 & = \sum_{k=1}^{N} m_k( x_k^2 + y_k^2 + z_k^2 - \alpha^2 x_k^2 - \beta^2 y_k^2  - \gamma^2 z_k^2 - 2 \alpha \beta x_k y_k - 2 \alpha \gamma x_k z_k - 2\beta \gamma y_k z_k)\\
 & \qquad \Bigg|\alpha^2 + \beta^2 + \gamma^2 = 1\Bigg| \\
-&= \sum_{k=1}^{N} (x_k^2 ( \beta^2 + \gamma^2)+ y_k^2 (\alpha^2 + \beta^2) + z_k^2 ( \beta^2 + \gamma^2)  - 2 \alpha \beta x_k y_k - 2 \alpha \gamma x_k z_k - 2\beta \gamma y_k z_k) m_k \\
-&= \alpha^2 \sum_{k=1}^{N} m_k(y_k^2 + z_k^2) + \beta^2 \sum_{k=1}^{N} m_k (x_k^2 + z_k^2) + \gamma^2 \sum_{k=1}^{N} m_k(y_k^2 + x_k^2) - 2 \alpha \beta \sum_{k=1}^{N} m_k x_k y_k - 2 \beta \gamma\sum_{k=1}^{N} y_k z_k - 2 \alpha \gamma \sum_{k=1}^{N} m_k x_k z_k \\
-&= \alpha^2 J_x + \beta^2 J_y + \gamma^2 J_z - 2 \alpha \beta J_{x y} - 2 \alpha \gamma J_{x z} - 2 \beta \gamma J_{y z} = \bar u^T J \bar u
+&= \sum_{k=1}^{N} (x_k^2 ( \beta^2 + \gamma^2)+ y_k^2 (\alpha^2 + \beta^2) + z_k^2 (\alpha^2 + \beta^2 )  - 2 \alpha \beta x_k y_k - 2 \alpha \gamma x_k z_k - 2\beta \gamma y_k z_k) m_k \\
+&= \alpha^2 \sum_{k=1}^{N} m_k(y_k^2 + z_k^2) + \beta^2 \sum_{k=1}^{N} m_k (x_k^2 + z_k^2) + \gamma^2 \sum_{k=1}^{N} m_k(y_k^2 + x_k^2) + \\
+&- 2 \alpha \beta \sum_{k=1}^{N} m_k x_k y_k - 2 \beta \gamma\sum_{k=1}^{N} y_k z_k - 2 \alpha \gamma \sum_{k=1}^{N} m_k x_k z_k \\
+&= \alpha^2 J_x + \beta^2 J_y + \gamma^2 J_z - 2 \alpha \beta J_{x y} - 2 \beta \gamma J_{y z} - 2 \alpha \gamma J_{x z}  = \bar u^T J \bar u
 \end{aligned}
 \] % fixme
 Тензор инерции:
