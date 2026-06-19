@@ -24,21 +24,20 @@
     \end{aligned}
     \]
 \end{proof}
-$\bar u_C$ — ось проходящая через центр масса, сонаправленная с $\bar u$
+Следствие: $\bar u_C$ — ось проходящая через центр масса, сонаправленная с $\bar u$
 \[J_{\bar u} = J_{\bar u_C} + M d^2 \qquad d \text{ — расстояние между осями}\]
 %fixme картинка с двумя осями, и расстоянием между ними
-\[J_{\bar u} = \bar u ^T J \bar u = \alpha^2 J_x + \beta^2 J_y + \gamma^2 -2 \alpha \beta J_{xy} - 2 \beta \gamma J_{yc} - 2\alpha \gamma J_{xz}\]
+
+\noindent\keypoint \[J_{\bar u} = \bar u ^T J \bar u = \alpha^2 J_x + \beta^2 J_y + \gamma^2 J_z -2 \alpha \beta J_{xy} - 2 \beta \gamma J_{yc} - 2\alpha \gamma J_{xz}\]
 \keypoint Положительно определённая квадратичная форма % fixme почему?
 
-Тогда существует ск, в которой она задаёт эллипс
+\Def Тогда существует ск, в которой она задаёт эллипсоид инерции
 \[A x^2 + B y^2 + C z^2 = 1 \]
-\Def главная система координат — система координат в которой тензор инерци твёрдого тела имеет вид 
+\Def Главная система координат — система координат в которой тензор инерции твёрдого тела имеет вид 
 \[J = \begin{pmatrix}
     A & 0& 0\\0 & B & 0\\ 0&0& C 
 \end{pmatrix}\]
-Её оси — главными осями твёрдого тела
-\Def Эллипсоид инерции
-\[A x^2 + B y^2 + C z^2 = 1 \]
+Её оси будем называть главными осями твёрдого тела
 
 \noindent \keypoint
 \[\bar r^T J \bar r = 1 \qquad r^2 \bar u^T J \bar u = 1 \qquad r = \sqrt{\frac{1}{J_{\bar u}}} = \frac{1}{\sqrt{J_{\bar u}}}\]
