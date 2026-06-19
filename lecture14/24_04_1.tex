@@ -1,0 +1,24 @@
+\documentclass[crop=false]{standalone}
+\input{../preamble.tex}
+\begin{document}
+\lecture{}{24.04}
+\Def Центральное поле сил — поле сил, такое что
+\[\bar F(\bar r) = F(r) \cdot \frac{\bar r}{r}\]
+то есть величина силы зависит только от расстояния до начала координат и коллинеарна радиус вектора
+
+\noindent \keypoint Центральное поле сил потенциально
+\begin{proof}
+    \[(\bar F, d \bar r) = \left(F(r) \frac{\bar r}{r}, d \bar r\right) = F(r) \frac{d r^2}{2 r} = F(r) d r\]
+    То есть для центрального поля сил элементарная работа равна $F(r) dr$
+    
+    То есть работа и будет потенциальной функцией
+    \[U(r) = \int_{r_0}^r F d r\]
+    \[\frac{\partial U}{\partial \bar r} = \frac{\partial U}{\partial r} \cdot \frac{\partial r}{\partial \bar r} = F \frac{\partial r}{\partial \bar r} = F \begin{pmatrix}
+        \frac{\partial r}{\partial x} \\ \frac{\partial r}{\partial y} \\ \frac{\partial r}{\partial z}
+    \end{pmatrix} \qquad \frac{\partial r}{\partial x} = \frac{\partial \sqrt{x^2 + y^2 + z^2}}{\partial x} = \frac{2 x}{2 \sqrt{x^2 + y^2 + z^2}} = \frac{x}{r}\]
+    То есть
+    \[\frac{\partial U}{\partial \bar r} = F \frac{\bar r}{r}\]
+\end{proof}
+Упражение: доказать, что сила тяжести потенциальна
+
+\end{document}
