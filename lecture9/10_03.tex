@@ -89,40 +89,51 @@
 
 Движение системы таково, что совокупная работа активных сил и сил инерции на виртуальных перемещениях равна нулю
 
+\noindent \keypoint В неинерциальной системе отсчёта
 \[
 \bar w_k = \bar w_k^{\text{отн}} + \bar w_k^{\text{кор}} + \bar w_k^{\text{пер}}\]
-В неинерциальной системе отсчёта
-\[\sum_{k=1}^{N} \left( \bar F_k - \underbracket{\bar w_k^{\text{кор}} m_k}_{J^{\text{кор}}} - \underbracket{\bar w_k^{\text{пер}} m_k}_{J_k^{\text{пер}}} - \bar w_k^{\text{отн}} m_k \right) \delta \bar r_k = 0\]
-любая связь может быть заменена её реакцией
+Тогда 
+\[\sum_{k=1}^{N} \left( \bar F_k - \underbracket{\bar w_k^{\text{кор}} m_k}_{J_k^{\text{кор}}} - \underbracket{\bar w_k^{\text{пер}} m_k}_{J_k^{\text{пер}}} - \underbracket{\bar w_k^{\text{отн}} m_k}_{J_k^\text{отн}} \right) \delta \bar r_k = 0\]
+\keypoint Любая связь может быть заменена её реакцией
 \[\sum_{k=1}^{N} \left(\bar F_l + \bar G_k - \bar w_k m_k \right) \delta \bar r_k =0 \qquad \text{где }\bar G_k \text{ — реакция неидеальных связей}\]
 
 \section{Равновесие}
 \Def Положение равновесия механической системы — положение системы, в котором она будет неподвижна на протяжении всего времени, если она изначально была неподвижна
 
-$\bar v_k = 0 \quad \bar w_k = 0$ и общее уравнение динамики, тогда
-\[\boxed{\sum_{k=1}^{N} \bar F_k \delta r_k = 0} \qquad \text{Принцип виртуальных перемещений}\]
-Система нафходится в равновесии $\iff$ работа активных сил на виртуальных перемещениях равна нулю
 
-\keypoint
-Голономная система
-\[
-\delta \bar r_k = \sum_{k=1}^{n} \frac{\partial \bar r_k}{\partial q_i
-} \delta q_i 
-\qquad
-\sum_{k=1}^{N} \bar F_k \left(\sum_{i=1}^{n} \frac{\partial \bar r_k}{\partial q_i
-} \delta q_i \right) = \sum_{i=1}^{n} \left(\underbracket{\sum_{k=1}^{N} \bar F_k \frac{\partial \bar r_k}{\partial q_i}}_{Q_i}\right) \delta q_i \qquad Q_i \text{ — обобщенная сила (Опр)}\]
-\[\sum_{k=1}^{N} \bar F_k \delta r_k = \sum_{i=1}^{n} Q_i \delta q_i =0 \iff Q_i = 0\]
-$\delta \bar r_k$ зависимы, а $\delta q_i$ независимы
-\[
-\begin{cases}
-\delta q_k \neq 0 \\
-\delta q_i = 0 \; i \neq k
-\end{cases}
-\implies Q_k = 0
-\]
+\noindent \keypoint
+
+Система нафходится в равновесии 
+
+$\iff$
+
+Работа активных сил на виртуальных перемещениях равна нулю
+\[\boxed{\sum_{k=1}^{N} \bar F_k \delta r_k = 0} \qquad \text{Принцип виртуальных перемещений}\]
+\begin{proof}
+    $\bar v_k = 0 \quad \bar w_k = 0$ и общее уравнение динамики
+\end{proof}
+
+\noindent \keypoint
+
+для голономной системы
 
 Принцип виртуальных перемещений: все обобщённые силы равны нулю
+\begin{proof}
+    \[
+        \delta \bar r_k = \sum_{k=1}^{n} \frac{\partial \bar r_k}{\partial q_i
+        } \delta q_i 
+        \qquad
+        \sum_{k=1}^{N} \bar F_k \left(\sum_{i=1}^{n} \frac{\partial \bar r_k}{\partial q_i
+        } \delta q_i \right) = \sum_{i=1}^{n} \left(\underbracket{\sum_{k=1}^{N} \bar F_k \frac{\partial \bar r_k}{\partial q_i}}_{Q_i}\right) \delta q_i \qquad Q_i \text{ — обобщенная сила (Опр)}\]
+        $\delta q_i$ независимы в голономной системе:
+        \[\left(\begin{cases}
+                \delta q_k \neq 0 \\
+                \delta q_i = 0 \; i \neq k
+            \end{cases}
+            \implies Q_k = 0\right) \implies \left(\sum_{k=1}^{N} \bar F_k \delta r_k = \sum_{i=1}^{n} Q_i \delta q_i =0 \iff Q_i = 0\right)\]
+\end{proof}
+            
 
-размерность Обобщённых сил
+\noindent \keypoint Размерность Обобщённых сил
 $\left[ Q_i\right] = \frac{\text{Дж}}{\left[q_i \right]}$
 \end{document}
