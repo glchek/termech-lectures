@@ -42,10 +42,12 @@
 \noindent \keypoint \[L^1 = L^0 + C + \frac{d}{d t} F(q_1, \dots, q_n, t)\]
 $L^1$ описывает ту же мех. систему, что и $L^0$
 \begin{proof}
-    \[\frac{d F}{d t} = \sum_{i=1}^{n} \frac{\partial F}{\partial q_i} \dot q_i + \frac{\partial F}{\partial t} \implies \boxed{\frac{\partial }{\partial{q_i}}\frac{d F}{d t} = \frac{\partial F}{\partial q_i}}\]
-    \[\frac{d }{d t} \frac{\partial F}{\partial \dot q_i} = \frac{\partial}{\partial \dot q_i} \frac{d F}{d t} = \frac{\partial F}{\partial q_i}\]
-    \[\frac{d}{d t} \frac{\partial ( L + \frac{d F}{d t})}{\partial \dot q_i} - \frac{\partial (L + \frac{d F}{d t})}{\partial q_i} = Q_i^*\]
-    \[\frac{d }{d t } \frac{\partial }{\partial \dot q_i} \frac{d F}{d t} - \frac{\partial }{\partial q_i} \frac{d F}{d t} = 0 \qquad \frac{d }{d t} \left( \frac{\partial}{\dot q_i} \frac{d F}{d t} - \frac{\partial F}{\partial q_i}\right) = 0\]
+    \[
+    \begin{aligned}
+    &\frac{d F}{d t} = \sum_{i=1}^{n} \frac{\partial F}{\partial q_i} \dot q_i + \frac{\partial F}{\partial t} \implies \frac{\partial }{\partial \dot {q_i}}\frac{d F}{d t} = \frac{\partial F}{\partial q_i} \\
+    &\frac{d}{d t} \frac{\partial ( L + \frac{d F}{d t})}{\partial \dot q_i} - \frac{\partial (L + \frac{d F}{d t})}{\partial q_i} = Q_i^* \qquad \frac{d }{d t } \frac{\partial }{\partial \dot q_i} \frac{d F}{d t} - \frac{\partial }{\partial q_i} \frac{d F}{d t} = 0 \qquad \frac{d }{d t} \frac{\partial}{\dot q_i} \frac{d F}{d t} - \frac{d}{d t}\frac{\partial F}{\partial q_i} = 0
+    \end{aligned}
+    \]
 \end{proof}
 
 \section{Устойчивое положение равновесия}
