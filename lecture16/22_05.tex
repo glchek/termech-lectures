@@ -4,6 +4,7 @@
 \lecture{}{22.05}
 Производная константы нуль, потенциальная энергия определена с точносью до константы, значит, лагранжиан механической системы тоже определён с точностью до константы
 
+\section{Гироскопические и диссипативные силы}
 \Def Гироскопические силы — силы, мощность которых равна нулю
 \[N^* = \sum_{i=1}^{n} Q_i^* \dot q_i = 0\]
 
@@ -15,25 +16,30 @@
 \[\qquad R = \frac{1}{2} \sum_{i, j=1}^{n} b_{i j} \dot q_i \dot q_j \quad b_{i j} = b_{j i} \qquad Q_i^* = - \frac{\partial R}{\partial \dot q_i}  = -\sum_{j=1}^{n} b_{i j} \dot q_j\]
 \[N^* = - \sum_{i=1}^n \sum_{j=1}^n b_{i j} \dot q_i \dot q_j = - 2 R\]
 
-\keypoint $Q_i$ диссиптавные $\iff$ матрица $(\gamma_{i j})$ была антисимметричной
+\keypoint $Q_i$ гироскопические $\iff$ матрица $(\gamma_{i j})$ антисимметрична
 \[Q_i^* = \sum_{j=1}^{n} \gamma_{i j} \dot q_j\]
 \begin{proof}
-    \[N^* = \sum_{i=1}^n \sum_{j=1}^{n} \gamma_{i j} \dot q_i \dot q_j = \sum_{i=j}^{n} \gamma_{i j} \dot q_i^2 + \sum_{i < j}^{n} (\gamma_{i j} + \gamma_{j i}) \dot q_i \dot q_j = 0\]
+    \[N^* = \sum_{i=1}^n \sum_{j=1}^{n} \gamma_{i j} \dot q_i \dot q_j = \sum_{i=1}^{n} \gamma_{i i} \dot q_i^2 + \sum_{i < j}^{n} (\gamma_{i j} + \gamma_{j i}) \dot q_i \dot q_j = 0\]
 \end{proof}
 
-\noindent \keypoint
+\section{Обобщённый потенциал}
+\Def Если существует $V$, такая что для $Q_i$ выполняется $(*)$, то такие силы называются обобщённо потенциальными, а $V$ обобщённым потенциалом
 \[\left(\frac{d}{d t} \frac{\partial ( T - V)}{\partial \dot q_i} - \frac{\partial (T - V)}{\partial q_i} = 0 \iff \frac{d}{d t} \frac{\partial T}{\partial \dot q_i} - \frac{\partial T}{\partial q_i} = Q_i \right)\implies Q_i = \frac{d }{d t} \frac{\partial V}{\partial \dot q_i} - \frac{\partial V}{\partial q_i} \:(*)\]
-Если существует $V$, такая что для $Q_i$ выполняется $(*)$, то такие силы называются обобщённо потенциальными, а $V$ обобщённым потенциалом
 
 \[V(\dot q, q, t)\]
-\[Q_i (\dot q_1, \dots , \dot q_n , q_1 , \dots, q_n , t) =\underbrace{\sum_{j=1}^{n} \frac{\partial ^2 V}{\partial \dot q_i \partial \dot q_j} \ddot q_j}_{0 , Q(\dot q, q, t)} + \sum_{j=1}^{n} \frac{\partial ^2 V}{\partial \dot q_i \partial q_j} \dot q_j + \frac{\partial^2 V}{\partial \dot q_i \partial t} - \frac{\partial V}{\partial q_i} \implies \frac{\partial^2 V}{\partial \dot q_i \partial \dot q_j} = 0 \implies V = \sum_{j=1}^{n} A_i \dot q_i + A_0\]
-\[A_i = A_i(q_1, \dots, q_n, t) \quad A_0 = A_0(q, t)\]
+\noindent \keypoint 
+\[ V = \sum_{i= 1}^{n} A_i \dot q_i + A_0 \qquad A_i = A_i(q, t) \quad A_0 = A_0(q, t) \]
+\begin{proof}
+\[Q_i (\dot q_1, \dots , \dot q_n , q_1 , \dots, q_n , t) = \underbrace{\sum_{j=1}^{n} \frac{\partial ^2 V}{\partial \dot q_j \partial \dot q_i} \ddot q_j}_{0 , Q(\dot q, q, t)} + \sum_{j=1}^{n} \frac{\partial ^2 V}{\partial q_j  \partial \dot q_i} \dot q_j + \frac{\partial^2 V}{\partial t \partial \dot q_i } - \frac{\partial V}{\partial q_i}\]
+Показали, что обобщённые потенциал не содержит членов второго порядка по обобщённым скоростям 
+\end{proof}
+    
 \[Q_i = \sum_{j=1}^{n} \frac{\partial A_i}{\partial q_j} \dot q_j + \frac{\partial A_i}{\partial t} - \frac{\partial}{\partial q_i} \left( \sum_{j=1}^{n} A_j \dot q_j + A_0\right) = \sum_{j=1}^{n} \left(\frac{\partial A_i}{\partial q_j} - \frac{\partial A_j}{\partial q_j}\right) \dot q_j + \frac{\partial A_i}{\partial t} - \frac{\partial A_0}{\partial q_i}\]
-% fixme здесь был комментарий про то, что за слагаемые в конце получились
-В системах, для которых существует стационарный обобщённый потенциал, могут существовать только гироскопические и потенциальные силы
+То есть обобщённые силы обобщённо потенциальной системы со стационарным потенциалом состоят из гироскопических и потенциальных, то есть 
+в системах, для которых существует стационарный обобщённый потенциал, могут существовать только гироскопические и потенциальные силы
 \[L = T - V = T_2 + T_1 - V_1 + T_0 - V_0 = L_2 + L_1 + L_0\]
-Системы в которых, лагранжиан является разностью кинетической и потенциальной называются натуральными
-\[L^1 = L^0 + C + \frac{d}{d t} F(q_1, \dots, q_n, t)\]
+
+\noindent \keypoint \[L^1 = L^0 + C + \frac{d}{d t} F(q_1, \dots, q_n, t)\]
 $L^1$ описывает ту же мех. систему, что и $L^0$
 \begin{proof}
     \[\frac{d F}{d t} = \sum_{i=1}^{n} \frac{\partial F}{\partial q_i} \dot q_i + \frac{\partial F}{\partial t} \implies \boxed{\frac{\partial }{\partial{q_i}}\frac{d F}{d t} = \frac{\partial F}{\partial q_i}}\]
