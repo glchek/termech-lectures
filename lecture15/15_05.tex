@@ -2,10 +2,10 @@
 \input{../preamble.tex}
 \begin{document}
 \lecture{}{15.05}
-\[\frac{d}{d t} \frac{\partial T}{\partial \dot q} - \frac{\partial T}{\partial q_i} = Q_i = - \frac{\partial \Pi}{\partial q_i} + Q_i^*\]
-\[\frac{d}{d t} \frac{\partial L}{\partial \dot q} - \frac{\partial L}{\partial q_i} = Q_i^*\]
+\[\frac{d}{d t} \frac{\partial T}{\partial \dot q} - \frac{\partial T}{\partial q_i} = Q_i = - \frac{\partial \Pi}{\partial q_i} + Q_i^* \qquad \frac{d}{d t} \frac{\partial L}{\partial \dot q} - \frac{\partial L}{\partial q_i} = Q_i^*\]
 \begin{theorem}
-    Уравнения Лагранжа разрешимы относительно обобщённых ускорений
+    \[T = T_2 + T_1 + T_0\]
+    где $T_2, T_1, T_0$ — однордные многочлены соответствующей степени относительно обобщённых скоростей
 \end{theorem}
 \begin{proof}
     \[
@@ -18,19 +18,36 @@
     \end{aligned}
     \]
     где $T_2, T_1, T_0$ — однородные многочлены соответствующих порядков
-    \[P(\lambda x) = \lambda^k P(x)\]
-    %fixme по-хорошему записать ровно слева T, а справа коэффициенты
-    \[T = T_2 + T_1 + T_0\]
-    \[T_2 = \frac{1}{2} \sum_{i, j = 1}^{n} a_{i j} \dot q_i \dot q_j, \qquad a_{i j} = \sum_{k=1}^{N} m_k \frac{\partial \bar r_k}{\partial q_i} \frac{\partial \bar r_k}{\partial q_j}\]
-    \[T_1 = \sum_{i=1}^{n} a_i \dot q_i \qquad a_i = \sum_{k=1}^{N} m_k \frac{\partial \bar r_k}{\partial q_i} \frac{\partial \bar r_k}{\partial t}\]
-    \[T_0 = \frac{1}{2} \sum_{k=1}^{N} m_k \left(\frac{\partial \bar r_k}{\partial t}\right)^2\]
-    Существует теорема Эйлера об однородных функций(из которой следует вид производных этих многочленов)
-    \[\frac{d}{d t} \frac{\partial (T_2 + T_1 + T_0)}{\partial \dot q} - \frac{\partial (T_2 + T_1 + T_0)}{\partial q_i} = Q_i \qquad \frac{\partial T_0}{\partial \dot q_i} = 0 \qquad \frac{\partial T_1}{\partial \dot q_i} = a_i \qquad \frac{\partial T_2}{\partial \dot q_i} = \sum_{j=1}^{n} a_{i j } \dot q_j\]
-    \[\frac{d}{d t} \left( \sum_{j=1}^{n} a_{i j} \dot q_j+ a_i \right) = Q_i + \frac{\partial T}{\partial q_i} \qquad \frac{d}{d t} \left( \sum_{j=1}^{n} a_{i j} \dot q_j\right) = Q_i - \frac{d a_i}{d t}+ \frac{\partial T}{\partial q_i}\]
+    \[\begin{array}{l}
+        P(\lambda x) = \lambda^k P(x) \\ \\ T = T_2 + T_1 + T_0
+    \end{array}
+        \qquad
+    \begin{dcases}
+        T_2 = \frac{1}{2} \sum_{i, j = 1}^{n} a_{i j} \dot q_i \dot q_j, & a_{i j} = \sum_{k=1}^{N} m_k \frac{\partial \bar r_k}{\partial q_i} \frac{\partial \bar r_k}{\partial q_j} \\
+        T_1 = \sum_{i=1}^{n} a_i \dot q_i, & a_i = \sum_{k=1}^{N} m_k \frac{\partial \bar r_k}{\partial q_i} \frac{\partial \bar r_k}{\partial t} \\
+        T_0 = \frac{1}{2} \sum_{k=1}^{N} m_k \left(\frac{\partial \bar r_k}{\partial t}\right)^2
+    \end{dcases}
+    \]
+\end{proof}
+
+Замечание: Так как потенциальная энергия не зависит от скоростей и ускорений:
+\[L = T - \Pi = T_2 + T_1 + \underbracket{T_0 - \Pi}_{\tilde T_0}\]
+
+\noindent \keypoint 
+Уравнения лагранжа образуют СЛАУ по обобщённым ускорениям
+\begin{proof}   
+    \[
+    \begin{aligned}
+    &\frac{d}{d t} \frac{\partial (T_2 + T_1 + T_0)}{\partial \dot q} - \frac{\partial T}{\partial q_i} = Q_i \qquad &\frac{\partial T_0}{\partial \dot q_i} = 0 \qquad \frac{\partial T_1}{\partial \dot q_i} = a_i \qquad \frac{\partial T_2}{\partial \dot q_i} = \sum_{j=1}^{n} a_{i j } \dot q_j \\
+    &\frac{d}{d t} \left( \sum_{j=1}^{n} a_{i j} \dot q_j+ a_i \right) = Q_i + \frac{\partial T}{\partial q_i} \qquad &\frac{d}{d t} \left( \sum_{j=1}^{n} a_{i j} \dot q_j\right) = Q_i - \frac{d a_i}{d t}+ \frac{\partial T}{\partial q_i}
+    \end{aligned}\]
     \[\sum_{j=1}^{n} a_{i j} \ddot q_j = - \sum_{j=1}^{n} \dot q_j \dot a_{i j} - \dot a_i + Q_i + \frac{\partial T}{\partial q_i} := G_i(q_1 , \dots , q_n, \dot q_1, \dots, \dot q_n, t)\]
     \[\sum_{j=1}^{n} a_{i j} \ddot q_j = G_i\]
-    \textbf{Основаная теорема Лагранжевого формализма}
-    \[\det (a_{i j})_{i, j = 1}^n \neq 0\]
+\end{proof}
+    \begin{theorem}[Основная теорема Лагранжевого формализма]
+        \[\det (a_{i j})_{i, j = 1}^n \neq 0 \qquad \forall q, t\]
+    \end{theorem}
+    \begin{proof}
     \[a_{i j} = m_1 \left( \frac{\partial x_1}{\partial q_i} \frac{\partial x_1}{\partial q_j} + \frac{\partial y_1}{\partial q_i} \frac{\partial y_1}{\partial q_j} + \frac{\partial z_1}{\partial q_i} \frac{\partial z_1}{\partial q_j}\right) + \dots\]
     Теорема Грама(взяли подматрицу  из матрицы Грама), если коэффициенты это скалярные произведения л.н.з векторов, то матрица приведённой системы невырождена
     \[a_{i j} = \bar u_i \bar u_j\]
@@ -48,10 +65,9 @@
     \end{matrix}
     \]
     Столбцы матрица линейно независимы в силу независимости обобщённых координат, то есть и векторы составленные из данных координатных столбцов линейно независимы(домножение на константу это элементарное преобразование)
-
-    Так как потенциальная энергия не зависит от скоростей и ускорений:
-    \[L = T - \Pi = T_2 + T_1 + \underbracket{T_0 - \Pi}_{\tilde T_0}\]
 \end{proof}
+
+
 
 \Def Натуральные системы — системы, в которых лагранжиан является разностью кинетической и потенциальной энергии
 
@@ -64,18 +80,20 @@
 \[\sum_{i=1}^{n} \frac{\partial F}{\partial x_i} x_i = k F\]
 
 \begin{theorem}[Об изменении полной энергии голономной системы]
-    \[
-    \begin{aligned}
-    \frac{d}{d t} T &= \frac{d}{d t}\sum_{i=1}^{n} \frac{\partial T}{\partial \dot q_i} \dot q_i - \sum_{i=1}^{n} \frac{d}{d t}\left(\frac{\partial T}{\partial q_i} \right)\dot q_i + \sum_{i=1}^{n}  \frac{\partial T}{\partial q_i} \dot q_i +\frac{\partial T}{\partial t}  \\
-    &= \frac{d}{d t} \left( \sum_{i=1}^{n} \frac{\partial T}{\partial \dot q_i} \dot q_i\right)  - \sum_{i=1}^{n}\left(\frac{d}{d t} \frac{\partial T}{\partial \dot q_i} - \frac{\partial T}{\partial q_i} \right) \dot q_i + \frac{\partial T}{\partial t} = \frac{d}{d t} (2 T_2 + T_1) - \sum_{i=1}^{n} Q_i^* \dot q_i + \sum_{i=1}^{n} \frac{\partial \Pi}{\partial q_i} \dot q_i+ \frac{\partial T}{\partial t} \\
-    &= 2 \frac{d T}{d t} - \frac{d}{d t} (T_1 + 2 T_0) - \sum_{i=1}^{n} Q_i^* \dot q_i  + \frac{\partial \Pi}{\partial t} - \frac{\partial \Pi}{\partial t} + \frac{\partial T}{\partial t}
-\end{aligned}
-    \]
-    \[\underbracket{\frac{d T}{d t} + \frac{d \Pi}{d t}}_{\frac{d E}{d t}} = \sum_{i=1}^{n} Q_i^* \dot q_i + \frac{\partial \Pi}{\partial t} + \frac{d}{d t} (T_1 + 2 T_0) - \frac{\partial T}{\partial T}\]
+    \[\frac{d E}{d t} = \sum_{i=1}^{n} Q_i^* \dot q_i + \frac{d}{d t} (T_1 + 2 T_0) + \frac{\partial \Pi}{\partial t} - \frac{\partial T}{\partial t}\]
+    Мощность непотенциальных сил, частная производная потенциальной энергии и вклад нестационарных связей
 
 \end{theorem}
-Мощность непотенциальных сил, частная производная непотенциальной энергии и вклад нестационарных связей
-
-В консервативных систмах:
+\begin{proof}
+    \[
+        \begin{aligned}
+            \frac{d}{d t} T &= \frac{d}{d t}\sum_{i=1}^{n} \frac{\partial T}{\partial \dot q_i} \dot q_i - \sum_{i=1}^{n} \frac{d}{d t}\left(\frac{\partial T}{\partial q_i} \right)\dot q_i + \sum_{i=1}^{n}  \frac{\partial T}{\partial q_i} \dot q_i +\frac{\partial T}{\partial t}  \\
+            &= \frac{d}{d t} \left( \sum_{i=1}^{n} \frac{\partial T}{\partial \dot q_i} \dot q_i\right)  - \sum_{i=1}^{n}\left(\frac{d}{d t} \frac{\partial T}{\partial \dot q_i} - \frac{\partial T}{\partial q_i} \right) \dot q_i + \frac{\partial T}{\partial t} = \frac{d}{d t} (2 T_2 + T_1) - \sum_{i=1}^{n} Q_i^* \dot q_i + \sum_{i=1}^{n} \frac{\partial \Pi}{\partial q_i} \dot q_i+ \frac{\partial T}{\partial t} \\
+            &= 2 \frac{d T}{d t} - \frac{d}{d t} (T_1 + 2 T_0) - \sum_{i=1}^{n} Q_i^* \dot q_i  + \frac{\partial \Pi}{\partial t} - \frac{\partial \Pi}{\partial t} + \frac{\partial T}{\partial t}
+        \end{aligned}
+        \]
+        \[ E = T + \Pi\]
+    \end{proof}
+Следствие: В консервативных системах:
 \[\frac{d E}{d t} = 0\]
 \end{document}
