@@ -14,15 +14,14 @@
 \noindent \keypoint второй род
 
 для голономных систем:
-\[0 = \sum_{k=1}^{N} (\bar F_k - m_k \bar w_k) \delta \bar r_k = 0 \sum_{k=1}^{N} (\bar F_k - m_k \bar w_k) \sum_{i=1}^{n} \frac{\partial \bar r_k}{\partial q_i} \delta q_i \]
+\[0 = \sum_{k=1}^{N} (\bar F_k - m_k \bar w_k) \delta \bar r_k = \sum_{k=1}^{N} (\bar F_k - m_k \bar w_k) \sum_{i=1}^{n} \frac{\partial \bar r_k}{\partial q_i} \delta q_i \]
 \[\sum_{i=1}^{n} \left( \underbracket{\sum_{k=1}^{N} \bar F_k \frac{\partial \bar r_k}{\partial q_i}}_{Q_i} -  \sum_{k=1}^{N} m_k \bar w_k \frac{\partial \bar r_k}{\partial q_i} \right) \delta q_i = 0\]
 $\delta q_i$ независимы, то есть каждая скобка равна нулю, то есть
 \[\sum_{k=1}^N m_k \bar w_k \frac{\partial \bar r_k}{\partial q_i} = Q_i\]
 \[
 \begin{aligned}
 Q_i = \sum_{k=1}^N m_k \bar w_k \frac{\partial \bar r_k}{\partial q_i} &= \sum_{k=1}^{N} m_k \frac{d \bar v_k}{d t} \frac{\partial \bar r_k}{\partial q_i} = \sum_{k=1}^{N} m_k  \left( \frac{d}{d t} \left(\bar v_k, \frac{\partial \bar r_k}{\partial q_i}\right) - \bar v_k \frac{d}{d t} \frac{\partial \bar r_k}{\partial q_i} \right) \\
-&= \frac{d}{d t} \sum_{k=1}^{N} m_k \left( \bar v_k , \frac{\partial \bar v_k}{\partial \dot q_i}\right) - \sum_{k=1}^{N} m_k \left(\bar v_k, \frac{\partial \bar v_k}{\partial q_i} \right) \\
-&= \frac{d}{d t} \sum_{k=1}^{N} m_k \frac{\partial v_k^2}{\partial \dot q_i} - \sum_{k=1}^{N} \frac{m_k}{2} \frac{\partial v_k^2}{\partial q_i} = \frac{d}{d t} \frac{\partial}{\partial \dot q_i}\sum_{k=1}^{N} \frac{m_k v_k^2}{2} - \frac{\partial}{\partial q_i} \sum_{k=1}^{N} \frac{m_k v_k^2}{2} = \frac{d}{d t} \frac{\partial}{\partial \dot q_i} T - \frac{\partial}{\partial q_i} T
+&= \frac{d}{d t} \sum_{k=1}^{N} \frac{m_k}{2} \frac{\partial v_k^2}{\partial \dot q_i} - \sum_{k=1}^{N} \frac{m_k}{2} \frac{\partial v_k^2}{\partial q_i} \\ &= \frac{d}{d t} \frac{\partial}{\partial \dot q_i}\sum_{k=1}^{N} \frac{m_k v_k^2}{2} - \frac{\partial}{\partial q_i} \sum_{k=1}^{N} \frac{m_k v_k^2}{2} = \frac{d}{d t} \frac{\partial}{\partial \dot q_i} T - \frac{\partial}{\partial q_i} T
 \end{aligned}
 \]
 
