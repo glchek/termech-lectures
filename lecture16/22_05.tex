@@ -31,7 +31,7 @@
 \[ V = \sum_{i= 1}^{n} A_i \dot q_i + A_0 \qquad A_i = A_i(q, t) \quad A_0 = A_0(q, t) \]
 \begin{proof}
 \[Q_i (\dot q_1, \dots , \dot q_n , q_1 , \dots, q_n , t) = \underbrace{\sum_{j=1}^{n} \frac{\partial ^2 V}{\partial \dot q_j \partial \dot q_i} \ddot q_j}_{0 , Q(\dot q, q, t)} + \sum_{j=1}^{n} \frac{\partial ^2 V}{\partial q_j  \partial \dot q_i} \dot q_j + \frac{\partial^2 V}{\partial t \partial \dot q_i } - \frac{\partial V}{\partial q_i}\]
-Показали, что обобщённые потенциал не содержит членов второго порядка по обобщённым скоростям 
+Показали, что обобщённый потенциал не содержит членов второго порядка по обобщённым скоростям 
 \end{proof}
     
 \[Q_i = \sum_{j=1}^{n} \frac{\partial A_i}{\partial q_j} \dot q_j + \frac{\partial A_i}{\partial t} - \frac{\partial}{\partial q_i} \left( \sum_{j=1}^{n} A_j \dot q_j + A_0\right) = \sum_{j=1}^{n} \left(\frac{\partial A_i}{\partial q_j} - \frac{\partial A_j}{\partial q_j}\right) \dot q_j + \frac{\partial A_i}{\partial t} - \frac{\partial A_0}{\partial q_i}\]
@@ -48,23 +48,29 @@ $L^1$ описывает ту же мех. систему, что и $L^0$
     &\frac{d}{d t} \frac{\partial ( L + \frac{d F}{d t})}{\partial \dot q_i} - \frac{\partial (L + \frac{d F}{d t})}{\partial q_i} = Q_i^* \qquad \frac{d }{d t } \frac{\partial }{\partial \dot q_i} \frac{d F}{d t} - \frac{\partial }{\partial q_i} \frac{d F}{d t} = 0 \qquad \frac{d }{d t} \frac{\partial}{\dot q_i} \frac{d F}{d t} - \frac{d}{d t}\frac{\partial F}{\partial q_i} = 0
     \end{aligned}
     \]
+    Замечание: в данном случае можно поменять местами полную и частную производную местами
 \end{proof}
 
 \section{Устойчивое положение равновесия}
 \Def Расширенное координатное пространство: $(q_1, \dots, q_n, t)$
-\Def Расшиеренное фазовое пространство: $(q_1, \dots, q_n, \dot q_1, \dots, \dot q_n, t)$
+\Def Расширенное фазовое пространство: $(q_1, \dots, q_n, \dot q_1, \dots, \dot q_n, t)$
 
 Точка в расширенном коорд/фаз пространстве описывает положение/состояние системы в конкретный момент времени
 
-\Def Точка в координатном пространстве называется положением равновесия, если система оказавшись в ней с нулевыми скоростями, система останется в нём любой дальшнейший момент времени
+\Def Точка в координатном пространстве называется положением равновесия, если система, оказавшись в ней с нулевыми скоростями, будет в ней в любой дальшнейший момент времени
 \[\begin{cases}
     q_i(0) = q_i^0, \\
     \dot q_i (0) = 0
-\end{cases} \implies \begin{cases}\dot q_i(t) = 0, \\ q_i(t) = q_i^0\end{cases} \\ t > 0\]
-\Def Положение равновесия называется устойчивым, если
+\end{cases} \implies 
+\begin{cases}
+    q_i(t) = q_i^0, \\
+    \dot q_i(t) = 0
+\end{cases} \\ t > 0\]
+Обозначим решение уравнений Лагранжа в момент времени $t$ через $q(t)$, тогда $(q , \dot q)(t)$ — точка из фазового пространства
 
-Обозначим решения уравнения лагранжа в момент времени $t$ через $q_i(t)$, тогда $(q_i , \dot q_i)(t) \quad i = 1, 2, \dots, n$ — точки из фазового пространства
-\[\forall \varepsilon > 0 \; \exists \delta: (q_i , \dot q_i)(0) \in O_\delta((q_i^0, 0)) \implies \forall t > 0 \; (q_i , \dot q_i)(t) \in O_\varepsilon((q_i^0, 0)) \]
+\Def Устойчивое положение равновесия $q^0$ — положение равновесия:
+\[\forall \varepsilon > 0 \; \exists \delta > 0: (q , \dot q)(0) \in O_\delta((q^0, 0)) \implies \forall t > 0 \; (q , \dot q)(t) \in O_\varepsilon((q_i^0, 0)) \]
+Замечание: в любом шаре есть параллелепипед
 % нахождение точки фазового пространства в дельта окрестности нуля фазовоого пространства, означает её пребывание в эпсилон окрестности этой точки фазового пространства
 \begin{theorem}[Лагранжа-Дирихле]
     Если в положении равновесия потенциальная энергия консервативной системы имеет строгий локальный минимум
@@ -72,20 +78,24 @@ $L^1$ описывает ту же мех. систему, что и $L^0$
     То это положение равновесия устойчиво
 \end{theorem}
 \begin{proof}
-    Сдвинем координатное пространство, так что положению равновесия соответствует точка с нулевыми координатами: $(q_i, 0) \mapsto O$
-    \[1) \exists \Delta : |q_i | < \Delta \implies \Pi > 0\]
-    \[2) \varepsilon < \Delta\]
-    \[3) O_\varepsilon(O) : \begin{cases}
-        |q_i| < \varepsilon \\
-        |\dot q_i| < \varepsilon
-    \end{cases}\]
-    \[4) \partial (O_\varepsilon(O))\]
-    \[ E^* = \min_{\partial O_\varepsilon(O)} E\]
-    в самой окрестности минимум энергии нуль
-\[5) E^{**} : 0 < E^{**} < E^*\]
-Энергия непрерывна
-\[6) O_\delta(O): \max_{\partial O_\delta(O)} E = E^{**}\]
+    Предисловие:
+    \begin{itemize}
+        \item 
+        Сдвинем фазовое пространство, так что положению равновесия соответствует точка с нулевыми координатами: $(q_i, 0) \mapsto O$, потенциальную энергию выберем так, что в нуле нуль, далее рассматриваются окрестности нуля, вне зависимости от пространства
+        \item
+        Будем обозначать точки фазового пространства через $p$, расширим область определения потенциальной энергии до фазового пространства(от скоростей не зависит)
+    \end{itemize}
+    \begin{enumerate}
+        \item 
+        $T = 0 \iff \dot q = 0 \quad T \ge 0$, у $\Pi$ в нуле строгий минимум, тогда $\exists \dot O_\Delta : p \in \dot O_\Delta \implies E(p) > 0$
+        \item
+        $\varepsilon :< \Delta$, $E^* := \min_{\partial O_\varepsilon(O)} E$
+        \item
+        Заметим, полная энергия непрерывна, $E^{**}: 0 < E^{**} < E^*, \; \exists O_\delta: p \in O_\delta \implies E(p) \in O_{E^{**}}$
+        \item
+        Система консервативна, полная энергия постоянна, то есть, 
+        если траектория начинает движение из $O_\delta(O)$, то она никогда не покинет $O_\varepsilon$, так как на границе $O_\varepsilon$ энергия не меньше $E^*$, а $E^{**} < E^*$
+    \end{enumerate}
 %fixme перерисовать, картинку или вставить так, фото в телефоне
-Если точка вылетела из $O_\delta(O)$ , то энергия должна быть не меньше $E^{*}$ и одновременно не больше $E^{* *}$, противоречие
 \end{proof}
 \end{document}
