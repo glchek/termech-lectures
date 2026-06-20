@@ -87,9 +87,9 @@
 \begin{proof}
     \[
         \begin{aligned}
-            \frac{d}{d t} T &= \frac{d}{d t}\sum_{i=1}^{n} \frac{\partial T}{\partial \dot q_i} \dot q_i - \sum_{i=1}^{n} \frac{d}{d t}\left(\frac{\partial T}{\partial q_i} \right)\dot q_i + \sum_{i=1}^{n}  \frac{\partial T}{\partial q_i} \dot q_i +\frac{\partial T}{\partial t}  \\
-            &= \frac{d}{d t} \left( \sum_{i=1}^{n} \frac{\partial T}{\partial \dot q_i} \dot q_i\right)  - \sum_{i=1}^{n}\left(\frac{d}{d t} \frac{\partial T}{\partial \dot q_i} - \frac{\partial T}{\partial q_i} \right) \dot q_i + \frac{\partial T}{\partial t} = \frac{d}{d t} (2 T_2 + T_1) - \sum_{i=1}^{n} Q_i^* \dot q_i + \sum_{i=1}^{n} \frac{\partial \Pi}{\partial q_i} \dot q_i+ \frac{\partial T}{\partial t} \\
-            &= 2 \frac{d T}{d t} - \frac{d}{d t} (T_1 + 2 T_0) - \sum_{i=1}^{n} Q_i^* \dot q_i  + \frac{\partial \Pi}{\partial t} - \frac{\partial \Pi}{\partial t} + \frac{\partial T}{\partial t}
+            \frac{d}{d t} T &= \frac{d}{d t}\sum_{i=1}^{n} \frac{\partial T}{\partial \dot q_i} \dot q_i - \sum_{i=1}^{n} \frac{d}{d t}\left(\frac{\partial T}{\partial \dot q_i} \right)\dot q_i + \sum_{i=1}^{n}  \frac{\partial T}{\partial q_i} \dot q_i +\frac{\partial T}{\partial t}  \\
+            &= \frac{d}{d t} \sum_{i=1}^{n} \frac{\partial T}{\partial \dot q_i} \dot q_i  - \sum_{i=1}^{n}\left(\frac{d}{d t} \frac{\partial T}{\partial \dot q_i} - \frac{\partial T}{\partial q_i} \right) \dot q_i + \frac{\partial T}{\partial t} = \frac{d}{d t} (2 T_2 + T_1) - \sum_{i=1}^{n} Q_i^* \dot q_i + \sum_{i=1}^{n} \frac{\partial \Pi}{\partial q_i} \dot q_i+ \frac{\partial T}{\partial t} \\
+            &= 2 \frac{d T}{d t} - \frac{d}{d t} (T_1 + 2 T_0) - \sum_{i=1}^{n} Q_i^* \dot q_i  + \frac{d \Pi}{d t} - \frac{\partial \Pi}{\partial t} + \frac{\partial T}{\partial t}
         \end{aligned}
         \]
         \[ E = T + \Pi\]
