@@ -42,29 +42,38 @@
 % fixme картинка кривой график в телефоне
 
 \section{для нескольких степеней свободы}
-\[\frac{d }{d t} \frac{\partial T}{\partial \dot q_i} - \frac{\partial T}{\partial q_i} = 0\]
-сдвиг: положение равновесия в нулевых обобщённых координатах, $Q_i(0) =0$
-Будем рассматривать только стационарные системы
-\[T = T_2 + \underbrace{T_1 + T_0}_0 = T_2 = \frac{1}{2} \sum_{i, j = 1}^n a_{i j} \dot q_i \dot q_j\]
-\[a_{i j} = a_{i j}(q_1, \dots , q_n) = a_{i j}^0 + \sum_{l=1}^n \left. \frac{\partial a_{i j}}{\partial q_l} \right|_{q_l = 0} q_l \qquad a_{i j}^0 = \left.\frac{\partial^2 T_2}{\partial \dot q_j \partial \dot q_i}\right|_{q = 0}\]
-\[T_2 \approx \frac{1}{2} \sum_{i, j =1}^{n} a_{i j}^0 \dot q_i \dot q_j\]
-% fixme 0 из коорд пространства некрасиво написано
-\[
-\begin{aligned}
-Q_i = \frac{-\partial \Pi}{\partial q_i} + Q_i^* \qquad Q_i &= Q_i(q, \dot q) = \sum_{j=1}^{n} \left. \frac{\partial Q_i}{\partial q_j} \right|_{q_j = 0 \; \dot q_j = 0} q_j + \sum_{j=1}^{n}  \left. \frac{\partial Q_i}{\partial q_j}\right|_{q_j = 0 \; \dot q_j = 0} + \dots \\
-&= - \sum_{j=1}^{n} \left. \frac{\partial^2 \Pi}{\partial q_i \partial q_j} \right|_{0 \text{из координатного пр-ва}} + \sum_{j=1}^{n} \left. \frac{\partial Q_i^*}{\partial q_j} \right|_{0} q_j + \sum_{j=1}^{n} \left. \frac{\partial Q_i^*}{\partial \dot q_j} \right|_0 \dot q_j \\
-&= - \sum_{j=1}^{n} c_{i j} q_j - \sum_{j=1}^{n} c_{i j}^* q_{i j} - \sum_{j=1}^{n} b_{ i j} \dot q_j \qquad c_{i j} = \left. \frac{\partial^2}{\partial q_i q_j}\right|_0 \quad c_{i j}^* = - \left.\frac{Q^*_i}{\partial q_j} \right|_0 \quad b_{i j} = - \left. \frac{\partial Q_i^*}{\partial \dot q_j} \right|_0
-\end{aligned}
-\]
-$c_{i j}$ — квази-упругие коэффициенты
-% fixme переписать у Дениса
-% fixme аксенов выбрал плохие знаки, потом выбрал так, чтобы получались плюсы в конце
-\[\frac{d}{d t} \sum_{j=1}^{n} a_{i j}^0 \dot q_j - 0 = \sum_{j=1}^{n} a_{i j}^0 \ddot q_j = Q_i = - \sum_{j=1}^{n} c_{i j} q_j - \sum_{j=1}^{n} c^*_{i j} q_j - \sum_{j=1}^{n} b_{i j} \dot q_j\]
-\[\sum_{j=1}^{n} a_{i j}^0 \ddot q_j  + \sum_{j=1}^{n} c_{i j} q_j + \sum_{j=1}^{n} c^*_{i j} q_j + \sum_{j=1}^{n} b_{i j} \dot q_j = 0 \]
-\[A \ddot {\bar q }+ B \dot {\bar q} + (C + C^*) \bar q =0 \qquad A = (a_{i j})\]
-Для потенциальных сил
+\[\frac{d }{d t} \frac{\partial T}{\partial \dot q_i} - \frac{\partial T}{\partial q_i} = Q_i\]
+сдвиг: положение равновесия в нуле фазового пространства, то есть $Q_i(0) =0$
+
+\noindent \keypoint 
+
+для склерономных систем
+
+Уравнения Лагранжа имеют вид
+\[A \ddot {\bar q }+ B \dot {\bar q} + (C + C^*) \bar q =0 \qquad A = (a_{i j}^0)\]
+        \[ b_{i j} = - \left. \frac{\partial Q_i^*}{\partial \dot q_j} \right|_0 \qquad c_{i j} = \left. \frac{\partial^2 \Pi}{\partial q_i q_j}\right|_0 \quad c_{i j}^* = - \left.\frac{Q^*_i}{\partial q_j} \right|_0\]
+
+\begin{proof}
+    
+    \[T = T_2 + \underbrace{T_1 + T_0}_0 = T_2 = \frac{1}{2} \sum_{i, j = 1}^n a_{i j} \dot q_i \dot q_j\]
+    \[a_{i j}(q_1, \dots , q_n) \approx a_{i j}^0 + \sum_{l=1}^n \left. \frac{\partial a_{i j}}{\partial q_l} \right|_{0} q_l  \qquad a_{i j}^0 = \left.\frac{\partial^2 T_2}{\partial \dot q_j \partial \dot q_i}\right|_{0} \implies T_2 \approx \frac{1}{2} \sum_{i, j =1}^{n} a_{i j}^0 \dot q_i \dot q_j\]
+    % fixme 0 из коорд пространства некрасиво написано
+    \[
+        \begin{aligned}
+            Q_i = \frac{-\partial \Pi}{\partial q_i} + Q_i^* \qquad Q_i(q, \dot q) &\approx Q_i(0, 0) + \sum_{j=1}^{n} \left. \frac{\partial Q_i}{\partial q_j} \right|_{0} q_j + \sum_{j=1}^{n}  \left. \frac{\partial Q_i}{\partial \dot q_j}\right|_{0} \dot q_j \\
+            &= - \sum_{j=1}^{n} \left. \frac{\partial^2 \Pi}{\partial q_j \partial q_i} \right|_{0} q_j + \sum_{j=1}^{n} \left. \frac{\partial Q_i^*}{\partial q_j} \right|_{0} q_j + \sum_{j=1}^{n} \left. \frac{\partial Q_i^*}{\partial \dot q_j} \right|_0 \dot q_j \\
+            &= - \sum_{j=1}^{n} c_{i j} q_j - \sum_{j=1}^{n} c_{i j}^* q_{i j} - \sum_{j=1}^{n} b_{ i j} \dot q_j 
+        \end{aligned}
+        \]
+        
+        $c_{i j}$ — квази-упругие коэффициенты
+        \[\frac{d}{d t} \sum_{j=1}^{n} a_{i j}^0 \dot q_j - 0 = \sum_{j=1}^{n} a_{i j}^0 \ddot q_j = Q_i\]
+        \[\sum_{j=1}^{n} a_{i j}^0 \ddot q_j  + \sum_{j=1}^{n} c_{i j} q_j + \sum_{j=1}^{n} c^*_{i j} q_j + \sum_{j=1}^{n} b_{i j} \dot q_j = 0 \]
+    \end{proof}
+для консервативных систем
+
+Существует такая замена, что системы эквивалентны
 \[A \ddot{\bar q} + C \bar q = 0 \iff \ddot \theta_i + \lambda_i \theta_i = 0\]
-Утверждается, что существует такая замена, что системы эквивалентны
 \begin{proof}
     \[\bar q = U \bar \theta\]
     $A, C$ — задают квадратичные формы, $A$ надо перевести в единичную, $C$ в диагональную, $A$ положительно определена,  можно привести эти квадратичные формы одновременно к диагональному виду
@@ -75,6 +84,7 @@ $c_{i j}$ — квази-упругие коэффициенты
         \item масштабирование
         \item поворот
     \end{enumerate}
+    \[\bar q^T A q = \sum_{j=1}^{n} \theta_j^2 \qquad \bar q^T C \bar q = \sum_{j=1}^{n} \lambda_j \theta_j^2\]
 \end{proof}
 Замечание:
 \[\theta_i = A_{i - 1} \sin(\sqrt \lambda_i t + \psi_{i-1})\]
