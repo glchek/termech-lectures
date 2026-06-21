@@ -59,16 +59,15 @@
     \[a_{i j}(q_1, \dots , q_n) \approx a_{i j}^0 + \sum_{l=1}^n \left. \frac{\partial a_{i j}}{\partial q_l} \right|_{0} q_l  \qquad a_{i j}^0 = \left.\frac{\partial^2 T_2}{\partial \dot q_j \partial \dot q_i}\right|_{0} \implies T_2 \approx \frac{1}{2} \sum_{i, j =1}^{n} a_{i j}^0 \dot q_i \dot q_j\]
     % fixme 0 из коорд пространства некрасиво написано
     \[
+    Q_i = \frac{-\partial \Pi}{\partial q_i} + Q_i^* \qquad 
         \begin{aligned}
-            Q_i = \frac{-\partial \Pi}{\partial q_i} + Q_i^* \qquad Q_i(q, \dot q) &\approx Q_i(0, 0) + \sum_{j=1}^{n} \left. \frac{\partial Q_i}{\partial q_j} \right|_{0} q_j + \sum_{j=1}^{n}  \left. \frac{\partial Q_i}{\partial \dot q_j}\right|_{0} \dot q_j \\
+            Q_i(q, \dot q) &\approx Q_i(0, 0) + \sum_{j=1}^{n} \left. \frac{\partial Q_i}{\partial q_j} \right|_{0} q_j + \sum_{j=1}^{n}  \left. \frac{\partial Q_i}{\partial \dot q_j}\right|_{0} \dot q_j \\
             &= - \sum_{j=1}^{n} \left. \frac{\partial^2 \Pi}{\partial q_j \partial q_i} \right|_{0} q_j + \sum_{j=1}^{n} \left. \frac{\partial Q_i^*}{\partial q_j} \right|_{0} q_j + \sum_{j=1}^{n} \left. \frac{\partial Q_i^*}{\partial \dot q_j} \right|_0 \dot q_j \\
-            &= - \sum_{j=1}^{n} c_{i j} q_j - \sum_{j=1}^{n} c_{i j}^* q_{i j} - \sum_{j=1}^{n} b_{ i j} \dot q_j 
         \end{aligned}
         \]
         
         $c_{i j}$ — квази-упругие коэффициенты
-        \[\frac{d}{d t} \sum_{j=1}^{n} a_{i j}^0 \dot q_j - 0 = \sum_{j=1}^{n} a_{i j}^0 \ddot q_j = Q_i\]
-        \[\sum_{j=1}^{n} a_{i j}^0 \ddot q_j  + \sum_{j=1}^{n} c_{i j} q_j + \sum_{j=1}^{n} c^*_{i j} q_j + \sum_{j=1}^{n} b_{i j} \dot q_j = 0 \]
+        \[\frac{d}{d t} \sum_{j=1}^{n} a_{i j}^0 \dot q_j - 0 = \sum_{j=1}^{n} a_{i j}^0 \ddot q_j = Q_i \qquad \sum_{j=1}^{n} a_{i j}^0 \ddot q_j  + \sum_{j=1}^{n} c_{i j} q_j + \sum_{j=1}^{n} c^*_{i j} q_j + \sum_{j=1}^{n} b_{i j} \dot q_j = 0 \]
     \end{proof}
 \noindent \keypoint
 
