@@ -5,34 +5,39 @@
 \section{Колебания систем с одной степенью свободы}
 % fixme картинка в телефоне
 \[T = \frac{m \dot \varphi^2 l^2}{2} \qquad \Pi = - m g l \cos \varphi \qquad L = \frac{m l^2 \dot \varphi^2}{2} + m g l \cos \varphi\]
-\[m l^2 \ddot \varphi - m g l \sin \varphi = Q^*\]
-\[Q^* = \frac{\delta a}{\delta \varphi} = \frac{- b^* \dot \varphi \delta \varphi}{\delta \varphi}\]
-\[m l^2 \ddot \varphi + m g l \sin \varphi = - b^* \dot \varphi\]
-\[\ddot \varphi + \frac{b^*}{m l^2} + \frac{g}{l} \sin \varphi = 0\]
+\[m l^2 \ddot \varphi + m g l \sin \varphi = Q^*\]
+\[Q^* = \frac{\delta A}{\delta \varphi} = \frac{- b^* \dot \varphi \delta \varphi}{\delta \varphi} \qquad m l^2 \ddot \varphi + m g l \sin \varphi = - b^* \dot \varphi\]
+\[\ddot \varphi + \frac{b^*}{m l^2} \dot \varphi + \frac{g}{l} \varphi = 0 \qquad \ddot \varphi + 2 b \dot \varphi + \omega^2 \varphi = 0\]
 Линейное уравнение малых свободных затухающих колебаний около положения равновесия
-\[\ddot \varphi + \frac{b^*}{m l^2} \dot \varphi + \frac{g}{l} \varphi = 0 \qquad \ddot \varphi + 2 b \dot \varphi + \omega^2 \phi = 0\]
-При $2 b < 0$ система нефизична, при отрицательном коэффициенте при $\varphi$ равновесие неустойчиво
+
+\noindent \keypoint При $2 b < 0$ система нефизична, при отрицательном коэффициенте при $\varphi$ равновесие неустойчиво
+
+\noindent \keypoint 
 \[\lambda_{1, 2} = - b \pm \sqrt{b^2 - \omega^2} \qquad \]
-\[b > \omega \implies \varphi = C_1 e^{\lambda_1 t} + C_2 e^{\lambda_2 t} \qquad \lambda_1 , \lambda_2 < 0\]
-\[b = \omega \implies \varphi = C_1 e^{-b t } + C_2 t e^{- b t}\]
-\[b < \omega \implies \varphi = C_1 \cos \lambda_1 t + C_2 \sin \lambda_2 t  = A e^{- b t} \cos\left( t \sqrt{\omega^2 - b^2} + \psi \right) \qquad \text{затухающее колебание}\]
-$A, \psi$ зависят от начальных условий
-
-Уравнение вынужденных колебаний
-\[\ddot \varphi + 2 b \dot \varphi+ \omega^2 \varphi = A \sin(\omega_0 t + \psi_0)\]
-\[\ddot \varphi + \omega^2 \varphi = A \sin(\omega_0 t + \psi_0)\]
-
-\[
-\begin{aligned}
-\left( A_0 \sin (\omega_0 t + \psi_0) \right)'' &= - A_0 \omega^2 \sin (\omega_0 t + \psi_0) 
+\[\begin{aligned}
+&b > \omega \implies \varphi = C_1 e^{\lambda_1 t} + C_2 e^{\lambda_2 t} \qquad \lambda_1 , \lambda_2 < 0 \\
+&b = \omega \implies \varphi = C_1 e^{-b t } + C_2 t e^{- b t} \\
+& b < \omega \implies \varphi = C_1 \cos \lambda_1 t + C_2 \sin \lambda_2 t  = A e^{- b t} \cos\left( t \sqrt{\omega^2 - b^2} + \psi \right) \qquad \text{затухающее колебание} 
 \end{aligned}
 \]
-\[- A_0 \omega^2 \sin(\omega_0 t + \psi_0) + \omega^2 A_0 \sin(\omega_0 t + \psi_0) = A \sin (\omega_0 t + \psi_0)\]
-\[A_0 = \frac{A}{\omega^2 - \omega_0^2} \qquad \varphi = C \cos(\omega t + \psi) + \frac{A}{\omega^2 \omega_0} \sin(\omega_0 t + \psi_0)\]
-В резонансном случае $\omega = \omega_0$ амплитуда колебаний будет увеличиваться
+где $A, \psi$ зависят от начальных условий
 
-Без диссипация уходит в бесконечность, с диссипацией локальный максимум
-%fixme картинка графика модуля амплитуды
+\noindent \keypoint Уравнение вынужденных колебаний
+\[\ddot \varphi + 2 b \dot \varphi+ \omega^2 \varphi = A \sin(\omega_0 t + \psi_0) \quad b = 0\]
+\[\ddot \varphi + \omega^2 \varphi = A \sin(\omega_0 t + \psi_0) \implies \varphi_{\text{частн}} = A_0 \sin (\omega_0 t + \psi_0)\]
+\[- A_0 \omega_0^2 \sin(\omega_0 t + \psi_0) + \omega^2 A_0 \sin(\omega_0 t + \psi_0) = A \sin (\omega_0 t + \psi_0)\]
+\[A_0 = \frac{A}{\omega^2 - \omega_0^2} \qquad \varphi = C \cos(\omega t + \psi) + \frac{A}{\omega^2 - \omega_0^2} \sin(\omega_0 t + \psi_0)\]
+В резонансном случае $\omega = \omega_0$ модуль амплитуды колебаний будет увеличиваться(дифур по другому решается)
+\[\varphi_{\text{частн}} = - \frac{A}{2 \omega_0} t \sinn ( \omega_0 t + \psi_0)\]
+Без диссипации, в резонансном случае амплитуда уходит в бесконечность, с диссипацией локальный максимум
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.35\textwidth]{b=0.jpg}
+    \includegraphics[width=0.35\textwidth]{bneq0.jpg}
+    \caption{$b=0$ и $b\neq 0$}
+    \label{fig:myimage} 
+\end{figure}
 Если разложить синус на большое число членов ряда, то получаем осциляттор Дуффинга
 % fixme картинка кривой график в телефоне
 
