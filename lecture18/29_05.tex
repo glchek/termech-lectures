@@ -17,17 +17,26 @@
 \noindent \keypoint
 % fixme ставить \hat x сомнительно считаю, имеет смысл переделать, пока запишу так
 \[X(x_1, x_2) = \ln x_1 + x_2^2 \qquad x_i > 0\]
-\[y_1 = \frac{1}{x_1} \qquad y_2 = 2 x_2\]
-\[x_1 = \frac{1}{y_1} = \frac{\partial Y}{\partial y_1} \qquad x_2 = \frac{1}{2} y_2 = \frac{\partial Y}{\partial y_2}\]
+\[y_1 = \frac{1}{x_1} \qquad y_2 = 2 x_2 \qquad \qquad x_1 = \frac{1}{y_1} = \frac{\partial Y}{\partial y_1} \qquad x_2 = \frac{1}{2} y_2 = \frac{\partial Y}{\partial y_2}\]
 \[Y = \ln y_1 + \frac{y_1^2}{4}\]
 \[\hat Y(x_1, x_2) = Y(y_1(x_1, x_2), y_2(x_1, x_2)) = \ln \frac{1}{x_1} + x_2^2\]
 \[\hat X = \ln \frac{1}{y_1} + \frac{y_2^2}{4} \qquad \hat x_i = \hat x_i(y_1, \dots ,y_n)\]
-\[Y = \sum_{i=1}^{n} \hat x_i y_i - \hat X\]
-\[\frac{\partial Y}{\partial y_i} = \frac{\partial}{\partial y_i} \left( \sum_{j=1}^{n} \hat x_i y_i - \hat X\right) = \hat x_i + \sum_{j=1}^{n} y_i \frac{\partial \hat x_i}{\partial y_i} - \sum_{j=1}^{n} \frac{\partial X}{\partial x_j} \frac{\partial \hat x_j}{\partial y_i} = \hat x_i\]
-\[H_Y \not \equiv 0 \quad \boxed{Y = \sum_{i=1}^{n} \hat x_i y_i - \hat X} \iff \boxed{X = \sum_{i=}^{n} \hat y_i x_i - \hat Y}, \quad H_X \not \equiv 0\]
+
+\noindent \keypoint 
+для $X$, $H_X \not \equiv 0$
+
+$Y$ имеет вид:
+\[Y = \sum_{i=1}^{n} \hat x_i y_i - \hat X \qquad \hat x_i = \hat x_i(y_1, \dots ,y_n)\]
 \begin{proof}
+    
+    \[\frac{\partial Y}{\partial y_i} = \frac{\partial}{\partial y_i} \left( \sum_{j=1}^{n} \hat x_j y_j - \hat X\right) = \hat x_i + \sum_{j=1}^{n} y_j \frac{\partial \hat x_j}{\partial y_i} - \sum_{j=1}^{n} \frac{\partial X}{\partial x_j} \frac{\partial \hat x_j}{\partial y_i} = \hat x_i\]
+\end{proof}
+Замечание: 
+\[H_Y \not \equiv 0 \quad \boxed{Y = \sum_{i=1}^{n} \hat x_i y_i - \hat X} \iff \boxed{X = \sum_{i=}^{n} \hat y_i x_i - \hat Y}, \quad H_X \not \equiv 0\]
+    \begin{proof}
     симметрично, очевидно, можно подставить вместо 
     \[\hat Y = \widehat{\left(\sum_{i=1}^{n} \hat x_i y_i - \hat X\right)}\] 
+    \[(H_Y) = (H_X)^{-1} \implies H_Y = \frac{1}{H_X}\]
 \end{proof}
 \section{Преобразование Гамильтона}
 
