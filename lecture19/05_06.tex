@@ -7,74 +7,111 @@
 \Def Гамильтоновы переменные
 \[q_1, \dots, q_n, \dot p_1, \dots, \dot p_n\]
 \section{Интерпретация уравнений Гамильтона. Скобка Пуассона}
-\Def Первый интеграл — 
-\[f(p_1, \dots, p_n, q_1, \dots q_n, t)\]
-называется первым интегралом уравнения гамильтона, если при подстановке решений уравнений Гамильтона она обращается в константу
+\Def Первый интеграл уравнения Гамильтона — непрерывно дифференцируемая функция, обращающаяся в константу при подстановке решения уравнения Гамильтона
+\[f(p(t), q(t), t) = \text{const}\]
 
-\noindent \keypoint \[
-\begin{aligned}
-\frac{d f}{d t} &= \sum_{i=1}^{n} \frac{\partial f}{\partial q_i} \dot q_i + \sum_{i=1}^{n} \frac{\partial f}{\partial p_i} \dot p_i + \frac{\partial f}{\partial t} \\
-&= \sum_{i=1}^{n} \frac{\partial f}{\partial q_i} \frac{\partial H}{\partial p_i} - \sum_{i=1}^{n} \frac{\partial f}{\partial p_i} \frac{\partial H}{\partial q_i} + \frac{\partial f}{\partial t} = \underbracket{\sum_{i=1}^{n} \left( \frac{\partial f}{\partial q_i }\frac{\partial H}{\partial p_i} - \frac{\partial f}{\partial p_i} \frac{\partial H}{\partial q_i}\right)}_{\{f, H\}} + \frac{\partial f}{\partial t} = \{f, H\} + \frac{\partial f}{\partial t} = 0
-\end{aligned}
-\]
+\noindent \keypoint 
+
+$f$ — первый интеграл уравнения Гамильтона 
+
+$\iff$
+\begin{flalign*}
+\frac{d f}{d t} =  \{f, H\} + \frac{\partial f}{\partial t} = 0 &&
+\end{flalign*}
+
+\begin{proof}
+    \[
+        \frac{d f}{d t} = \sum_{i=1}^{n} \frac{\partial f}{\partial q_i} \dot q_i + \sum_{i=1}^{n} \frac{\partial f}{\partial p_i} \dot p_i + \frac{\partial f}{\partial t} = \underbracket{\sum_{i=1}^{n} \left( \frac{\partial f}{\partial q_i }\frac{\partial H}{\partial p_i} - \frac{\partial f}{\partial p_i} \frac{\partial H}{\partial q_i}\right)}_{\{f, H\}} + \frac{\partial f}{\partial t}
+        \]
+    В обратную сторону по определению
+\end{proof}
+Замечание: Тождество из доказательства справедливо для любой функции Гамильтоновых переменных
 \Def Скобка Пуассона $\{f, g\}$, где $f, g$ — функции Гамильтоновых переменных
+% fixme поправить наложения
 \[\{f, g\} = \sum_{i=1}^{n} \begin{vmatrix} \frac{\partial f}{\partial q_i} & \frac{\partial g}{\partial q_i} \\ \frac{\partial f}{\partial p_i} & \frac{\partial g}{\partial p_i} \end{vmatrix}\]
-\[\{q_i, H\} = \sum_{j=1}^{n} \begin{vmatrix}
-    \frac{\partial q_i}{\partial q_j} & \frac{\partial H}{\partial q_j} \\
-    \frac{\partial q_i}{\partial p_j} & \frac{\partial H}{\partial p_j}  
-\end{vmatrix} = \frac{\partial H}{\partial p_i} \qquad 
-\{p_i, H\} = \sum_{j=1}^{n} \begin{vmatrix}
-    \frac{\partial p_i}{\partial q_j} & \frac{\partial H}{\partial q_j} \\
-    \frac{\partial p_i}{\partial p_j} & \frac{\partial H}{\partial p_j}
-\end{vmatrix} = - \frac{\partial H}{\partial q_j}\]
 \keypoint Уравнения Гамильтона через скобки Пуассона
-\[\begin{cases}
-    \dot q_i = \{q_i, H\} \\
-    \dot p_i = -\{p_i, H\}
-\end{cases}\]
-\keypoint Свойства скобки Пуассона
+\[
+    \dot q_i = \{q_i, H\} \qquad
+    \dot p_i = \{p_i, H\}
+    \]
+\begin{proof}
+    \[\{q_i, H\} = \sum_{j=1}^{n} \begin{vmatrix}
+        \frac{\partial q_i}{\partial q_j} & \frac{\partial H}{\partial q_j} \\
+        \frac{\partial q_i}{\partial p_j} & \frac{\partial H}{\partial p_j}  
+    \end{vmatrix} = \frac{\partial H}{\partial p_i} \qquad 
+    \{p_i, H\} = \sum_{j=1}^{n} \begin{vmatrix}
+        \frac{\partial p_i}{\partial q_j} & \frac{\partial H}{\partial q_j} \\
+        \frac{\partial p_i}{\partial p_j} & \frac{\partial H}{\partial p_j}
+    \end{vmatrix} = - \frac{\partial H}{\partial q_i}\]
+\end{proof}
+
+\noindent \keypoint Свойства скобки Пуассона
 \begin{enumerate}
     \item $\{f, g\} = - \{g, f\}$
     \item $\{c f, g\} = \{ f, c g \} = c \{f , g\}$
-    \item $\frac{\partial}{\partial t} \{f, g\} = \{\frac{\partial f}{\partial t}, g\} = \{f, \frac{\partial g}{\partial t}\}$
+    \item $\frac{\partial}{\partial t} \{f, g\} = \{\frac{\partial f}{\partial t}, g\} + \{f, \frac{\partial g}{\partial t}\}$
     \item $\{\{f, g\}, h\} + \{\{g, h\}, f\} + \{\{h, f\}, g\} = 0$
 \end{enumerate}
 \begin{proof}
-    упр % fixme
+    1, 2, 3 очевидно
+    \begin{enumerate}
+        \setcounter{enumi}{3} 
+        \item Заметим:
+        \[
+        \begin{aligned}
+            \{\{f, g\}, h\} &= \{f, g\}_q h_p - \{f, g\}_p h_q = \left(f_q g_p - f_p g_q \right)_q h_p - \left(f_q g_p - f_p g_q \right)_p h_q \\
+            &= \left(f_{qq} g_p + f_q g_{qp} - f_{qp} g_{q} - f_p g_{qq}\right) h_p - \left(f_{pq} g_p + f_q g_{pp} - f_{pp} g_q - f_p g_{pq} \right) h_q
+        \end{aligned}\]
+        \[
+            \{\{g, h\}, f\} = \left(g_{qq} h_p + g_q h_{qp} - g_{qp} h_{q} - g_p h_{qq}\right) f_p - \left(g_{pq} h_p + g_q h_{pp} - g_{pp} h_q - g_p h_{pq} \right) f_q
+        \]
+        \[
+            \{\{h, f\}, g\} = \left(h_{qq} f_p + h_q f_{qp} - h_{qp} f_{q} - h_p f_{qq}\right) g_p - \left(h_{pq} f_p + h_q f_{pp} - h_{pp} f_q - h_p f_{pq} \right) g_q
+        \]
+    \end{enumerate}
 \end{proof}
 
 \begin{theorem}[Якоби-Пуассона]
-    Скобка Пуассона двух первых интегралов уравнения Гамильтона является первым интегралом уравнения Гамильтона
+    Если $f,g$ — первые интегралы уравнения Гамильтона
+    
+    То  $\{f, g\}$ — первый интеграл уравнения Гамильтона
 \end{theorem}
 \begin{proof}
-    $f,g$ :— первые интегралы уравнения Гамильтона
     \[\{f, H\} + \frac{\partial f}{\partial t} = 0 \qquad \{g, H\} + \frac{\partial g}{\partial t} = 0\]
     Автору конспекта неудобно писать эти скобки, далее $\{\{a, b\}, c\} = \{a, b , c\}$
-    \[
-    \begin{aligned}
-    \{\{f, g\}, H\} + \frac{\partial \{f, g\}}{\partial t} &= \{f, g, H\} + \{\frac{\partial f}{\partial t}, g\} + \{f, \frac{\partial g}{\partial t}\}  = \{f, g, H\} + \{-\{f , H\}, g\} + \{f, -\{g, H\}\} \\
-    &= \{f, g, H\} + \{H, f , g\} + \{g, H, f\} = 0
-    \end{aligned}\]
+    \[\{\{f, g\}, H\} + \frac{\partial \{f, g\}}{\partial t} = \{f, g, H\} + \{\frac{\partial f}{\partial t}, g\} + \{f, \frac{\partial g}{\partial t}\}  = \{f, g, H\} + \{-\{f , H\}, g\} + \{f, -\{g, H\}\} = 0\]
 \end{proof}
 Замечание:
-
 Достаточно найти $n$ первых интегралов, остальные выражаются через них
 
+Замечание:
 Теорема Я-П полезна в численных методах, там накапливаются ошибки, полезно следить за первым интегралом для оценки ошибки
 
 \section{Интеграл Якоби}
 % fixme цитата
-\noindent \keypoint Цитата Аксенова: Ньютон кстати может и не математик в первую очередь, он же глава королевского монетного двора, может он вообще в первую очередь был политиком, вы знали что Ньютон был трейдером: купил кучу акция Ост-Индской компании и потерял кучу денег
-
-\noindent \keypoint \[\frac{d}{d t} H = \sum_{i=1}^{n} \frac{\partial H}{\partial q_i} \dot q_i + \sum_{i=1}^{n} \frac{\partial H}{\partial p_i} \dot p_i + \frac{\partial H}{\partial t} = \underbracket{\{H, H\}}_0 + \frac{\partial H}{\partial t}\]
-\[\frac{d H}{d t} = \frac{\partial H}{\partial t} \qquad H \text{ — I инт} \iff \frac{\partial H}{\partial t} = 0\]
-В консервативных системах Гамильтониан не зависит от времени явно, то есть является суммой потенциальной и кинетической энергий % fixme это всё что нужно было зафиксировать?
+\noindent \keypoint Цитата Аксенова: Ньютон кстати может и не математик в первую очередь, он же глава королевского монетного двора, может он вообще в первую очередь был политиком, вы знали что Ньютон был трейдером: купил кучу акций Ост-Индской компании и потерял кучу денег
 
 \noindent \keypoint
-\[\frac{\partial H}{\partial t} := 0, f \text{ — I инт} \implies \{f , H\} = \frac{\partial f}{\partial t} = 0 \implies \frac{\partial f}{\partial t} =-\{f, H\} = \{H, f\}\]
-\[\frac{d}{d t} \left(\frac{\partial f}{\partial t}\right) = \{\frac{\partial f}{\partial t}, H\} + \frac{\partial^2 f}{\partial t^2} = 0 \implies \frac{\partial^2 f}{\partial t^2} = \{H,  \frac{\partial f}{\partial t}\} = \{H, \{H, f\}\} \]
-% fixme проверить что тройные скобки правильные
-Если система стационарна, то интеграл не зависит от времени, если находим её первый интеграл, то любая его частная производная по времени является первым интегралом
+\[H \text{ — I инт} \iff \frac{\partial H}{\partial t} = 0\]
+\begin{proof}
+    \[\frac{d}{d t} H = \underbracket{\{H, H\}}_0 + \frac{\partial H}{\partial t} \qquad \frac{d H}{d t} = \frac{\partial H}{\partial t} \qquad \]
+\end{proof}
+\noindent \keypoint В стационарных системах Гамильтониан постоянен во времени и \emph{в некотором смысле} является полной энергией
+
+\noindent \keypoint
+
+для стационарных систем 
+
+Если $f$ — первый интеграл уравнения Гамильтона
+
+То
+
+\[\frac{\partial^2 f}{\partial t^2}  = \{H, \{H, f\}\}\]
+\begin{proof}
+    \[\frac{\partial H}{\partial t} := 0, f \text{ — I инт} \implies \frac{\partial f}{\partial t} =-\{f, H\} = \{H, f\}\]
+    \[\frac{d}{d t} \left(\frac{\partial f}{\partial t}\right) = \{\frac{\partial f}{\partial t}, H\} + \frac{\partial^2 f}{\partial t^2} = 0\]
+\end{proof}
+Замечание: В стационарных системах любая частная производная первого интеграла по времени является первым интегралом
 \section{Циклические координаты}
 \Def Обобщённая координата называется циклической, если Лагранжиан(т.е. и Гамильтониан) от неё не зависит явно
 
