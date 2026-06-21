@@ -50,29 +50,43 @@ $Y$ имеет вид:
 \[p_i  = \frac{\partial L}{\partial \dot q_i}\]
 Замечание: конкретно в этом примере получилось, что обобщённые импульсы имеют тот же физический смысл, что и обычные
 \Def Ф-я Гамильтона (Гамильтониан)$H$ — это преобразование Лежандра функции лагранжа по обобщённым скоростям
-\[H(p_1, \dots, p_n, q_1, \dots q_n, t)\]
-\[p_i = \frac{\partial L}{\partial \dot q_i} \qquad L(\dot q_1, \dots, \dot q_n, q_1, \dots, q_n , t)\]
-\[H(p_1, \dots, p_n, \dot q_1, \dots, \dot q_n ,t) = \sum_{i=1}^{n} p_i \hat{\dot q_i} - \hat L \qquad H = \sum_{i=1}^{n} p_i \hat{\dot q_i} - \hat L \qquad L = \sum_{i=1}^{n} \hat p_i \dot q_i - \hat H \]
-\[\dot q_i = \frac{\partial H}{\partial p_i}\]
+\[H = H(p_1, \dots, p_n, q_1, \dots q_n, t) \qquad L = L(\dot q_1, \dots, \dot q_n, q_1, \dots, q_n , t)\]
+\[p_i = \frac{\partial L}{\partial \dot q_i} \qquad  H = \sum_{i=1}^{n} p_i \hat{\dot q}_i - \hat L \qquad L = \sum_{i=1}^{n} \hat p_i \dot q_i - \hat H \qquad \dot q_i = \frac{\partial H}{\partial p_i}\]
 \section{Уравнения Гамильтона}
-\[d H = \sum_{i=1}^{n} \frac{\partial H}{\partial p_i} d p_i + \sum_{i=1}^{n} \frac{\partial H}{\partial q_i} d q_i + \frac{\partial H}{\partial t} d t\]
-\[d H = d \left( \sum_{i=1}^{n} p_i \hat {\dot q_i} - \hat L\right) = \sum_{i=1}^{n} \hat{\dot q_i} d p_i + \sum_{i=1}^{n} p_i d \hat{\dot q_i} - \sum_{i=1}^{n} \underbracket{\frac{\partial L}{\partial \dot q_i}}_{p_i}  d \dot q_i - \sum_{i=1}^{n} \frac{\partial L}{\partial q_i} d q_i - \frac{\partial L}{\partial t} d t\]
-% fixme почему d \hat{\dot q_i} = d \dot q_i
-% fixme посмотреть у Дениса всё ли верно в конспекте
-\[H = \sum_{i=1}^{n} p_i \hat{\dot q_i} - \hat L \qquad L = \sum_{i=1}^{n} \hat p_i \dot q_i - \hat H\]
-\[\dot q_i = \frac{\partial H}{\partial p_i} \qquad \frac{\partial H}{\partial t} = - \frac{\partial L}{\partial t} \qquad \frac{\partial H}{\partial q_i} = - \frac{\partial L}{\partial q_i}\]
-Правая часть уравнения Лагранжа нуль
-\[\frac{d }{d t} \underbracket{\frac{\partial L}{\partial \dot q_i}}_{p_i} - \frac{\partial L}{\partial q_i} = 0\]
-Уравнения Гамильтона
-\[\boxed{\dot q_i = \frac{\partial H}{\partial p_i} \qquad \dot p_i = -\frac{\partial H}{\partial q_i}}\]
+\noindent \keypoint
+для мех сис. описываемой:
+    $\frac{d }{d t} \frac{\partial L}{\partial \dot q_i} - \frac{\partial L}{\partial q_i} = 0$
+
+Уравнения Гамильтона:
+\[\dot q_i = \frac{\partial H}{\partial p_i} \qquad \dot p_i = -\frac{\partial H}{\partial q_i} \qquad \hat {\dot q}_i = \hat {\dot q}_i(q, p , t)= \dot q_i\]
+\begin{proof}
+    \[
+    \begin{dcases}
+        d H = \sum_{i=1}^{n} \frac{\partial H}{\partial p_i} d p_i + \sum_{i=1}^{n} \frac{\partial H}{\partial q_i} d q_i + \frac{\partial H}{\partial t} d t, \\
+        d \left( \sum_{i=1}^{n} p_i \hat {\dot q}_i - \hat L\right) = \sum_{i=1}^{n} \hat{\dot q}_i d p_i - \sum_{i=1}^{n} \frac{\partial L}{\partial q_i} d q_i - \frac{\partial L}{\partial t} d t
+    \end{dcases} 
+    \implies
+    \begin{dcases} 
+        \frac{\partial H}{\partial t} = - \frac{\partial L}{\partial t}, \\
+        \frac{\partial H}{\partial q_i} = - \frac{\partial L}{\partial q_i}
+    \end{dcases}
+        \]
+\end{proof}
+
 \Def Гамильтонова система — механическая система, описываемая уравнениями Гамильтона
-\keypoint Консервативная системы всегда Гамильтоновы
+
+\noindent \keypoint Консервативная системы всегда Гамильтоновы (так как все силы потенциальны)
 \section{Физический смысл Гамильтониана}
-\[L = T - \Pi \qquad L = L_2 + L_1 + L_0\]
-\[\hat H = \sum_{i=1}^{n} \hat p_i \dot q_i - L = \sum_{i=1}^{n} \frac{\partial L}{\partial \dot q_i} \dot q_i - L = \sum_{i=1}^{n} \underbrace{\frac{\partial L_2}{\partial \dot q_i} \dot q_i}_{2 L_2} + \sum_{i=1}^{n} \underbrace{\frac{\partial L_1}{\partial \dot q_i} \dot q_i}_{L_1} + \sum_{i=1}^{n} \underbrace{\frac{\partial L_0}{\partial \dot q_i} \dot q_i}_0 - L_2 - L_1 - L_0 = L_2 - L_0\]
-Равенства в силу теоремы Эйлеры об однородной функции
+\noindent \keypoint
 \[H = L_2 - L_0 = T_2 - T_0 + \Pi\]
-В Склерономных системах $T_0 = 0, T_1 = 0$
+\begin{proof}
+    \[\hat H = \sum_{i=1}^{n} \hat p_i \dot q_i - L = \sum_{i=1}^{n} \frac{\partial L}{\partial \dot q_i} \dot q_i - L =  \underbrace{\sum_{i=1}^{n}\frac{\partial L_2}{\partial \dot q_i} \dot q_i}_{2 L_2} + \underbrace{\sum_{i=1}^{n} \frac{\partial L_1}{\partial \dot q_i} \dot q_i}_{L_1} + \sum_{i=1}^{n} \underbrace{\frac{\partial L_0}{\partial \dot q_i} \dot q_i}_0 - L_2 - L_1 - L_0 = L_2 - L_0\]
+    Равенства в силу теоремы Эйлеры об однородной функции
+\end{proof}
+Следствие: В Склерономных системах:
 \[H = T_2 + \Pi = T + \Pi\]
-То есть в Консервативных системах гамильтониан равен полной энергии мех. системы
+\begin{proof}
+    \[T_0 = 0\quad T_1 = 0\]
+\end{proof}
+Замечание: консервативные системы склерономны 
 \end{document}
