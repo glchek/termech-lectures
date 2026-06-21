@@ -31,8 +31,9 @@
         \item
         \[A = B \neq C \implies r = 0 \; \| \; p = q = 0\]
         Вращение вокруг оси в плоскости $Oxy$, либо вращение вокруг оси перпендикулярной $Oxy$
-        \[A \neq B \; \&  \; B \neq C  \; \& \; A \neq C \implies \text{ хотя бы одна пара из проекций угловой скорсти равна нулю}\]
-        Вращение вокруг координатных осей
+
+        $A \neq B \; \&  \; B \neq C  \; \& \; A \neq C \implies$ хотя бы одна пара из проекций угловой скорсти равна нулю,
+        то есть вращение вокруг координатных осей
     \end{enumerate}
     \item 
     Регулярная прецессия динамически симметричного($A = B \; \&\; C \neq 0$) твёрдого тела
@@ -43,15 +44,16 @@
     \end{cases} \implies r = r_0 = \text{ const}\]
     \[
     \begin{dcases}
-        C r = K_{O_{z'}} = K_O \cos \theta = \text{ const} \\
         A p = K_{O_{x'}} = K_O \sin \theta \sin \varphi,  \\ 
-        A q = K_{O_{y'}} = K_O \sin \theta \cos \varphi \end{dcases} 
+        B q = K_{O_{y'}} = K_O \sin \theta \cos \varphi,  \\
+        C r = K_{O_{z'}} = K_O \cos \theta = \text{ const} \\
+    \end{dcases}
     \implies
      \begin{dcases} 
         K_O = \frac{C r_0}{\cos \theta}, \\ 
-        \theta = \theta_0 = \arccos \frac{C r_0}{K_O} = \text{ const} \\
         p = \frac{K_O}{A}\sin \theta \sin \varphi,\\
-     q = \frac{K_O}{A} \sin \theta \cos \varphi
+        q = \frac{K_O}{B} \sin \theta \cos \varphi,\\
+        \theta = \theta_0 = \arccos \frac{C r_0}{K_O} = \text{ const} \\
     \end{dcases}
      \]
     \begin{figure}[H]
@@ -62,7 +64,8 @@
     \end{figure}
     \[
     \begin{dcases}
-    p = \dot \psi \sin \theta_0 \sin \varphi = \frac{K_O}{A} \sin \theta_0 \sin \varphi \\ q = \dot \psi \sin \theta_0 \cos \varphi = \frac{K_O}{A} \sin \theta_0 \cos \varphi \\ r = \dot \psi \cos \theta_0 + \dot \varphi
+    p = \dot \psi \sin \theta_0 \sin \varphi = \frac{K_O}{A} \sin \theta_0 \sin \varphi \\
+     q = \dot \psi \sin \theta_0 \cos \varphi = \frac{K_O}{B} \sin \theta_0 \cos \varphi \\ r = \dot \psi \cos \theta_0 + \dot \varphi
     \end{dcases} \implies \begin{dcases}
         \dot \psi = \frac{K_O}{A}, \\
         \begin{aligned}
@@ -104,7 +107,7 @@
 \end{proof}
     \item \[OQ = \frac{\sqrt{2 T}}{K_O}\]
     \begin{proof}
-        \[OQ = \frac{(\bar OP, \bar K_O)}{K_O} = \frac{A x p + B y q + C z r}{\sqrt{A^2 p^2 + B^2 q^2 + C^2 r^2}} = \frac{\lambda (A p^2 + B q^2 + C r^2)}{K_O} = \frac{\frac{1}{\sqrt{2 T}} 2 T}{K_O} = \frac{\sqrt{2 T}}{K_O}\]
+        \[OQ = \frac{(\bar OP, \bar K_O)}{K_O} = \frac{A x p + B y q + C z r}{K_O} = \frac{\lambda (A p^2 + B q^2 + C r^2)}{K_O} = \frac{\frac{1}{\sqrt{2 T}} 2 T}{K_O} = \frac{\sqrt{2 T}}{K_O}\]
     \end{proof}
     \item 
     \[\lambda = \frac{1}{\sqrt{2 T}}\]
