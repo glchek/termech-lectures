@@ -1,0 +1,7 @@
+*.toc
+*.pdf
+*.log
+*.gz
+*.aux
+*.out
+git-commit.tex
