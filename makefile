@@ -1,8 +1,6 @@
 DOC = main
 
-LATEX = pdflatex
-
-.PHONY: all clean FORCE
+.PHONY: all clean FORCE $(DOC).pdf
 
 all: $(DOC).pdf
 
@@ -15,9 +13,9 @@ git-commit.tex: FORCE
 		rm -f git-commit.tmp; \
 	fi
 
-$(DOC).pdf: $(DOC).tex git-commit.tex
-	$(LATEX) $(DOC).tex
-	$(LATEX) $(DOC).tex
+$(DOC).pdf: git-commit.tex
+	latexmk -pdf -use-make $(DOC).tex
 
 clean:
-	rm -f $(DOC).pdf $(DOC).aux $(DOC).log $(DOC).toc $(DOC).out git-commit.tex
+	latexmk -C
+	rm -f git-commit.tex
