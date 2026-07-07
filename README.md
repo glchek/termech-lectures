@@ -1,5 +1,8 @@
 ## Конспект по термеху
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21238825.svg)](https://doi.org/10.5281/zenodo.21238825)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 Данный конспект подготовлен на основе курса лекций, прочитанного **Сергеем Алексеевичем Аксёновым**.
 
 
