@@ -83,3 +83,6 @@
 
 \pagestyle{plain} % Включаем нумерацию страниц\
 
+\InputIfFileExists{git-commit.tex}{}{
+  \newcommand{\gitcommit}{unknown}
+}
