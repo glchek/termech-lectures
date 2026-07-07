@@ -4,4 +4,6 @@
 *.gz
 *.aux
 *.out
+*.fdb_latexmk
+*.fls
 git-commit.tex
